@@ -1,8 +1,14 @@
 
 import './index.css';
-
-import goToHash from './goToHash.js';
+import MenuButton from './components/menuButton/MenuButton.js';
 
 //
 
-goToHash();
+const container = document.createElement('DIV');
+container.id = 'page-container';
+
+document.body.append( container );
+
+//
+
+container.append( MenuButton );

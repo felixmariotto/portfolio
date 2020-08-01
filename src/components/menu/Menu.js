@@ -1,7 +1,11 @@
 
-import './home.css';
+import './menu.css';
+
+//
 
 const container = document.createElement('DIV');
-container.classList.add('page-container');
+container.id = "menu";
+
+//
 
 export default container
