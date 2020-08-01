@@ -10,6 +10,9 @@ import { closeMenu } from './components/menu/Menu.js';
 
 import { linkEventEmitter } from './components/link/Link.js';
 
+import ModuleContainer from './components/modules/ModuleContainer.js';
+import { setModule } from './components/modules/ModuleContainer.js';
+
 //
 
 let previousLocation = 'home';
@@ -29,9 +32,8 @@ document.body.append( container );
 
 //
 
-container.append( Menu );
+container.append( Menu, ModuleContainer );
 document.body.append( MenuButton );
-
 
 //
 
@@ -75,28 +77,6 @@ linkEventEmitter.addEventListener( 'clicklink', ( message ) => {
 
 	//
 
-	switch ( message.detail.moduleName ) {
-
-	case 'expertise' :
-		console.log('expertise');
-		break
-
-	case 'prototypes' :
-		console.log('prototypes');
-		break
-
-	case 'casting parts' :
-		console.log('casting parts');
-		break
-
-	case 'technical doc' :
-		console.log('technical doc');
-		break
-
-	case 'contact' :
-		console.log('contact');
-		break
-
-	}
+	setModule( message.detail.moduleName );
 
 });

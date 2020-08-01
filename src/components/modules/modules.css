@@ -1,0 +1,10 @@
+
+#module-container {
+	position: absolute;
+	background-color: cyan;
+	height: 100%;
+	width: 100%;
+	left: 100%;
+	padding: var(--menu-padding);
+	box-sizing: border-box;
+}

@@ -2,6 +2,8 @@
 
 :root {
 
+	--menu-padding: 15vh 15vw;
+
 	/* COLORS */
 
 	--color1-0: #001f12;
@@ -23,6 +25,7 @@
 body {
 	height: 100vh;
 	width: 100vw;
+	overflow-x: hidden;
 }
 
 #page-container {
