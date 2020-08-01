@@ -1,6 +1,8 @@
 
 import './menu.css';
 
+import Link from '../link/Link.js';
+
 //
 
 const container = document.createElement('DIV');
@@ -20,42 +22,20 @@ content.append( linksContainer );
 
 //
 
-const moduleContainer = document.createElement('DIV');
-moduleContainer.id = "module-container";
-moduleContainer.innerHTML = 'module';
+linksContainer.append( MenuLink( 'expertise' ) );
+linksContainer.append( MenuLink( 'prototypes' ) );
+linksContainer.append( MenuLink( 'casting parts' ) );
+linksContainer.append( MenuLink( 'technical doc' ) );
 
-content.append( moduleContainer );
-
-const arrowBack = document.createElement('I');
-arrowBack.classList.add('fa', 'fa-long-arrow-left');
-arrowBack.id = "module-container-arrow-back";
-
-moduleContainer.append( arrowBack );
+linksContainer.append( MenuLink( 'contact' ) );
 
 //
 
-linksContainer.append( MenuLink( 'expertise', 'fff' ) );
-linksContainer.append( MenuLink( 'prototypes', 'aa' ) );
-linksContainer.append( MenuLink( 'casting parts', 'gr' ) );
-linksContainer.append( MenuLink( 'technical doc', 'nn' ) );
+function MenuLink( text ) {
 
-linksContainer.append( MenuLink( 'contact', 'gre' ) );
-
-//
-
-function MenuLink( text, componentToOpen ) {
-
-	const link = document.createElement('DIV');
+	const link = Link( text );
 	link.classList.add( 'menu-link' );
 	link.innerHTML = text;
-
-	link.addEventListener( 'click', () => {
-
-		content.classList.add( 'expanded' );
-
-		console.log( componentToOpen )
-
-	});
 
 	return link
 

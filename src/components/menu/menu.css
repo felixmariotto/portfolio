@@ -38,10 +38,6 @@
 		opacity: 1;
 	}
 
-		#menu-content.expanded {
-			transform: translateX( -100% );
-		}
-
 		#menu.anim-open-menu #menu-content {
 			padding: var(--menu-padding);
 			opacity: 1;
@@ -56,23 +52,6 @@
 			flex-direction: column;
 			justify-content: space-between;
 		}
-
-		/* // */
-
-		#module-container {
-			position: absolute;
-			padding: var(--menu-padding);
-			height: 100%;
-			width: 100%;
-			left: 100%;
-			top: 0;
-		}
-
-			#module-container-arrow-back {
-				position: absolute;
-				left: 0;
-				font-size: 60px;
-			}
 
 	/* ANIMATION */
 
