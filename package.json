@@ -1,0 +1,34 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "description": "my portfolio",
+  "main": "app.js",
+  "engines": {
+    "node": "12.x.x"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "webpack-dev-server --open --env.NODE_ENV=dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack --config webpack.config.js --env.NODE_ENV=prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixmariotto/portfolio.git"
+  },
+  "author": "felix mariotto",
+  "bugs": {
+    "url": "https://github.com/felixmariotto/portfolio/issues"
+  },
+  "homepage": "https://github.com/felixmariotto/portfolio#readme",
+  "dependencies": {
+    "css-loader": "^4.2.0",
+    "express": "^4.17.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

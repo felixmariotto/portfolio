@@ -1,0 +1,32 @@
+
+
+:root {
+
+	/* COLORS */
+
+	--color1-0: #001f12;
+	--color1-1: #0d5235;
+	--color1-2: #278c62;
+	--color1-3: #5bc297;
+	--color1-4: #98e3c4;
+	--color1-5: #e4f7ef;
+
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	-webkit-tap-highlight-color: transparent;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+}
+
+.page-container {
+	height: 100%;
+	width: 100%;
+	background-color: red;
+}
