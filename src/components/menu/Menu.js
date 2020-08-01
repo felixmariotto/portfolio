@@ -63,4 +63,24 @@ function MenuLink( text, componentToOpen ) {
 
 //
 
+function openMenu() {
+
+	container.classList.remove( 'anim-close-menu' );
+	container.classList.add( 'anim-open-menu' );
+
+}
+
+//
+
+function closeMenu() {
+
+	container.classList.remove( 'anim-open-menu' );
+	container.classList.add( 'anim-close-menu' );
+
+}
+
+//
+
+export { openMenu }
+export { closeMenu }
 export default container

@@ -1,40 +1,51 @@
 
 import './menuButton.css';
-import Menu from '../menu/Menu.js';
 
 //
 
-let isMenuOpen = false;
-
-//
-
-const container = document.createElement('DIV');
+const container = document.createElement('I');
 container.id = 'menu-button';
+container.classList.add('fa', 'fa-bars');
 
 //
 
-container.addEventListener( 'click', () => {
+function updateButtonTo( state ) {
 
-	if ( isMenuOpen ) {
+	// elastic animation
+	container.classList.remove('animate-menu-icon');
+	setTimeout( () => {
+		container.classList.add('animate-menu-icon');
+	}, 0 );
 
-		Menu.classList.remove( 'anim-open-menu' );
-		Menu.classList.add( 'anim-close-menu' );
+	switch ( state ) {
 
-	} else {
+	case 'menu' :
 
-		Menu.classList.remove( 'anim-close-menu' );
-		Menu.classList.add( 'anim-open-menu' );
+		setTimeout( () => {
+
+			container.classList.remove('fa-times');
+			container.classList.add('fa-bars');
+
+		}, 200 )
+
+		break
+
+	case 'close' :
+
+		setTimeout( () => {
+
+			container.classList.remove('fa-bars');
+			container.classList.add('fa-times');
+
+		}, 200 )
+
+		break
 
 	}
 
-	isMenuOpen = !isMenuOpen
-
-})
+}
 
 //
 
-document.body.append( Menu );
-
-//
-
+export { updateButtonTo }
 export default container
