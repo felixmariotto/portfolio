@@ -12,7 +12,13 @@ import { linkEventEmitter } from './components/link/Link.js';
 
 //
 
+let previousLocation = 'home';
 let currentLocation = 'home';
+
+function udpateLocation( newLocation ) {
+	previousLocation = currentLocation;
+	currentLocation = newLocation;
+};
 
 //
 
@@ -36,17 +42,20 @@ MenuButton.addEventListener( 'click', () => {
 	case 'home' :
 		openMenu();
 		updateButtonTo( 'close' );
-		currentLocation = 'menu';
+		udpateLocation( 'menu' );
 		break
 
 	case 'menu' :
 		closeMenu();
 		updateButtonTo( 'menu' );
-		currentLocation = 'home';
+		udpateLocation( 'home' );
 		break
 
 	case 'module' :
-		console.log('coucou');
+		container.classList.remove('module-mode');
+		currentLocation = previousLocation;
+		if ( currentLocation === 'home' ) updateButtonTo( 'menu' );
+		else if ( currentLocation === 'menu' ) updateButtonTo( 'close' );
 		break
 
 	}
@@ -56,6 +65,15 @@ MenuButton.addEventListener( 'click', () => {
 //
 
 linkEventEmitter.addEventListener( 'clicklink', ( message ) => {
+
+	udpateLocation( 'module' );
+	updateButtonTo( 'back' );
+
+	//
+
+	container.classList.add('module-mode');
+
+	//
 
 	switch ( message.detail.moduleName ) {
 

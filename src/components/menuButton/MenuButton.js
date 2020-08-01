@@ -9,6 +9,14 @@ container.classList.add('fa', 'fa-bars');
 
 //
 
+function clearClasses() {
+	container.classList.remove('fa-times');
+	container.classList.remove('fa-bars');
+	container.classList.remove('fa-arrow-left');
+}
+
+//
+
 function updateButtonTo( state ) {
 
 	// elastic animation
@@ -23,7 +31,7 @@ function updateButtonTo( state ) {
 
 		setTimeout( () => {
 
-			container.classList.remove('fa-times');
+			clearClasses()
 			container.classList.add('fa-bars');
 
 		}, 200 )
@@ -34,8 +42,19 @@ function updateButtonTo( state ) {
 
 		setTimeout( () => {
 
-			container.classList.remove('fa-bars');
+			clearClasses()
 			container.classList.add('fa-times');
+
+		}, 200 )
+
+		break
+
+	case 'back' :
+
+		setTimeout( () => {
+
+			clearClasses()
+			container.classList.add('fa-arrow-left');
 
 		}, 200 )
 
