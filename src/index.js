@@ -122,6 +122,8 @@ window.addEventListener( 'scroll', (e) => {
 
 setInterval( () => {
 
+	console.log( window.innerHeight )
+
 	const sceneHeight = window.innerHeight * 1.2;
 
 	const targetScroll = ( sceneHeight * currentPage );
