@@ -46,6 +46,15 @@ const casting = Casting( scenesContainers[ 3 ] );
 const doc = Doc( scenesContainers[ 4 ] );
 const contact = Contact( scenesContainers[ 5 ] );
 
+const scenes = [
+	intro,
+	expertise,
+	prototypes,
+	casting,
+	doc,
+	contact
+];
+
 // Textual UI
 
 (function introUI() {
@@ -82,12 +91,19 @@ function loop() {
 
 	requestAnimationFrame( loop );
 
-	intro.animate();
-	expertise.animate();
-	prototypes.animate();
-	casting.animate();
-	doc.animate();
-	contact.animate();
+	// decide which scenes must be animated
+
+	const currentPos = document.documentElement.scrollTop / (window.innerHeight * 1.2);
+
+	const toAnimate = new Set([ Math.floor( currentPos ), Math.ceil( currentPos ) ]);
+
+	toAnimate.forEach( (id) => {
+
+		if ( id > 5 ) return
+
+		scenes[ id ].animate();
+
+	});
 
 }
 
