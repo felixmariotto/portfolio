@@ -120,6 +120,18 @@ window.addEventListener( 'scroll', (e) => {
 
 //
 
+["fullscreenchange", "webkitfullscreenchange", "mozfullscreenchange", "msfullscreenchange"].forEach(
+    eventType => document.addEventListener(eventType, handleFullscreenEvent, false)
+);
+
+function handleFullscreenEvent( e ) {
+
+	alert( JSON.stringify( e ) )
+
+}
+
+//
+
 setInterval( () => {
 
 	const sceneHeight = window.innerHeight * 1.2;
