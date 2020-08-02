@@ -20,6 +20,7 @@
 	padding: 0;
 	border: 0;
 	-webkit-tap-highlight-color: transparent;
+	overscroll-behavior: none;
 }
 
 body {
@@ -42,5 +43,5 @@ body {
 	}
 
 	#page-container.hide-overflow {
-		overflow: hidden;
+		overflow-y: hidden;
 	}
