@@ -6,6 +6,9 @@ import Link from '../link/Link.js';
 import Intro from './scenes/Intro.js';
 import Expertise from './scenes/Expertise.js';
 import Prototypes from './scenes/Prototypes.js';
+import Casting from './scenes/Casting.js';
+import Doc from './scenes/Doc.js';
+import Contact from './scenes/Contact.js';
 
 //
 
@@ -16,7 +19,7 @@ container.id = "homepage-container";
 
 const scenesContainers = [];
 
-for ( let i = 0 ; i < 3 ; i++ ) {
+for ( let i = 0 ; i < 6 ; i++ ) {
 
 	const sceneContainer = document.createElement('DIV');
 	sceneContainer.classList.add( 'scene-container' );
@@ -39,6 +42,9 @@ for ( let i = 0 ; i < 3 ; i++ ) {
 const intro = Intro( scenesContainers[ 0 ] );
 const expertise = Expertise( scenesContainers[ 1 ] );
 const prototypes = Prototypes( scenesContainers[ 2 ] );
+const casting = Casting( scenesContainers[ 3 ] );
+const doc = Doc( scenesContainers[ 4 ] );
+const contact = Contact( scenesContainers[ 5 ] );
 
 // Textual UI
 
@@ -79,6 +85,9 @@ function loop() {
 	intro.animate();
 	expertise.animate();
 	prototypes.animate();
+	casting.animate();
+	doc.animate();
+	contact.animate();
 
 }
 
