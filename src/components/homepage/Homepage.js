@@ -159,6 +159,8 @@ loop();
 
 function loop() {
 
+	console.log( 'scenesContainers[ 0 ].scrollHeight = ' + scenesContainers[ 0 ].parentNode.scrollHeight )
+
 	requestAnimationFrame( loop );
 
 	// decide which scenes must be animated
