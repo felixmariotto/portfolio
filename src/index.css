@@ -20,7 +20,7 @@
 	padding: 0;
 	border: 0;
 	-webkit-tap-highlight-color: transparent;
-	overscroll-behavior: touch;
+	overscroll-behavior: none;
 }
 
 body {

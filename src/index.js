@@ -110,7 +110,7 @@ linkEventEmitter.addEventListener( 'clicklink', ( message ) => {
 
 window.addEventListener( 'scroll', (e) => {
 
-	const currentScroll = document.documentElement.scrollTop;
+	const currentScroll = window.scrollY;
 
 	const sceneHeight = window.innerHeight * 1.2;
 
@@ -127,10 +127,10 @@ setInterval( () => {
 	const targetScroll = ( sceneHeight * currentPage );
 
 	// return if scroll is already right
-	if ( Math.round( targetScroll ) === document.documentElement.scrollTop ) return
+	if ( Math.round( targetScroll ) === window.scrollY ) return
 
 	// get eased value to add
-	let toAdd = ( targetScroll - document.documentElement.scrollTop ) * 0.04;
+	let toAdd = ( targetScroll - window.scrollY ) * 0.04;
 
 	// clamp value so the move is never clunky
 	toAdd = Math.max( -6, Math.min( toAdd, 6 ) );
