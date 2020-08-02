@@ -61,6 +61,7 @@ const scenes = [
 
 	const container = document.createElement('DIV');
 	container.id = 'intro-textual-ui';
+	container.classList.add('textual-ui')
 	container.innerHTML = 'High Jewellery Design';
 
 	scenesContainers[ 0 ].append( container );
@@ -71,6 +72,7 @@ const scenes = [
 
 	const container = document.createElement('DIV');
 	container.id = 'expertise-textual-ui';
+	container.classList.add('textual-ui', 'service-ui')
 
 	scenesContainers[ 1 ].append( container );
 
@@ -83,10 +85,11 @@ const scenes = [
 
 })();
 
-(function expertiseUI() {
+(function prototypesUI() {
 
 	const container = document.createElement('DIV');
 	container.id = 'prototypes-textual-ui';
+	container.classList.add('textual-ui', 'service-ui')
 
 	scenesContainers[ 2 ].append( container );
 
@@ -103,6 +106,7 @@ const scenes = [
 
 	const container = document.createElement('DIV');
 	container.id = 'casting-textual-ui';
+	container.classList.add('textual-ui', 'service-ui')
 
 	scenesContainers[ 3 ].append( container );
 
@@ -119,6 +123,7 @@ const scenes = [
 
 	const container = document.createElement('DIV');
 	container.id = 'doc-textual-ui';
+	container.classList.add('textual-ui', 'service-ui')
 
 	scenesContainers[ 4 ].append( container );
 
@@ -135,6 +140,7 @@ const scenes = [
 
 	const container = document.createElement('DIV');
 	container.id = 'contact-textual-ui';
+	container.classList.add('textual-ui', 'service-ui')
 
 	scenesContainers[ 5 ].append( container );
 
@@ -174,11 +180,15 @@ function loop() {
 //
 
 function blurHomepage() {
-	scenesContainers[ 0 ].classList.add( 'blurry' );
+	scenesContainers.forEach( (domElement) => {
+		domElement.classList.add( 'blurry' );
+	});
 };
 
 function focusHomepage() {
-	scenesContainers[ 0 ].classList.remove( 'blurry' );
+	scenesContainers.forEach( (domElement) => {
+		domElement.classList.remove( 'blurry' );
+	});
 }
 
 //

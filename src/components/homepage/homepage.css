@@ -27,57 +27,52 @@
 		
 		/* TEXTUAL UI */
 
-		#intro-textual-ui {
-			position: fixed;
-			height: 50px;
-			width: 500px;
-			top: 70%;
-			left: 50%;
-			transform: translateX(-50%);
-			background-color: grey;
-			font-size: 2em;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
+			.textual-ui {
+				position: fixed;
+				opacity: 1;
+				transition: opacity 1s;
+			}
 
-		#expertise-textual-ui {
-			position: fixed;
-			height: 200px;
-			bottom: 50px;
-			right: 50px;
-			background-color: grey;
-		}
+				.scene-fixed-container.blurry .textual-ui {
+					opacity: 0;
+				}
 
-		#prototypes-textual-ui {
-			position: fixed;
-			height: 200px;
-			bottom: 50px;
-			right: 50px;
-			background-color: grey;
-		}
+			.service-ui {
+				height: 200px;
+				bottom: 50px;
+				right: 50px;
+			}
 
-		#casting-textual-ui {
-			position: fixed;
-			height: 200px;
-			bottom: 50px;
-			right: 50px;
-			background-color: grey;
-		}
+			#intro-textual-ui {
+				height: 50px;
+				width: 500px;
+				top: 70%;
+				left: 50%;
+				transform: translateX(-50%);
+				background-color: grey;
+				font-size: 2em;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 
-		#doc-textual-ui {
-			position: fixed;
-			height: 200px;
-			bottom: 50px;
-			right: 50px;
-			background-color: grey;
-		}
+			#expertise-textual-ui {
+				background-color: grey;
+			}
 
-		#contact-textual-ui {
-			position: fixed;
-			height: 200px;
-			bottom: 50px;
-			right: 50px;
-			background-color: grey;
-		}
+			#prototypes-textual-ui {
+				background-color: grey;
+			}
+
+			#casting-textual-ui {
+				background-color: grey;
+			}
+
+			#doc-textual-ui {
+				background-color: grey;
+			}
+
+			#contact-textual-ui {
+				background-color: grey;
+			}
 
