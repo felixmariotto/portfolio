@@ -39,5 +39,8 @@ body {
 
 	#page-container.module-mode {
 		left: -100%;
+	}
+
+	#page-container.hide-overflow {
 		overflow: hidden;
 	}

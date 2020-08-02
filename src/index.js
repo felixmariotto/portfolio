@@ -18,6 +18,7 @@ import Homepage from './components/homepage/Homepage.js';
 //
 
 let currentPage = 0;
+let savedScroll = 0;
 
 let previousLocation = 'home';
 let currentLocation = 'home';
@@ -58,7 +59,7 @@ MenuButton.addEventListener( 'click', () => {
 		break
 
 	case 'module' :
-		container.classList.remove('module-mode');
+		exitModuleMode();
 		currentLocation = previousLocation;
 		if ( currentLocation === 'home' ) updateButtonTo( 'menu' );
 		else if ( currentLocation === 'menu' ) updateButtonTo( 'close' );
@@ -70,6 +71,24 @@ MenuButton.addEventListener( 'click', () => {
 
 //
 
+function enterModuleMode() {
+	savedScroll = document.documentElement.scrollTop;
+	container.classList.add('module-mode');
+	setTimeout( () => {
+		if ( container.classList.contains('module-mode') ) {
+			container.classList.add('hide-overflow');
+		}
+	}, 300 );
+}
+
+function exitModuleMode() {
+	container.classList.remove('module-mode');
+	container.classList.remove('hide-overflow');
+	document.documentElement.scrollTop = savedScroll;
+}
+
+//
+
 linkEventEmitter.addEventListener( 'clicklink', ( message ) => {
 
 	udpateLocation( 'module' );
@@ -77,7 +96,7 @@ linkEventEmitter.addEventListener( 'clicklink', ( message ) => {
 
 	//
 
-	container.classList.add('module-mode');
+	enterModuleMode();
 
 	//
 
