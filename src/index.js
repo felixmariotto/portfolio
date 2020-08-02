@@ -14,6 +14,8 @@ import ModuleContainer from './components/modules/ModuleContainer.js';
 import { setModule } from './components/modules/ModuleContainer.js';
 
 import Homepage from './components/homepage/Homepage.js';
+import { blurHomepage } from './components/homepage/Homepage.js';
+import { focusHomepage } from './components/homepage/Homepage.js';
 
 //
 
@@ -48,12 +50,14 @@ MenuButton.addEventListener( 'click', () => {
 
 	case 'home' :
 		openMenu();
+		blurHomepage();
 		updateButtonTo( 'close' );
 		udpateLocation( 'menu' );
 		break
 
 	case 'menu' :
 		closeMenu();
+		focusHomepage();
 		updateButtonTo( 'menu' );
 		udpateLocation( 'home' );
 		break

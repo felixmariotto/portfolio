@@ -109,4 +109,16 @@ function loop() {
 
 //
 
+function blurHomepage() {
+	scenesContainers[ 0 ].classList.add( 'blurry' );
+};
+
+function focusHomepage() {
+	scenesContainers[ 0 ].classList.remove( 'blurry' );
+}
+
+//
+
+export { blurHomepage }
+export { focusHomepage }
 export default container

@@ -1,7 +1,7 @@
 
 #menu {
 	position: fixed;
-	background-color: rgba( 255, 255, 255, 0.5 );
+	background-color: rgba( 255, 255, 255, 0.65 );
 	animation-duration: 0.3s;
   	animation-fill-mode: forwards;
   	animation-timing-function: linear;
@@ -62,12 +62,12 @@
 		50% {
 			height: 100%;
 			width: 100%;
-			opacity: 1;
 			border-radius: 0 0 100% 0;
 		}
 		to {
 			height: 100%;
 			width: 100%;
+			opacity: 1;
 			border-radius: 0;
 		}
 	}
@@ -76,12 +76,12 @@
 		from {
 			height: 100%;
 			width: 100%;
+			opacity: 1;
 			border-radius: 0;
 		}
 		50% {
 			height: 100%;
 			width: 100%;
-			opacity: 1;
 			border-radius: 0 0 100% 0;
 		}
 		to {
