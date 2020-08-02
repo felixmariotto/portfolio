@@ -49,3 +49,35 @@
 			background-color: grey;
 		}
 
+		#prototypes-textual-ui {
+			position: fixed;
+			height: 200px;
+			bottom: 50px;
+			right: 50px;
+			background-color: grey;
+		}
+
+		#casting-textual-ui {
+			position: fixed;
+			height: 200px;
+			bottom: 50px;
+			right: 50px;
+			background-color: grey;
+		}
+
+		#doc-textual-ui {
+			position: fixed;
+			height: 200px;
+			bottom: 50px;
+			right: 50px;
+			background-color: grey;
+		}
+
+		#contact-textual-ui {
+			position: fixed;
+			height: 200px;
+			bottom: 50px;
+			right: 50px;
+			background-color: grey;
+		}
+

@@ -83,6 +83,70 @@ const scenes = [
 
 })();
 
+(function expertiseUI() {
+
+	const container = document.createElement('DIV');
+	container.id = 'prototypes-textual-ui';
+
+	scenesContainers[ 2 ].append( container );
+
+	//
+
+	const link = Link( 'prototypes' );
+	link.innerHTML = 'prototypes';
+
+	container.append( link );
+
+})();
+
+(function castingUI() {
+
+	const container = document.createElement('DIV');
+	container.id = 'casting-textual-ui';
+
+	scenesContainers[ 3 ].append( container );
+
+	//
+
+	const link = Link( 'casting parts' );
+	link.innerHTML = 'casting parts';
+
+	container.append( link );
+
+})();
+
+(function docUI() {
+
+	const container = document.createElement('DIV');
+	container.id = 'doc-textual-ui';
+
+	scenesContainers[ 4 ].append( container );
+
+	//
+
+	const link = Link( 'technical doc' );
+	link.innerHTML = 'technical doc';
+
+	container.append( link );
+
+})();
+
+(function contactUI() {
+
+	const container = document.createElement('DIV');
+	container.id = 'contact-textual-ui';
+
+	scenesContainers[ 5 ].append( container );
+
+	//
+
+	const link = Link( 'contact' );
+	link.innerHTML = 'contact';
+
+	container.append( link );
+
+})();
+
 //
 
 loop();
