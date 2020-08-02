@@ -1,6 +1,8 @@
 
 import './homepage.css';
 
+import Link from '../link/Link.js';
+
 import Intro from './scenes/Intro.js';
 import Expertise from './scenes/Expertise.js';
 import Prototypes from './scenes/Prototypes.js';
@@ -38,10 +40,33 @@ const intro = Intro( scenesContainers[ 0 ] );
 const expertise = Expertise( scenesContainers[ 1 ] );
 const prototypes = Prototypes( scenesContainers[ 2 ] );
 
-const test = document.createElement('DIV');
-test.classList.add( 'test' );
+// Textual UI
 
-scenesContainers[ 0 ].append( test );
+(function introUI() {
+
+	const container = document.createElement('DIV');
+	container.id = 'intro-textual-ui';
+	container.innerHTML = 'High Jewellery Design';
+
+	scenesContainers[ 0 ].append( container );
+
+})();
+
+(function expertiseUI() {
+
+	const container = document.createElement('DIV');
+	container.id = 'expertise-textual-ui';
+
+	scenesContainers[ 1 ].append( container );
+
+	//
+
+	const link = Link( 'expertise' );
+	link.innerHTML = 'expertise';
+
+	container.append( link );
+
+})();
 
 //
 

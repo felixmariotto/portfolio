@@ -19,10 +19,29 @@
 			overflow: hidden;
 		}
 
-			.test {
-				position: absolute;
-				top: 0px;
-				height: 600px;
-				width: 600px;
-				background-color: grey;
-			}
+		
+		/* TEXTUAL UI */
+
+		#intro-textual-ui {
+			position: fixed;
+			height: 50px;
+			width: 500px;
+			top: 70%;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: grey;
+			font-size: 2em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#expertise-textual-ui {
+			position: fixed;
+			height: 200px;
+			width: 350px;
+			bottom: 50px;
+			right: 50px;
+			background-color: grey;
+		}
+
