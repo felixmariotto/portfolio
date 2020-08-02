@@ -159,7 +159,7 @@ loop();
 
 function loop() {
 
-	console.log( 'scenesContainers[ 0 ].scrollHeight = ' + scenesContainers[ 0 ].parentNode.scrollHeight )
+	console.log( 'scenesContainers[ 0 ].parentNode.scrollHeight = ' + scenesContainers[ 0 ].parentNode.scrollHeight )
 
 	requestAnimationFrame( loop );
 
