@@ -11,7 +11,7 @@ export default function Intro( domElement ) {
 
 	// scene.background = new THREE.Color( 'orange' );
 
-	const geometry = new THREE.BoxGeometry( 0.3, 0.3, 0.3 );
+	const geometry = new THREE.BoxGeometry( 0.6, 0.6, 0.6);
 	const material = new THREE.MeshBasicMaterial({ color: 'green' });
 
 	const meshes = [];

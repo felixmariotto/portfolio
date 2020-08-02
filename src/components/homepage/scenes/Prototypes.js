@@ -11,7 +11,7 @@ export default function Prototypes( domElement ) {
 
 	// scene.background = new THREE.Color( 'purple' );
 
-	const geometry = new THREE.BoxGeometry( 0.3, 0.3, 0.3 );
+	const geometry = new THREE.BoxGeometry( 0.6, 0.6, 0.36);
 	const material = new THREE.MeshBasicMaterial({ color: 'yellow' });
 
 	const meshes = [];
