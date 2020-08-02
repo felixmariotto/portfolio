@@ -13,6 +13,8 @@ import { linkEventEmitter } from './components/link/Link.js';
 import ModuleContainer from './components/modules/ModuleContainer.js';
 import { setModule } from './components/modules/ModuleContainer.js';
 
+import Homepage from './components/homepage/Homepage.js';
+
 //
 
 let previousLocation = 'home';
@@ -32,7 +34,7 @@ document.body.append( container );
 
 //
 
-container.append( Menu, ModuleContainer );
+container.append( Menu, ModuleContainer, Homepage );
 document.body.append( MenuButton );
 
 //
