@@ -9,7 +9,7 @@ export default function Intro( domElement ) {
 
 	const { scene, camera, renderer } = Startup();
 
-	scene.background = new THREE.Color( 'orange' );
+	// scene.background = new THREE.Color( 'orange' );
 
 	const geometry = new THREE.BoxGeometry( 0.3, 0.3, 0.3 );
 	const material = new THREE.MeshBasicMaterial({ color: 'green' });

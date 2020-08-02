@@ -29,13 +29,14 @@ body {
 }
 
 #page-container {
+	position: relative;
 	height: 100%;
 	width: 100%;
 	background-color: red;
-	transform: translateX( 0 );
+	left: 0;
 	transition: all 0.4s;
 }
 
 	#page-container.module-mode {
-		transform: translateX( -100% );
+		left: -100%;
 	}

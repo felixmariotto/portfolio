@@ -8,4 +8,20 @@
 	.scene-container {
 		height: 100%;
 		width: 100%;
+		clip-path: circle(50%);
+		border-style: solid;
 	}
+
+		.scene-fixed-container {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+
+			.test {
+				position: absolute;
+				top: 0px;
+				height: 600px;
+				width: 600px;
+				background-color: grey;
+			}

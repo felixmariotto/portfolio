@@ -19,7 +19,15 @@ for ( let i = 0 ; i < 3 ; i++ ) {
 	const sceneContainer = document.createElement('DIV');
 	sceneContainer.classList.add( 'scene-container' );
 
-	scenesContainers.push( sceneContainer );
+	//
+
+	const fixedContainer = document.createElement('DIV');
+	fixedContainer.classList.add( 'scene-fixed-container' );
+
+	//
+
+	scenesContainers.push( fixedContainer );
+	sceneContainer.append( fixedContainer );
 	container.append( sceneContainer );
 
 };
@@ -28,7 +36,12 @@ for ( let i = 0 ; i < 3 ; i++ ) {
 
 const intro = Intro( scenesContainers[ 0 ] );
 const expertise = Expertise( scenesContainers[ 1 ] );
-const prototypes = Prototypes( scenesContainers[ 1 ] );
+const prototypes = Prototypes( scenesContainers[ 2 ] );
+
+const test = document.createElement('DIV');
+test.classList.add( 'test' );
+
+scenesContainers[ 0 ].append( test );
 
 //
 
