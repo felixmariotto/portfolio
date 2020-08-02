@@ -1,10 +1,16 @@
 
 #module-container {
-	position: absolute;
+	position: fixed;
 	background-color: cyan;
 	height: 100%;
 	width: 100%;
 	left: 100%;
+	top: 0px;
 	padding: var(--menu-padding);
 	box-sizing: border-box;
+	transition: all 0.4s;
 }
+
+	#page-container.module-mode #module-container {
+		left: 0px;
+	}

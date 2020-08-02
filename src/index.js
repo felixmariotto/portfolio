@@ -17,6 +17,8 @@ import Homepage from './components/homepage/Homepage.js';
 
 //
 
+let currentPage = 0;
+
 let previousLocation = 'home';
 let currentLocation = 'home';
 
@@ -82,3 +84,27 @@ linkEventEmitter.addEventListener( 'clicklink', ( message ) => {
 	setModule( message.detail.moduleName );
 
 });
+
+window.addEventListener( 'scroll', (e) => {
+
+	const currentScroll = document.documentElement.scrollTop;
+
+	const sceneHeight = window.innerHeight * 1.2;
+
+	currentPage = Math.floor( (currentScroll + ( sceneHeight * 0.6 )) / sceneHeight );
+
+});
+
+//
+
+setInterval( () => {
+
+	const sceneHeight = window.innerHeight * 1.2;
+
+	const targetScroll = (sceneHeight * currentPage);
+
+	const toAdd = ( targetScroll - document.documentElement.scrollTop ) * 0.05;
+
+	document.documentElement.scrollTop += Math.min( toAdd, 8 );
+
+}, 16 );
