@@ -114,7 +114,7 @@ window.addEventListener( 'scroll', (e) => {
 
 	const sceneHeight = window.innerHeight * 1.2;
 
-	currentPage = Math.floor( (currentScroll + ( sceneHeight * 0.6 )) / sceneHeight );
+	currentPage = Math.floor( (currentScroll + ( sceneHeight * 0.5 )) / sceneHeight );
 
 });
 
@@ -130,10 +130,10 @@ setInterval( () => {
 	if ( Math.round( targetScroll ) === document.documentElement.scrollTop ) return
 
 	// get eased value to add
-	let toAdd = ( targetScroll - document.documentElement.scrollTop ) * 0.05;
+	let toAdd = ( targetScroll - document.documentElement.scrollTop ) * 0.04;
 
 	// clamp value so the move is never clunky
-	toAdd = Math.max( -8, Math.min( toAdd, 8 ) );
+	toAdd = Math.max( -6, Math.min( toAdd, 6 ) );
 
 	if ( Math.abs( toAdd ) > 0.3 ) {
 
