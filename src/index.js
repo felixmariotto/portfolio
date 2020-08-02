@@ -114,8 +114,6 @@ window.addEventListener( 'scroll', (e) => {
 
 	const sceneHeight = window.innerHeight * 1.2;
 
-	console.log( 'window.innerHeight * 1.2 = ' + window.innerHeight * 1.2 )
-
 	currentPage = Math.floor( (currentScroll + ( sceneHeight * 0.5 )) / sceneHeight );
 
 });

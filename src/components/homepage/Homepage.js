@@ -164,8 +164,6 @@ loop();
 
 function loop() {
 
-	console.log( 'getBoundingClientRect.height = ' + scenesContainers[ 0 ].parentNode.getBoundingClientRect().height )
-
 	requestAnimationFrame( loop );
 
 	// decide which scenes must be animated
