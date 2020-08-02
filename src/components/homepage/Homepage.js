@@ -23,6 +23,11 @@ for ( let i = 0 ; i < 6 ; i++ ) {
 
 	const sceneContainer = document.createElement('DIV');
 	sceneContainer.classList.add( 'scene-container' );
+	sceneContainer.style.height = Math.round(window.innerHeight * 1.2) + 'px';
+
+	window.addEventListener( 'resize', () => {
+		sceneContainer.style.height = Math.round(window.innerHeight * 1.2) + 'px';
+	})
 
 	//
 

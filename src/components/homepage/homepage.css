@@ -6,9 +6,8 @@
 }
 
 	.scene-container {
-		height: 120vh;
 		width: 100%;
-		clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100vh - 12vw ), 50% 100vh, 0 calc( 100vh - 12vw ));
+		clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100% - 12vw ), 50% 100%, 0 calc( 100% - 12vw ));
 		border-style: solid;
 	}
 
