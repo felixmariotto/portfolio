@@ -101,10 +101,27 @@ setInterval( () => {
 
 	const sceneHeight = window.innerHeight * 1.2;
 
-	const targetScroll = (sceneHeight * currentPage);
+	const targetScroll = ( sceneHeight * currentPage );
 
-	const toAdd = ( targetScroll - document.documentElement.scrollTop ) * 0.05;
+	// return if scroll is already right
+	if ( Math.round( targetScroll ) === document.documentElement.scrollTop ) return
 
-	document.documentElement.scrollTop += Math.min( toAdd, 8 );
+	// get eased value to add
+	let toAdd = ( targetScroll - document.documentElement.scrollTop ) * 0.05;
+
+	// clamp value so the move is never clunky
+	toAdd = Math.max( -8, Math.min( toAdd, 8 ) );
+
+	if ( Math.abs( toAdd ) > 0.3 ) {
+
+		if ( Math.abs( toAdd ) < 1 ) toAdd = Math.sign( toAdd )
+
+		document.documentElement.scrollTop += toAdd;
+
+	} else {
+
+		document.documentElement.scrollTop = Math.round( targetScroll );
+
+	}
 
 }, 16 );
