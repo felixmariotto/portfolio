@@ -159,7 +159,7 @@ loop();
 
 function loop() {
 
-	console.log( 'scenesContainers[ 0 ].parentNode.scrollHeight = ' + scenesContainers[ 0 ].parentNode.scrollHeight )
+	console.log( 'getBoundingClientRect.height = ' + scenesContainers[ 0 ].parentNode.getBoundingClientRect().height )
 
 	requestAnimationFrame( loop );
 
