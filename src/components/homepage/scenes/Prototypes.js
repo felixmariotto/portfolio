@@ -12,10 +12,7 @@ export default function Prototypes( domElement ) {
 	const { scene, camera, renderer } = Startup( domElement );
 
 	scene.background = new THREE.Color( 0xd7cbb1 );
-
-	const FOG = new THREE.FogExp2( 0xd7cbb1, 1 );
-
-	scene.fog = FOG;
+	scene.fog = new THREE.FogExp2( 0xd7cbb1, 1 );
 
 	// table
 
