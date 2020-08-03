@@ -108,7 +108,11 @@ linkEventEmitter.addEventListener( 'clicklink', ( message ) => {
 
 });
 
+let scrollTime = 0;
+
 window.addEventListener( 'scroll', (e) => {
+
+	scrollTime = Date.now();
 
 	const currentScroll = window.scrollY;
 
@@ -120,8 +124,9 @@ window.addEventListener( 'scroll', (e) => {
 
 //
 
-/*
 setInterval( () => {
+
+	if ( scrollTime > Date.now() - 800 ) return
 
 	const sceneHeight = window.innerHeight * 1.2;
 
@@ -130,23 +135,9 @@ setInterval( () => {
 	// return if scroll is already right
 	if ( Math.round( targetScroll ) === window.scrollY ) return
 
-	// get eased value to add
-	let toAdd = ( targetScroll - window.scrollY ) * 0.04;
+	window.scrollTo({
+		top: targetScroll,
+		behavior: 'smooth'
+	});
 
-	// clamp value so the move is never clunky
-	toAdd = Math.max( -6, Math.min( toAdd, 6 ) );
-
-	if ( Math.abs( toAdd ) > 0.3 ) {
-
-		if ( Math.abs( toAdd ) < 1 ) toAdd = Math.sign( toAdd )
-
-		document.documentElement.scrollTop += toAdd;
-
-	} else {
-
-		document.documentElement.scrollTop = Math.round( targetScroll );
-
-	}
-
-}, 16 );
-*/
+}, 100 );

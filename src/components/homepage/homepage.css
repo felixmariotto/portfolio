@@ -1,6 +1,7 @@
 
 #homepage-container {
 	overflow-y: scroll;
+	scroll-behavior: smooth;
 	width: 100%;
 	background-color: purple;
 }
