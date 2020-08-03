@@ -4,13 +4,14 @@
 	background-color: cyan;
 	height: 100%;
 	width: 100%;
-	left: 100%;
 	top: 0px;
 	padding: var(--menu-padding);
 	box-sizing: border-box;
-	transition: all 0.4s;
+	transform: translateX( 100% );
+	transition: transform 0.4s;
+	z-index: 2;
 }
 
 	#page-container.module-mode #module-container {
-		left: 0px;
+		transform: translateX( 0 );
 	}

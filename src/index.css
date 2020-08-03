@@ -34,13 +34,7 @@ body {
 	height: 100%;
 	width: 100%;
 	background-color: red;
-	left: 0;
-	transition: all 0.4s;
 }
-
-	#page-container.module-mode {
-		left: -100%;
-	}
 
 	#page-container.hide-overflow {
 		overflow-y: hidden;
