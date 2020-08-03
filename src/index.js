@@ -116,7 +116,7 @@ window.addEventListener( 'scroll', (e) => {
 
 	const currentScroll = window.scrollY;
 
-	const sceneHeight = window.innerHeight * 1.2;
+	const sceneHeight = document.body.clientHeight * 1.2;
 
 	currentPage = Math.floor( (currentScroll + ( sceneHeight * 0.5 )) / sceneHeight );
 
@@ -128,7 +128,7 @@ setInterval( () => {
 
 	if ( scrollTime > Date.now() - 800 ) return
 
-	const sceneHeight = window.innerHeight * 1.2;
+	const sceneHeight = document.body.clientHeight * 1.2;
 
 	const targetScroll = ( sceneHeight * currentPage );
 
