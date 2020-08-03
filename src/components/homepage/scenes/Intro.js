@@ -49,11 +49,19 @@ export default function Intro( domElement ) {
 
 	function animate() {
 
-		targetRot.y = 0.08 * -InputPosition.x;
-		targetRot.x = 0.04 * -InputPosition.y;
+		meshes.forEach( (mesh, i) => {
 
-		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.075;
-		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.075;
+			const basePos = (( i - 5 / 10 ) * -0.1) + 0.5;
+
+			mesh.position.y = basePos + ( ( Math.sin( (Date.now() + ( 300 * i ) ) / 1000 ) ) * 0.05 )
+
+		})
+
+		targetRot.y = 0.25 * -InputPosition.x;
+		targetRot.x = 0.1 * -InputPosition.y;
+
+		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
+		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
 
 		camera.lookAt( 0, 0, 0 );
 

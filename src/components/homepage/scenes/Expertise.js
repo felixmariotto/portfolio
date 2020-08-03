@@ -1,5 +1,6 @@
 
 import Startup from './core/Startup.js';
+import InputPosition from './core/InputPosition.js';
 
 import * as THREE from 'three';
 
@@ -11,40 +12,66 @@ export default function Expertise( domElement ) {
 
 	scene.background = new THREE.Color( 'blue' );
 
-	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-	const material = new THREE.MeshBasicMaterial({ color: 'red' });
+	// table
 
-	const meshes = [];
+	const tableGeometry = new THREE.BoxBufferGeometry( 1.5, 0.02, 1.5 );
+	const tableMaterial = new THREE.MeshLambertMaterial({ color: 0x403329 });
 
-	for ( let i = 0 ; i < 10 ; i++ ) {
+	scene.add( new THREE.Mesh( tableGeometry, tableMaterial ) );
 
-		const cube = new THREE.Mesh( geometry, material );
+	// papers
 
-		cube.position.x = (Math.random() - 0.5) * 1.5;
-		cube.position.y = (Math.random() - 0.5) * 1.5;
+	const paperGeometry = new THREE.PlaneBufferGeometry( 0.21, 0.297 );
+	paperGeometry.rotateX( -Math.PI / 2 );
+	const paperMaterial = new THREE.MeshBasicMaterial();
 
-		cube.rotation.x = Math.random() * Math.PI;
-		cube.rotation.y = Math.random() * Math.PI;
+	const paper1 = new THREE.Mesh( paperGeometry, paperMaterial );
+	paper1.position.set( -0.1, 0.2, 0 );
+	paper1.rotation.y = 0.1;
+	scene.add( paper1 );
 
-		meshes.push( cube );
+	const paper2 = new THREE.Mesh( paperGeometry, paperMaterial );
+	paper2.position.set( 0.1, 0.2, 0.1 );
+	paper2.rotation.y = -0.2;
+	scene.add( paper2 );
 
-		scene.add( cube );
+	// pen
 
-	}
+	const penGeometry = new THREE.BoxBufferGeometry( 0.013, 0.013, 0.15 );
+	const penMaterial = new THREE.MeshLambertMaterial({ color: 0xb06bff });
 
-	camera.position.z = -1;
+	const pen = new THREE.Mesh( penGeometry, penMaterial );
+	pen.position.set( -0.05, 0.2, 0 );
+	pen.rotation.y = -0.5;
+
+	scene.add( pen );
+
+	// light
+
+	var light = new THREE.PointLight( 0xffffff, 1, 100 );
+	light.position.set( 0.1, 0.5, -0.1 );
+	scene.add( light );
+
+	// camera position
+
+	const cameraGroup = new THREE.Group();
+	scene.add( cameraGroup );
+	cameraGroup.add( camera );
+
+	camera.position.set( 0, 0.5, 0.2 );
 	camera.lookAt( 0, 0, 0 );
 
 	//
 
+	const targetRot = new THREE.Vector2();
+
 	function animate() {
 
-		meshes.forEach( (mesh) => {
+		targetRot.y = 0.08 * -InputPosition.x;
+		targetRot.x = 0.04 * -InputPosition.y;
 
-			mesh.rotation.x += 0.01;
-			mesh.rotation.y += 0.01;
-
-		});
+		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
+		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
 
 		renderer.render( scene, camera );
 
