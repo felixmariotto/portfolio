@@ -1,6 +1,6 @@
 
 #homepage-container {
-	height: 100%;
+	overflow-y: scroll;
 	width: 100%;
 	background-color: purple;
 }

@@ -36,7 +36,6 @@ body {
 	background-color: red;
 	left: 0;
 	transition: all 0.4s;
-	overflow-y: scroll;
 }
 
 	#page-container.module-mode {
