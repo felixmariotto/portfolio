@@ -32,19 +32,6 @@ for ( let i = 0 ; i < 6 ; i++ ) {
 
 	//
 
-	/*
-	window.addEventListener( 'resize', resize );
-	window.addEventListener( 'touchmove', resize );
-
-	function resize() {
-		console.log('resize')
-		sceneContainer.style.height = Math.round( window.innerHeight * 1.2 ) + 'px';
-		fixedContainer.style.height = window.innerHeight + 'px';
-	};
-	*/
-
-	//
-
 	scenesContainers.push( fixedContainer );
 	sceneContainer.append( fixedContainer );
 	container.append( sceneContainer );

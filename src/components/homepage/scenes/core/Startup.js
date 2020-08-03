@@ -3,7 +3,7 @@ import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 
 //
 
-export default function Startup() {
+export default function Startup( domElement ) {
 
 	const scene = new Scene();
 
@@ -24,9 +24,13 @@ export default function Startup() {
 		window.innerHeight
 	);
 
+	domElement.append( renderer.domElement );
+
 	window.addEventListener( 'resize', onWindowResize, false );
 
 	function onWindowResize() {
+
+		console.log('resize');
 
 		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();

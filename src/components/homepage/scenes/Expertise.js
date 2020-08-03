@@ -7,7 +7,7 @@ import * as THREE from 'three';
 
 export default function Expertise( domElement ) {
 
-	const { scene, camera, renderer } = Startup();
+	const { scene, camera, renderer } = Startup( domElement );
 
 	// scene.background = new THREE.Color( 'blue' );
 
@@ -35,7 +35,7 @@ export default function Expertise( domElement ) {
 	camera.position.z = -1;
 	camera.lookAt( 0, 0, 0 );
 
-	domElement.append( renderer.domElement );
+	//
 
 	function animate() {
 
