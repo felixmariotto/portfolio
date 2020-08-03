@@ -8,7 +8,8 @@
 	top: 20px;
 	left: 20px;
 	font-size: 24px;
-	background-color: blue;
+	color: var(--color1-5);
+	background-color: var(--color1-0);
 	height: calc( var(--menu-button-radius) * 2 );
 	width: calc( var(--menu-button-radius) * 2 );
 	border-radius: var(--menu-button-radius);
@@ -19,7 +20,13 @@
   	align-items: center;
   	justify-content: center;
   	z-index: 10000;
+  	transition: background-color 0.15s;
 }
+
+	#menu-button:hover {
+		background-color: var(--color1-1);
+		cursor: pointer;
+	}
 
 	#menu-button.animate-menu-icon {
 		animation-name: animate_menu_icon;

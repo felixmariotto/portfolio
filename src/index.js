@@ -42,7 +42,20 @@ document.body.append( container );
 container.append( Menu, ModuleContainer, Homepage );
 document.body.append( MenuButton );
 
-//
+// logo
+
+const logoContainer = document.createElement('DIV');
+logoContainer.id = 'logo-container';
+
+document.body.append( logoContainer );
+
+const logo = document.createElement('IMG');
+logo.id = 'logo';
+logo.src = 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/images/logo-portfolio.png';
+
+logoContainer.append( logo );
+
+// menu button
 
 MenuButton.addEventListener( 'click', () => {
 
