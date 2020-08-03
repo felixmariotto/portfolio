@@ -11,7 +11,7 @@ export default function Expertise( domElement ) {
 
 	// scene.background = new THREE.Color( 'blue' );
 
-	const geometry = new THREE.BoxGeometry( 0.6, 0.6, 0.6 );
+	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
 	const material = new THREE.MeshBasicMaterial({ color: 'red' });
 
 	const meshes = [];

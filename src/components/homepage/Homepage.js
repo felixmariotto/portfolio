@@ -23,17 +23,22 @@ for ( let i = 0 ; i < 6 ; i++ ) {
 
 	const sceneContainer = document.createElement('DIV');
 	sceneContainer.classList.add( 'scene-container' );
-	sceneContainer.style.height = Math.round(window.innerHeight * 1.2) + 'px';
-
-	window.addEventListener( 'resize', () => {
-		console.log('resize');
-		sceneContainer.style.height = Math.round(window.innerHeight * 1.2) + 'px';
-	})
-
+	
 	//
 
 	const fixedContainer = document.createElement('DIV');
 	fixedContainer.classList.add( 'scene-fixed-container' );
+	fixedContainer.style.backgroundColor = "#"+((1<<24)*Math.random()|0).toString(16);
+
+	//
+
+	window.addEventListener( 'resize', resize );
+	window.addEventListener( 'touchmove', resize );
+
+	function resize() {
+		sceneContainer.style.height = Math.round( window.innerHeight * 1.2 ) + 'px';
+		fixedContainer.style.height = window.innerHeight + 'px';
+	};
 
 	//
 
