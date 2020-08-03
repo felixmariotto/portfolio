@@ -26,6 +26,7 @@ for ( let i = 0 ; i < 6 ; i++ ) {
 	sceneContainer.style.height = Math.round(window.innerHeight * 1.2) + 'px';
 
 	window.addEventListener( 'resize', () => {
+		console.log('resize');
 		sceneContainer.style.height = Math.round(window.innerHeight * 1.2) + 'px';
 	})
 

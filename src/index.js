@@ -120,6 +120,7 @@ window.addEventListener( 'scroll', (e) => {
 
 //
 
+/*
 setInterval( () => {
 
 	const sceneHeight = window.innerHeight * 1.2;
@@ -148,3 +149,4 @@ setInterval( () => {
 	}
 
 }, 16 );
+*/
