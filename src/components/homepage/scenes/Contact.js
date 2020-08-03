@@ -7,12 +7,12 @@ import * as THREE from 'three';
 
 export default function Contact( domElement ) {
 
+	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #ffffff 0%, #cdd0d4 62%, #8c8e91 100%)';
+
 	const { scene, camera, renderer } = Startup( domElement );
 
-	// scene.background = new THREE.Color( 'red' );
-
-	const geometry = new THREE.BoxGeometry( 0.6, 0.6, 0.6 );
-	const material = new THREE.MeshBasicMaterial({ color: 'cyan' });
+	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+	const material = new THREE.MeshBasicMaterial({ color: 'green' });
 
 	const meshes = [];
 

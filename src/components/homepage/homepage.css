@@ -2,9 +2,7 @@
 #homepage-container {
 	position: relative;
 	overflow-y: scroll;
-	scroll-behavior: smooth;
 	width: 100%;
-	background-color: purple;
 	z-index: 1;
 }
 

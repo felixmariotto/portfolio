@@ -9,7 +9,7 @@ export default function Doc( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	// scene.background = new THREE.Color( 'blue' );
+	scene.background = new THREE.Color( 'blue' );
 
 	const geometry = new THREE.BoxGeometry( 0.6, 0.6, 0.6 );
 	const material = new THREE.MeshBasicMaterial({ color: 'orange' });

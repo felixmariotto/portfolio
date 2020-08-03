@@ -11,7 +11,7 @@ export default function Startup( domElement ) {
 	const scene = new Scene();
 
 	const camera = new PerspectiveCamera(
-		70,
+		60,
 		WIDTH / HEIGHT,
 		0.05,
 		2

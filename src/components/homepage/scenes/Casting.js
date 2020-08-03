@@ -9,7 +9,7 @@ export default function Casting( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	// scene.background = new THREE.Color( 'orange' );
+	scene.background = new THREE.Color( 'orange' );
 
 	const geometry = new THREE.BoxGeometry( 0.6, 0.6, 0.6 );
 	const material = new THREE.MeshBasicMaterial({ color: 'purple' });

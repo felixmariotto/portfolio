@@ -1,5 +1,7 @@
 
 import Startup from './core/Startup.js';
+import ShadowedLight from './core/ShadowedLight.js';
+import InputPosition from './core/InputPosition.js';
 
 import * as THREE from 'three';
 
@@ -7,21 +9,23 @@ import * as THREE from 'three';
 
 export default function Intro( domElement ) {
 
+	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #ffffff 0%, #cdd0d4 62%, #97a4b8 100%)';
+
 	const { scene, camera, renderer } = Startup( domElement );
 
-	// scene.background = new THREE.Color( 'orange' );
-
 	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2);
-	const material = new THREE.MeshNormalMaterial();
+	const material = new THREE.MeshLambertMaterial();
+
+	scene.add( ShadowedLight({ color: 0xffa1c2 }), new THREE.AmbientLight( 0x404040, 2 ) );
 
 	const meshes = [];
 
-	for ( let i = 0 ; i < 10 ; i++ ) {
+	for ( let i = 0 ; i < 15 ; i++ ) {
 
 		const cube = new THREE.Mesh( geometry, material );
 
-		cube.position.x = (Math.random() - 0.5) * 1.5;
-		cube.position.y = (Math.random() - 0.5) * 1.5;
+		cube.position.x = (i - 5) * 0.25;
+		cube.position.y = (( i - 5 / 10 ) * -0.1) + 0.5 ;
 
 		cube.rotation.x = Math.random() * Math.PI;
 		cube.rotation.y = Math.random() * Math.PI;
@@ -32,19 +36,26 @@ export default function Intro( domElement ) {
 
 	}
 
+	const cameraGroup = new THREE.Group();
+	scene.add( cameraGroup );
+
 	camera.position.z = -1;
 	camera.lookAt( 0, 0, 0 );
+	cameraGroup.add( camera );
 
 	//
 
+	const targetRot = new THREE.Vector2();
+
 	function animate() {
 
-		meshes.forEach( (mesh) => {
+		targetRot.y = 0.08 * -InputPosition.x;
+		targetRot.x = 0.04 * -InputPosition.y;
 
-			mesh.rotation.x += 0.01;
-			mesh.rotation.y += 0.01;
+		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.075;
+		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.075;
 
-		});
+		camera.lookAt( 0, 0, 0 );
 
 		renderer.render( scene, camera );
 

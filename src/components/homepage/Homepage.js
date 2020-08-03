@@ -28,7 +28,6 @@ for ( let i = 0 ; i < 6 ; i++ ) {
 
 	const fixedContainer = document.createElement('DIV');
 	fixedContainer.classList.add( 'scene-fixed-container' );
-	fixedContainer.style.backgroundColor = "#"+((1<<24)*Math.random()|0).toString(16);
 
 	//
 

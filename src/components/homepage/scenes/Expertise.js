@@ -9,7 +9,7 @@ export default function Expertise( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	// scene.background = new THREE.Color( 'blue' );
+	scene.background = new THREE.Color( 'blue' );
 
 	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
 	const material = new THREE.MeshBasicMaterial({ color: 'red' });
