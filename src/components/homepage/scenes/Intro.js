@@ -24,7 +24,7 @@ export default function Intro( domElement ) {
 
 		const cube = new THREE.Mesh( geometry, material );
 
-		cube.position.x = (i - 5) * 0.25;
+		cube.position.x = (i - 5) * -0.25;
 		cube.position.y = (( i - 5 / 10 ) * -0.1) + 0.5 ;
 
 		cube.rotation.x = Math.random() * Math.PI;
@@ -39,7 +39,7 @@ export default function Intro( domElement ) {
 	const cameraGroup = new THREE.Group();
 	scene.add( cameraGroup );
 
-	camera.position.z = -1;
+	camera.position.z = 1;
 	camera.lookAt( 0, 0, 0 );
 	cameraGroup.add( camera );
 

@@ -33,8 +33,8 @@ export default function Prototypes( domElement ) {
 	const tabletMaterial = new THREE.MeshLambertMaterial({ color: 0x575757 });
 
 	const tablet = new THREE.Mesh( tabletGeometry, tabletMaterial );
-	tablet.position.set( -0.04, 0.08, -0.15 );
-	tablet.rotation.x = 0.7;
+	tablet.position.set( -0.04, 0.08, 0.15 );
+	tablet.rotation.x = -0.7;
 	tablet.castShadow = true;
 
 	scene.add( tablet );
@@ -50,7 +50,7 @@ export default function Prototypes( domElement ) {
 	scene.add( cameraGroup );
 	cameraGroup.add( camera );
 
-	camera.position.set( 0, 0.2, -0.5 );
+	camera.position.set( 0, 0.2, 0.5 );
 	camera.lookAt( 0, 0, 0 );
 
 	//

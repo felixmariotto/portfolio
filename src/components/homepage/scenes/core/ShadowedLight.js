@@ -9,7 +9,7 @@ export default function ShadowedLight( options ) {
 
 	const x = options.x || 2;
 	const y = options.y || 10;
-	const z = options.z || -2;
+	const z = options.z || 2;
 	const width = options.width || 10;
 	const near = options.near || 0.1;
 	const far = options.far || 30;
