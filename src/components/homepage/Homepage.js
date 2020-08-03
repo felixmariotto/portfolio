@@ -32,6 +32,7 @@ for ( let i = 0 ; i < 6 ; i++ ) {
 
 	//
 
+	/*
 	window.addEventListener( 'resize', resize );
 	window.addEventListener( 'touchmove', resize );
 
@@ -40,6 +41,7 @@ for ( let i = 0 ; i < 6 ; i++ ) {
 		sceneContainer.style.height = Math.round( window.innerHeight * 1.2 ) + 'px';
 		fixedContainer.style.height = window.innerHeight + 'px';
 	};
+	*/
 
 	//
 
