@@ -21,6 +21,7 @@ export default function Startup( domElement ) {
 		antialias: true,
 		alpha: true
 	});
+	renderer.shadowMap.enabled = true ;
 
 	renderer.setSize(
 		WIDTH,
