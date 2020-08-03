@@ -5,11 +5,14 @@ import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 
 export default function Startup( domElement ) {
 
+	const HEIGHT = domElement.clientHeight;
+	const WIDTH = domElement.clientWidth;
+
 	const scene = new Scene();
 
 	const camera = new PerspectiveCamera(
 		70,
-		window.innerWidth / window.innerHeight,
+		WIDTH / HEIGHT,
 		0.05,
 		2
 	);
@@ -20,22 +23,27 @@ export default function Startup( domElement ) {
 	});
 
 	renderer.setSize(
-		window.innerWidth,
-		window.innerHeight
+		WIDTH,
+		HEIGHT
 	);
 
 	domElement.append( renderer.domElement );
+
+	setTimeout( () => {
+		onWindowResize()
+	}, 0 );
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
 	function onWindowResize() {
 
-		console.log('resize');
+		const HEIGHT = domElement.clientHeight;
+		const WIDTH = domElement.clientWidth;
 
-		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.aspect = WIDTH / HEIGHT;
 		camera.updateProjectionMatrix();
 
-		renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.setSize( WIDTH, HEIGHT );
 
 	}
 
