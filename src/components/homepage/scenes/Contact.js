@@ -11,40 +11,12 @@ export default function Contact( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-	const material = new THREE.MeshBasicMaterial({ color: 'green' });
-
-	const meshes = [];
-
-	for ( let i = 0 ; i < 10 ; i++ ) {
-
-		const cube = new THREE.Mesh( geometry, material );
-
-		cube.position.x = (Math.random() - 0.5) * 1.5;
-		cube.position.y = (Math.random() - 0.5) * 1.5;
-
-		cube.rotation.x = Math.random() * Math.PI;
-		cube.rotation.y = Math.random() * Math.PI;
-
-		meshes.push( cube );
-
-		scene.add( cube );
-
-	}
-
 	camera.position.z = -1;
 	camera.lookAt( 0, 0, 0 );
 
 	//
 
 	function animate() {
-
-		meshes.forEach( (mesh) => {
-
-			mesh.rotation.x += 0.01;
-			mesh.rotation.y += 0.01;
-
-		});
 
 		renderer.render( scene, camera );
 
