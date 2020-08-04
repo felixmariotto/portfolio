@@ -44,13 +44,13 @@
 
 				@keyframes swing_homepage_carret {
 					from {
-						transform: translateY( 0 );
+						transform: translate( -50%, 0 );
 					}
 					50% {
-						transform: translateY( -35% );
+						transform: translate( -50%, -35% );
 					}
 					to {
-						transform: translateY( 0 );
+						transform: translate( -50%, 0 );
 					}
 				}
 		
