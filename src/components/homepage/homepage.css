@@ -43,7 +43,7 @@
 							transform: translateY( 0 );
 						}
 						50% {
-							transform: translateY( -50% );
+							transform: translateY( -35% );
 						}
 						to {
 							transform: translateY( 0 );
@@ -90,7 +90,12 @@
 				}
 
 				.service-ui > div {
-					font-size: calc( 13px + 1.8vmin );
+					display: inline-block;
+					font-size: calc( 11px + 1.15vmin );
+					padding: 7px 20px;
+					border-radius: 500px;
+					color:  var(--color1-5);
+					background-color: var(--color1-0);
 				}
 
 				.service-ui > h2 {
@@ -116,5 +121,6 @@
 				left: 50%;
 				padding: 15px 25px;
 				transform: translateX(-50%);
+				white-space: nowrap;
 			}
 
