@@ -3,7 +3,7 @@
 	position: fixed;
 	top: 20px;
 	left: 20px;
-	font-size: 24px;
+	font-size: 19px;
 	color: var(--color1-5);
 	background-color: var(--color1-0);
 	height: calc( var(--menu-button-radius) * 2 );
@@ -31,7 +31,7 @@
 	/* ANIMATION */
 
 	@keyframes animate_menu_icon {
-		from { font-size: 24px; }
+		from { font-size: 19px; }
 		50%  { font-size: 1px; }
-		to   { font-size: 24px; }
+		to   { font-size: 19px; }
 	}

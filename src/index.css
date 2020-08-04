@@ -2,18 +2,18 @@
 
 :root {
 
-	--menu-button-radius: 25px;
+	--menu-button-radius: 23px;
 	--menu-padding: calc( ( var(--menu-button-radius) * 2 ) + 15vh ) 15vw 15vh 15vw;
 	--generic-border: 3px solid var(--color1-0);
 
 	/* COLORS */
 
-	--color1-0: #001f12;
-	--color1-1: #0d5235;
-	--color1-2: #278c62;
-	--color1-3: #5bc297;
-	--color1-4: #98e3c4;
-	--color1-5: #e4f7ef;
+	--color1-0: #010b24;
+	--color1-1: #072670;
+	--color1-2: #2352c4;
+	--color1-3: #6f8ed9;
+	--color1-4: #bdccf0;
+	--color1-5: #f5f8ff;
 
 }
 
