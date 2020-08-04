@@ -70,6 +70,19 @@ const scenes = [
 
 // Textual UI
 
+function makeLink( linkTo ) {
+
+	const icon = document.createElement('I');
+	icon.classList.add('fa', 'fa-long-arrow-right');
+
+	const link = Link( 'expertise' );
+	link.innerHTML = 'learn more&#xA0;&#xA0;&#xA0;';
+	link.append( icon );
+
+	return link
+
+};
+
 (function introUI() {
 
 	const container = document.createElement('H1');
@@ -105,10 +118,7 @@ const scenes = [
 
 	// link
 
-	const link = Link( 'expertise' );
-	link.innerHTML = 'learn more...';
-
-	container.append( link );
+	container.append( makeLink( 'expertise' ) );
 
 })();
 
@@ -136,10 +146,7 @@ const scenes = [
 
 	// link
 
-	const link = Link( 'prototypes' );
-	link.innerHTML = 'learn more...';
-
-	container.append( link );
+	container.append( makeLink( 'prototypes' ) );
 
 })();
 
@@ -167,10 +174,7 @@ const scenes = [
 
 	// link
 
-	const link = Link( 'casting parts' );
-	link.innerHTML = 'learn more';
-
-	container.append( link );
+	container.append( makeLink( 'casting parts' ) );
 
 })();
 
@@ -198,10 +202,7 @@ const scenes = [
 
 	// link
 
-	const link = Link( 'technical doc' );
-	link.innerHTML = 'learn more';
-
-	container.append( link );
+	container.append( makeLink( 'technical doc' ) );
 
 })();
 

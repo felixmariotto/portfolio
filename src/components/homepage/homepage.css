@@ -31,7 +31,7 @@
 			}
 
 			.scene-fixed-container .fa-caret-down {
-					font-size: calc( 20px + 4vmin );
+					font-size: calc( 20px + 3vmin );
 					position: fixed;
 					bottom: 10px;
 					left: 50%;
@@ -69,7 +69,7 @@
 				@media(hover: hover) and (pointer: fine) {
 					.textual-ui .link:hover {
 						cursor: pointer;
-						text-decoration: underline;
+						background-color: var(--color1-1);
 					}
 				}
 
