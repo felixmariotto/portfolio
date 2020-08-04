@@ -40,9 +40,11 @@
 					opacity: 0;
 				}
 
-				.textual-ui .link:hover {
-					cursor: pointer;
-					text-decoration: underline;
+				@media(hover: hover) and (pointer: fine) {
+					.textual-ui .link:hover {
+						cursor: pointer;
+						text-decoration: underline;
+					}
 				}
 
 			.service-ui {

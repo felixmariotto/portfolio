@@ -67,10 +67,12 @@
 				font-family: 'Poppins', sans-serif;
 			}
 
-				.menu-link:hover {
-					cursor: pointer;
-					color: var(--color1-1);
-					text-decoration: underline;
+				@media(hover: hover) and (pointer: fine) {
+					.menu-link:hover {
+						cursor: pointer;
+						color: var(--color1-1);
+						text-decoration: underline;
+					}
 				}
 
 	/* ANIMATION */
