@@ -3,7 +3,7 @@
 :root {
 
 	--menu-button-radius: 24px;
-	--menu-padding: calc( ( var(--menu-button-radius) * 2 ) + 15vh ) 15vw 15vh 15vw;
+	--menu-padding: calc( ( var(--menu-button-radius) * 2 ) + 15vh ) 11vw 15vh 11vw;
 	--generic-border: 3px solid var(--color1-0);
 
 	/* COLORS */
