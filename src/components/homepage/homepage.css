@@ -46,16 +46,16 @@
 				}
 
 			.service-ui {
-				right: 10%;
-				top: 62%;
+				right: 10vw;
+				bottom: 10vw;
 				max-width: 30vw;
 				min-width: 200px;
-				padding: 15px 25px;
+				padding: calc( 5px + 1vw ) calc( 7px + 2vw );
 				border: var(--generic-border);
 			}
 
 				.service-ui > * {
-					margin: 7px 0;
+					margin: 0.5vw 0;
 				}
 
 				.service-ui > p {
@@ -63,7 +63,7 @@
 				}
 
 				.service-ui > div {
-					font-size: calc( 12px + 1.8vmin );
+					font-size: calc( 11px + 1.8vmin );
 				}
 
 				.service-ui > h2 {
