@@ -38,6 +38,7 @@
 }
 
 	#menu-content.anim-open-menu {
+		pointer-events: auto;
 		padding: var(--menu-padding);
 		opacity: 1;
 	}
