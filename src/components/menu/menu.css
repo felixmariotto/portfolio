@@ -59,7 +59,7 @@
 		}
 
 			.menu-link {
-				font-size: 1.3em;
+				font-size: calc( 1.2em + 1vmin );
 				margin: 15px 0;
 				color: var(--color1-0);
 				white-space: nowrap;
