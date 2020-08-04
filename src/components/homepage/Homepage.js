@@ -107,10 +107,24 @@ const scenes = [
 
 	scenesContainers[ 2 ].append( container );
 
-	//
+	// title
+
+	const title = document.createElement('H2');
+	title.innerHTML = "Prototypes & viewers";
+
+	container.append( title );
+
+	// speech
+
+	const speech = document.createElement('P');
+	speech.innerHTML = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
+
+	container.append( speech );
+
+	// link
 
 	const link = Link( 'prototypes' );
-	link.innerHTML = 'prototypes';
+	link.innerHTML = 'learn more...';
 
 	container.append( link );
 
@@ -124,10 +138,24 @@ const scenes = [
 
 	scenesContainers[ 3 ].append( container );
 
-	//
+	// title
+
+	const title = document.createElement('H2');
+	title.innerHTML = "Casting parts";
+
+	container.append( title );
+
+	// speech
+
+	const speech = document.createElement('P');
+	speech.innerHTML = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
+
+	container.append( speech );
+
+	// link
 
 	const link = Link( 'casting parts' );
-	link.innerHTML = 'casting parts';
+	link.innerHTML = 'learn more';
 
 	container.append( link );
 
@@ -141,10 +169,24 @@ const scenes = [
 
 	scenesContainers[ 4 ].append( container );
 
-	//
+	// title
+
+	const title = document.createElement('H2');
+	title.innerHTML = "Technical sheets";
+
+	container.append( title );
+
+	// speech
+
+	const speech = document.createElement('P');
+	speech.innerHTML = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
+
+	container.append( speech );
+
+	// link
 
 	const link = Link( 'technical doc' );
-	link.innerHTML = 'technical doc';
+	link.innerHTML = 'learn more';
 
 	container.append( link );
 

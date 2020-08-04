@@ -55,7 +55,7 @@
 			}
 
 				.service-ui > * {
-					margin: 0.5vw 0;
+					margin: calc( 4px + 0.5vw ) 0;
 				}
 
 				.service-ui > p {

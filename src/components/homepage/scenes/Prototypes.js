@@ -17,7 +17,7 @@ export default function Prototypes( domElement ) {
 	// table
 
 	const tableGeometry = new THREE.BoxBufferGeometry( 4, 0.02, 4 );
-	const tableMaterial = new THREE.MeshLambertMaterial({ color: 0xffca61 });
+	const tableMaterial = new THREE.MeshLambertMaterial({ color: 0xd1b682 });
 
 	const table = new THREE.Mesh( tableGeometry, tableMaterial );
 	table.receiveShadow = true;
@@ -38,7 +38,7 @@ export default function Prototypes( domElement ) {
 
 	// light
 
-	scene.add( new THREE.AmbientLight( 0xffffff, 0.5 ) );
+	scene.add( new THREE.AmbientLight( 0xffffff, 0.8 ) );
 	scene.add( ShadowedLight({ color: 0xffa1c2, x: 10 }) );
 
 	// camera position

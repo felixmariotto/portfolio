@@ -10,8 +10,8 @@ export default function Doc( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	scene.background = new THREE.Color( 'black' );
-	scene.fog = new THREE.FogExp2( 'black', 1 );
+	scene.background = new THREE.Color( 0xd7cbb1 );
+	scene.fog = new THREE.FogExp2( 0xd7cbb1, 1 );
 
 	// table
 
@@ -55,7 +55,7 @@ export default function Doc( domElement ) {
 	spotLight.decay = 0;
 	spotLight.position.set( 0.1, 3, 0.1 );
 
-	scene.add( spotLight, new THREE.AmbientLight( 0xffffff, 0.3 ) );
+	scene.add( spotLight, new THREE.AmbientLight( 0xffffff, 0.7 ) );
 
 	var spotLightHelper = new THREE.SpotLightHelper( spotLight );
 	scene.add( spotLightHelper );
