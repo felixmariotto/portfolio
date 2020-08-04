@@ -106,6 +106,9 @@
 				}
 
 			#contact-textual-ui {
-				background-color: grey;
+				bottom: calc( 10vw + 30px );
+				left: 50%;
+				padding: 15px 25px;
+				transform: translateX(-50%);
 			}
 

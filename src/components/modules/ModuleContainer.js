@@ -6,6 +6,7 @@ import Prototypes from './Prototypes.js';
 import Casting from './Casting.js';
 import Doc from './Doc.js';
 import Contact from './Contact.js';
+import Samples from './Samples.js';
 
 //
 
@@ -34,6 +35,10 @@ function setModule( moduleName ) {
 
 	case 'technical doc' :
 		container.append( Doc );
+		break
+
+	case 'samples' :
+		container.append( Samples );
 		break
 
 	case 'contact' :

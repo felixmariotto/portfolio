@@ -207,12 +207,26 @@ const scenes = [
 
 	scenesContainers[ 5 ].append( container );
 
+	// title
+
+	const title = document.createElement('H2');
+	title.innerHTML = "More information :";
+
+	container.append( title );
+
+	// links
+
+	const samplesLink = Link( 'samples' );
+	samplesLink.innerHTML = 'samples';
+
+	container.append( samplesLink );
+
 	//
 
-	const link = Link( 'contact' );
-	link.innerHTML = 'contact';
+	const contactLink = Link( 'contact' );
+	contactLink.innerHTML = 'contact';
 
-	container.append( link );
+	container.append( contactLink );
 
 })();
 
