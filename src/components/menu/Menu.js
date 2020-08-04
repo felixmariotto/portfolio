@@ -22,12 +22,24 @@ content.append( linksContainer );
 
 //
 
-linksContainer.append( MenuLink( 'expertise' ) );
-linksContainer.append( MenuLink( 'prototypes' ) );
-linksContainer.append( MenuLink( 'casting parts' ) );
-linksContainer.append( MenuLink( 'technical doc' ) );
+const chaptersContainer = document.createElement('DIV');
+chaptersContainer.id = 'chapters-container';
 
-linksContainer.append( MenuLink( 'contact' ) );
+linksContainer.append( chaptersContainer );
+
+chaptersContainer.append( MenuLink( 'expertise' ) );
+chaptersContainer.append( MenuLink( 'prototypes' ) );
+chaptersContainer.append( MenuLink( 'casting parts' ) );
+chaptersContainer.append( MenuLink( 'technical doc' ) );
+
+//
+
+const moreInfoContainer = document.createElement('DIV');
+moreInfoContainer.id = 'more-info-container';
+
+linksContainer.append( moreInfoContainer );
+
+moreInfoContainer.append( MenuLink( 'contact' ) );
 
 //
 

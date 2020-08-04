@@ -50,11 +50,17 @@
 
 		#links-container {
 			height: 100%;
-			background-color: purple;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
 		}
+
+			#links-container>div {
+				width: -moz-min-content;
+          		width: min-content;
+				padding: 30px;
+				border: 5px solid var(--color1-0);
+			}
 
 	/* ANIMATION */
 
