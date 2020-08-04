@@ -72,13 +72,13 @@ const scenes = [
 
 // Textual UI
 
-function makeLink( linkTo ) {
+function makeLink( linkTon, text ) {
 
 	const icon = document.createElement('I');
 	icon.classList.add('fa', 'fa-long-arrow-right');
 
 	const link = Link( 'expertise' );
-	link.innerHTML = 'learn more&#xA0;&#xA0;&#xA0;';
+	link.innerHTML = text ? text + '&#xA0;&#xA0;&#xA0;' : 'learn more&#xA0;&#xA0;&#xA0;';
 	link.append( icon );
 
 	return link
@@ -225,24 +225,9 @@ function makeLink( linkTo ) {
 
 	// links
 
-	const webdevLink = Link( 'webdev' );
-	webdevLink.innerHTML = 'Web development';
-
-	container.append( webdevLink );
-
-	//
-
-	const samplesLink = Link( 'samples' );
-	samplesLink.innerHTML = 'See some samples';
-
-	container.append( samplesLink );
-
-	//
-
-	const contactLink = Link( 'contact' );
-	contactLink.innerHTML = 'Contact';
-
-	container.append( contactLink );
+	container.append( makeLink( 'webdev', 'Web development' ) );
+	container.append( makeLink( 'samples', 'See some samples' ) );
+	container.append( makeLink( 'contact', 'Contact' ) );
 
 })();
 

@@ -126,5 +126,12 @@
 				padding: 15px 25px;
 				transform: translateX(-50%);
 				white-space: nowrap;
+				display: flex;
+				flex-direction: column;
 			}
+
+				#contact-textual-ui .link {
+					display: flex;
+					justify-content: space-between;
+				}
 
