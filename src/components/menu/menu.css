@@ -66,14 +66,32 @@
 				transition: all 0.15s;
 				font-family: 'Poppins', sans-serif;
 				user-select: none;
+				display: flex;
+				align-items: center;
 			}
 
+				.menu-link-arrow-container {
+					margin-left: 20px;
+					overflow: hidden;
+				}
+
+					.menu-link i {
+						transform: translateX(-100%);
+						transition: transform 0.2s;
+					}
+
 				@media(hover: hover) and (pointer: fine) {
+
 					.menu-link:hover {
 						cursor: pointer;
 						color: var(--color1-1);
 						text-decoration: underline;
 					}
+
+					.menu-link:hover i {
+						transform: translateX(0);
+					}
+
 				}
 
 	/* ANIMATION */

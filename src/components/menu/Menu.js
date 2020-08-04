@@ -49,6 +49,20 @@ function MenuLink( text, linkTo ) {
 	link.classList.add( 'menu-link' );
 	link.innerHTML = text;
 
+	//
+
+	const arrowContainer = document.createElement('DIV');
+	arrowContainer.classList.add( 'menu-link-arrow-container' );
+
+	link.append( arrowContainer );
+
+	const icon = document.createElement('I');
+	icon.classList.add('fa', 'fa-caret-right');
+
+	arrowContainer.append( icon );
+
+	//
+
 	return link
 
 }
