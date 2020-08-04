@@ -44,8 +44,8 @@ function tweenRotationBack() {
 			// report the recorded rotation to a [ 0 1 ] range,
 			// then copy it into inputPosition for camera positioning in scenes.
 
-			inputPosition.x = Easing.easeOutQuint( deviceRotation.x / 2000 );
-			inputPosition.y = Easing.easeOutQuint( deviceRotation.y / 2000 );
+			inputPosition.x = Easing.easeOutQuint( Math.abs( deviceRotation.x / 2000 ) * Math.sign( deviceRotation.x ) );
+			inputPosition.y = Easing.easeOutQuint( Math.abs( deviceRotation.y / 2000 ) * Math.sign( deviceRotation.y ) );
 
 			console.log( inputPosition );
 
@@ -60,9 +60,9 @@ function tweenRotationBack() {
 window.addEventListener( 'devicemotion', (e) => {
 
 	const rot = e.rotationRate
-
-	deviceRotation.x = rot.alpha ? deviceRotation.x + rot.alpha : deviceRotation.x;
-	deviceRotation.y = rot.beta ? deviceRotation.y + rot.beta : deviceRotation.y;
+	
+	deviceRotation.x = rot.beta ? deviceRotation.x + rot.beta : deviceRotation.x;
+	deviceRotation.y = rot.alpha ? deviceRotation.y + rot.alpha : deviceRotation.y;
 	
 	// clamp values to [ 2000, -2000 ]
 
