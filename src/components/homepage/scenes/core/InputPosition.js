@@ -16,4 +16,12 @@ window.addEventListener( 'mousemove', (e) => {
 
 //
 
+window.addEventListener( 'devicemotion', (e) => {
+
+	console.log( e )
+
+})
+
+//
+
 export default inputPosition
