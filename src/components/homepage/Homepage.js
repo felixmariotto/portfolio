@@ -48,6 +48,17 @@ scenesContainers.forEach( ( sceneContainer, i, arr ) => {
 
 	if ( i === 0 ) arrow.classList.add('first');
 
+	arrow.addEventListener( 'click', () => {
+
+		const sceneHeight = document.body.clientHeight * 1.4;
+
+		window.scrollTo({
+			top: sceneHeight * (i + 1),
+			behavior: 'smooth'
+		});
+
+	})
+
 	sceneContainer.append( arrow );
 
 });
@@ -72,12 +83,12 @@ const scenes = [
 
 // Textual UI
 
-function makeLink( linkTon, text ) {
+function makeLink( linkTo, text ) {
 
 	const icon = document.createElement('I');
 	icon.classList.add('fa', 'fa-long-arrow-right');
 
-	const link = Link( 'expertise' );
+	const link = Link( linkTo );
 	link.innerHTML = text ? text + '&#xA0;&#xA0;&#xA0;' : 'learn more&#xA0;&#xA0;&#xA0;';
 	link.append( icon );
 
