@@ -98,7 +98,7 @@ function enterModuleMode() {
 		if ( container.classList.contains('module-mode') ) {
 			container.classList.add('hide-overflow');
 		}
-	}, 300 );
+	}, 800 );
 }
 
 function exitModuleMode() {
