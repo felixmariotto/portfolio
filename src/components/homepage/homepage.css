@@ -36,6 +36,7 @@
 				bottom: 10px;
 				left: 50%;
 				animation: swing_homepage_carret 2s linear infinite;
+				transition: opacity 0.7s linear;
 			}
 
 				.scene-fixed-container .fa-caret-down.first {
@@ -63,6 +64,10 @@
 			}
 
 				.scene-fixed-container.blurry .textual-ui {
+					opacity: 0;
+				}
+
+				.scene-fixed-container.blurry i {
 					opacity: 0;
 				}
 
