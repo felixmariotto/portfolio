@@ -16,9 +16,15 @@ window.addEventListener( 'mousemove', (e) => {
 
 //
 
+const deviceRotation = new THREE.Vector2();
+
+//
+
 window.addEventListener( 'devicemotion', (e) => {
 
-	console.log( e )
+	deviceRotation.set( e.rotationRate.beta, e.rotationRate.gamma );
+
+	console.log( deviceRotation )
 
 })
 
