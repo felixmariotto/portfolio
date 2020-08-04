@@ -24,6 +24,7 @@ let currentPage = 0;
 let savedScroll = 0;
 
 const MAX_PAGE = 5;
+const DELAY_BEFORE_AUTOSCROLL = 1300; // millisec
 
 let previousLocation = 'home';
 let currentLocation = 'home';
@@ -148,7 +149,7 @@ window.addEventListener( 'scroll', (e) => {
 
 setInterval( () => {
 
-	if ( scrollTime > Date.now() - 800 ) return
+	if ( scrollTime > Date.now() - DELAY_BEFORE_AUTOSCROLL ) return
 
 	const sceneHeight = document.body.clientHeight * 1.4;
 
