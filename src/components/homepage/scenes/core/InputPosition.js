@@ -20,6 +20,34 @@ const deviceRotation = new THREE.Vector2();
 
 //
 
+let intervalToken;
+
+function tweenRotationBack() {
+
+	if ( !intervalToken ) {
+
+		intervalToken = setInterval( () => {
+
+			deviceRotation.x += ( 0 - deviceRotation.x ) * 0.1;
+			deviceRotation.y += ( 0 - deviceRotation.y ) * 0.1;
+
+			if (
+				Math.abs( deviceRotation.x ) < 0.5 &&
+				Math.abs( deviceRotation.y ) < 0.5
+			) {
+				clearInterval( intervalToken );
+			};
+
+			console.log( deviceRotation );
+
+		}, 15 );
+
+	}
+
+}
+
+//
+
 window.addEventListener( 'devicemotion', (e) => {
 
 	const rot = e.rotationRate
@@ -27,7 +55,7 @@ window.addEventListener( 'devicemotion', (e) => {
 	deviceRotation.x = rot.beta ? deviceRotation.x + rot.beta : deviceRotation.x;
 	deviceRotation.y = rot.gamma ? deviceRotation.y + rot.gamma : deviceRotation.y;
 
-	console.log( deviceRotation )
+	tweenRotationBack();
 
 })
 
