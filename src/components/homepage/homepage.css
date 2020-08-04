@@ -40,6 +40,10 @@
 					opacity: 0;
 				}
 
+				.textual-ui .link {
+					user-select: none;
+				}
+
 				@media(hover: hover) and (pointer: fine) {
 					.textual-ui .link:hover {
 						cursor: pointer;
