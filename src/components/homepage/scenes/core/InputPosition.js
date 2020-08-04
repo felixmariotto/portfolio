@@ -36,6 +36,7 @@ function tweenRotationBack() {
 				Math.abs( deviceRotation.y ) < 0.5
 			) {
 				clearInterval( intervalToken );
+				intervalToken = undefined
 			};
 
 			console.log( deviceRotation );
