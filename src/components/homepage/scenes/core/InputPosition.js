@@ -12,7 +12,17 @@ const inputPosition = new THREE.Vector2();
 
 //
 
+let cancelUpdate;
+
+window.addEventListener( 'touchstart', () => {
+
+	cancelUpdate = true;
+
+});
+
 window.addEventListener( 'mousemove', (e) => {
+
+	if ( cancelUpdate ) return
 
 	inputPosition.x = ( ( e.clientX / window.innerWidth ) * 2 ) - 1;
 	inputPosition.y = ( ( e.clientY / window.innerHeight ) * 2 ) - 1;
