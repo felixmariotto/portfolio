@@ -22,6 +22,8 @@ import { focusHomepage } from './components/homepage/Homepage.js';
 let currentPage = 0;
 let savedScroll = 0;
 
+const MAX_PAGE = 5;
+
 let previousLocation = 'home';
 let currentLocation = 'home';
 
@@ -132,6 +134,12 @@ window.addEventListener( 'scroll', (e) => {
 	const sceneHeight = document.body.clientHeight * 1.4;
 
 	currentPage = Math.floor( (currentScroll + ( sceneHeight * 0.5 )) / sceneHeight );
+
+	if ( currentScroll > (sceneHeight * MAX_PAGE) ) {
+
+		document.documentElement.scrollTop = sceneHeight * MAX_PAGE
+
+	};
 
 });
 
