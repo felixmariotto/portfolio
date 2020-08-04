@@ -22,7 +22,10 @@ const deviceRotation = new THREE.Vector2();
 
 window.addEventListener( 'devicemotion', (e) => {
 
-	deviceRotation.add( e.rotationRate.beta, e.rotationRate.gamma );
+	const rot = e.rotationRate
+
+	devicemotion.x = rot.beta ? devicemotion.x + rot.beta : devicemotion.x;
+	devicemotion.y = rot.gamma ? devicemotion.y + rot.gamma : devicemotion.y;
 
 	console.log( deviceRotation )
 
