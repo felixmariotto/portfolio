@@ -25,10 +25,10 @@ chaptersContainer.id = 'chapters-container';
 
 linksContainer.append( chaptersContainer );
 
-chaptersContainer.append( MenuLink( 'expertise' ) );
-chaptersContainer.append( MenuLink( 'prototypes' ) );
-chaptersContainer.append( MenuLink( 'casting parts' ) );
-chaptersContainer.append( MenuLink( 'technical doc' ) );
+chaptersContainer.append( MenuLink( 'Technical Consultation', 'expertise' ) );
+chaptersContainer.append( MenuLink( 'Prototypes & 3D Viewers', 'prototypes' ) );
+chaptersContainer.append( MenuLink( 'Casting Parts', 'casting parts' ) );
+chaptersContainer.append( MenuLink( 'Technical Documentation', 'technical doc' ) );
 
 //
 
@@ -37,14 +37,15 @@ moreInfoContainer.id = 'more-info-container';
 
 linksContainer.append( moreInfoContainer );
 
-moreInfoContainer.append( MenuLink( 'samples' ) );
-moreInfoContainer.append( MenuLink( 'contact' ) );
+moreInfoContainer.append( MenuLink( 'Web Development', 'webdev' ) );
+moreInfoContainer.append( MenuLink( 'See some samples', 'samples' ) );
+moreInfoContainer.append( MenuLink( 'Contact', 'contact' ) );
 
 //
 
-function MenuLink( text ) {
+function MenuLink( text, linkTo ) {
 
-	const link = Link( text );
+	const link = Link( linkTo );
 	link.classList.add( 'menu-link' );
 	link.innerHTML = text;
 

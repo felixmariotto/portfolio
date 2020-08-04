@@ -7,6 +7,7 @@ import Casting from './Casting.js';
 import Doc from './Doc.js';
 import Contact from './Contact.js';
 import Samples from './Samples.js';
+import Webdev from './Webdev.js';
 
 //
 
@@ -43,6 +44,10 @@ function setModule( moduleName ) {
 
 	case 'contact' :
 		container.append( Contact );
+		break
+
+	case 'webdev' :
+		container.append( Webdev );
 		break
 
 	}

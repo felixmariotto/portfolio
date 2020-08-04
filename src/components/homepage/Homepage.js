@@ -216,15 +216,22 @@ const scenes = [
 
 	// links
 
+	const webdevLink = Link( 'webdev' );
+	webdevLink.innerHTML = 'Web development';
+
+	container.append( webdevLink );
+
+	//
+
 	const samplesLink = Link( 'samples' );
-	samplesLink.innerHTML = 'samples';
+	samplesLink.innerHTML = 'See some samples';
 
 	container.append( samplesLink );
 
 	//
 
 	const contactLink = Link( 'contact' );
-	contactLink.innerHTML = 'contact';
+	contactLink.innerHTML = 'Contact';
 
 	container.append( contactLink );
 
