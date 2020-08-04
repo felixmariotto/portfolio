@@ -5,6 +5,7 @@ import MenuButton from './components/menuButton/MenuButton.js';
 import { updateButtonTo } from './components/menuButton/MenuButton.js';
 
 import Menu from './components/menu/Menu.js';
+import { menuContent } from './components/menu/Menu.js';
 import { openMenu } from './components/menu/Menu.js';
 import { closeMenu } from './components/menu/Menu.js';
 
@@ -41,7 +42,7 @@ document.body.append( container );
 
 //
 
-container.append( Menu, ModuleContainer, Homepage );
+container.append( Menu, menuContent, ModuleContainer, Homepage );
 document.body.append( MenuButton );
 
 // logo

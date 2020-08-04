@@ -8,17 +8,15 @@ import Link from '../link/Link.js';
 const container = document.createElement('DIV');
 container.id = "menu";
 
-const content = document.createElement('DIV');
-content.id = "menu-content";
-
-container.append( content );
+const menuContent = document.createElement('DIV');
+menuContent.id = "menu-content";
 
 //
 
 const linksContainer = document.createElement('DIV');
 linksContainer.id = "links-container";
 
-content.append( linksContainer );
+menuContent.append( linksContainer );
 
 //
 
@@ -60,6 +58,9 @@ function openMenu() {
 	container.classList.remove( 'anim-close-menu' );
 	container.classList.add( 'anim-open-menu' );
 
+	menuContent.classList.remove( 'anim-close-menu' );
+	menuContent.classList.add( 'anim-open-menu' );
+
 }
 
 //
@@ -69,10 +70,14 @@ function closeMenu() {
 	container.classList.remove( 'anim-open-menu' );
 	container.classList.add( 'anim-close-menu' );
 
+	menuContent.classList.remove( 'anim-open-menu' );
+	menuContent.classList.add( 'anim-close-menu' );
+
 }
 
 //
 
 export { openMenu }
 export { closeMenu }
+export { menuContent }
 export default container
