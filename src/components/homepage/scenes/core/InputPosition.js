@@ -24,8 +24,8 @@ window.addEventListener( 'devicemotion', (e) => {
 
 	const rot = e.rotationRate
 
-	devicemotion.x = rot.beta ? devicemotion.x + rot.beta : devicemotion.x;
-	devicemotion.y = rot.gamma ? devicemotion.y + rot.gamma : devicemotion.y;
+	deviceRotation.x = rot.beta ? deviceRotation.x + rot.beta : deviceRotation.x;
+	deviceRotation.y = rot.gamma ? deviceRotation.y + rot.gamma : deviceRotation.y;
 
 	console.log( deviceRotation )
 
