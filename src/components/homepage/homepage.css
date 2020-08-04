@@ -10,7 +10,7 @@
 	.scene-container {
 		height: 140vh;
 		width: 100%;
-		clip-path: polygon(0 calc( -12vw + 2px ), 50% 2px, 100% calc( -12vw + 2px ), 100% calc( 100% - 12vw - 2px ), 50% calc( 100% - 2px ), 0 calc( 100% - 12vw - 2px ));
+		clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100% - 12vw - 4px ), 50% calc( 100% - 4px ), 0 calc( 100% - 12vw - 4px ));
 		border-style: solid;
 	}
 
