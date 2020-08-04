@@ -66,6 +66,13 @@ const scenes = [
 
 	scenesContainers[ 0 ].append( container );
 
+	// arrow down
+
+	const arrow = document.createElement('I');
+	arrow.classList.add('fa', 'fa-caret-down');
+
+	container.append( arrow );
+
 })();
 
 (function expertiseUI() {
