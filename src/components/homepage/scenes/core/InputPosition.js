@@ -54,7 +54,7 @@ window.addEventListener( 'devicemotion', (e) => {
 	const rot = e.rotationRate
 
 	deviceRotation.x = rot.beta ? deviceRotation.x + rot.beta : deviceRotation.x;
-	deviceRotation.y = rot.gamma ? deviceRotation.y + rot.gamma : deviceRotation.y;
+	deviceRotation.y = rot.alpha ? deviceRotation.y + rot.alpha : deviceRotation.y;
 
 	tweenRotationBack();
 
