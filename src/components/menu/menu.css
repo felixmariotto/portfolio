@@ -56,13 +56,11 @@
 		#links-container > div {
 			width: -moz-min-content;
       		width: min-content;
-			padding: 10px;
-			border: var(--generic-border);
 		}
 
 			.menu-link {
 				font-size: 1.3em;
-				margin: 20px 20px;
+				margin: 15px 0;
 				color: var(--color1-0);
 				white-space: nowrap;
 				transition: all 0.15s;
