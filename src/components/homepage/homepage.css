@@ -47,7 +47,7 @@
 
 			.service-ui {
 				right: 10vw;
-				bottom: calc( 10vw + 60px );
+				bottom: calc( 10vw + 30px );
 				max-width: 30vw;
 				min-width: 200px;
 				padding: calc( 5px + 1vw ) calc( 7px + 2vw );
