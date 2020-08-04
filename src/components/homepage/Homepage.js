@@ -46,6 +46,8 @@ scenesContainers.forEach( ( sceneContainer, i, arr ) => {
 	const arrow = document.createElement('I');
 	arrow.classList.add('fa', 'fa-caret-down');
 
+	if ( i === 0 ) arrow.classList.add('first');
+
 	sceneContainer.append( arrow );
 
 });

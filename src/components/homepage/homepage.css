@@ -31,24 +31,28 @@
 			}
 
 			.scene-fixed-container .fa-caret-down {
-					font-size: calc( 20px + 3vmin );
-					position: fixed;
-					bottom: 10px;
-					left: 50%;
-					animation: swing_homepage_carret 2s linear infinite;
+				font-size: calc( 20px + 3vmin );
+				position: fixed;
+				bottom: 10px;
+				left: 50%;
+				animation: swing_homepage_carret 2s linear infinite;
+			}
+
+				.scene-fixed-container .fa-caret-down.first {
+					bottom: 60px;
 				}
 
-					@keyframes swing_homepage_carret {
-						from {
-							transform: translateY( 0 );
-						}
-						50% {
-							transform: translateY( -35% );
-						}
-						to {
-							transform: translateY( 0 );
-						}
+				@keyframes swing_homepage_carret {
+					from {
+						transform: translateY( 0 );
 					}
+					50% {
+						transform: translateY( -35% );
+					}
+					to {
+						transform: translateY( 0 );
+					}
+				}
 		
 		/* TEXTUAL UI */
 
