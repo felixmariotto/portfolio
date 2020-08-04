@@ -1,8 +1,4 @@
 
-:root {
-	--menu-button-radius: 25px;
-}
-
 #menu-button {
 	position: fixed;
 	top: 20px;

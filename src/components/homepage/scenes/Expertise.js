@@ -23,7 +23,7 @@ export default function Expertise( domElement ) {
 
 	const paperGeometry = new THREE.PlaneBufferGeometry( 0.21, 0.297 );
 	paperGeometry.rotateX( -Math.PI / 2 );
-	const paperMaterial = new THREE.MeshBasicMaterial();
+	const paperMaterial = new THREE.MeshBasicMaterial({ color: 0xebe9e4 });
 
 	const paper1 = new THREE.Mesh( paperGeometry, paperMaterial );
 	paper1.position.set( -0.1, 0.2, 0 );

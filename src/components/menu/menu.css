@@ -53,12 +53,27 @@
 		justify-content: space-between;
 	}
 
-		#links-container>div {
+		#links-container > div {
 			width: -moz-min-content;
       		width: min-content;
-			padding: 30px;
-			border: 5px solid var(--color1-0);
+			padding: 10px;
+			border: var(--generic-border);
 		}
+
+			.menu-link {
+				font-size: 1.3em;
+				margin: 20px 20px;
+				color: var(--color1-0);
+				white-space: nowrap;
+				transition: all 0.15s;
+				font-family: 'Poppins', sans-serif;
+			}
+
+				.menu-link:hover {
+					cursor: pointer;
+					color: var(--color1-1);
+					text-decoration: underline;
+				}
 
 	/* ANIMATION */
 

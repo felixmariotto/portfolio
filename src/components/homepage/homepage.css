@@ -41,38 +41,24 @@
 				}
 
 			.service-ui {
-				height: 200px;
-				bottom: 50px;
-				right: 50px;
+				right: 10%;
+				top: 62%;
+				padding: 25px;
+				border: var(--generic-border);
 			}
 
 			#intro-textual-ui {
-				height: 50px;
-				width: 500px;
 				top: 70%;
 				left: 50%;
+				padding: 15px 25px;
 				transform: translateX(-50%);
-				background-color: grey;
-				font-size: 2em;
+				font-size: calc( 10px + 3vmin );
 				display: flex;
 				align-items: center;
 				justify-content: center;
-			}
-
-			#expertise-textual-ui {
-				background-color: grey;
-			}
-
-			#prototypes-textual-ui {
-				background-color: grey;
-			}
-
-			#casting-textual-ui {
-				background-color: grey;
-			}
-
-			#doc-textual-ui {
-				background-color: grey;
+				color: var(--color1-0);
+				border: var(--generic-border);
+				white-space: nowrap;
 			}
 
 			#contact-textual-ui {

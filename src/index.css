@@ -2,7 +2,9 @@
 
 :root {
 
-	--menu-padding: 15vh 15vw;
+	--menu-button-radius: 25px;
+	--menu-padding: calc( ( var(--menu-button-radius) * 2 ) + 15vh ) 15vw 15vh 15vw;
+	--generic-border: 3px solid var(--color1-0);
 
 	/* COLORS */
 
@@ -21,12 +23,17 @@
 	border: 0;
 	-webkit-tap-highlight-color: transparent;
 	overscroll-behavior: none;
+	font-family: 'Mulish', sans-serif;
 }
 
 body {
 	height: 100vh;
 	width: 100vw;
 	overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Poppins', sans-serif;
 }
 
 /* LOGO */

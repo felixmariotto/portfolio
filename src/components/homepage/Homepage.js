@@ -59,7 +59,7 @@ const scenes = [
 
 (function introUI() {
 
-	const container = document.createElement('DIV');
+	const container = document.createElement('H1');
 	container.id = 'intro-textual-ui';
 	container.classList.add('textual-ui')
 	container.innerHTML = 'High Jewellery Design';
