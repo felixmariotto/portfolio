@@ -163,7 +163,7 @@ function loop() {
 
 	// decide which scenes must be animated
 
-	const currentPos = document.documentElement.scrollTop / (window.innerHeight * 1.2);
+	const currentPos = document.documentElement.scrollTop / (document.body.clientHeight * 1.4);
 
 	const toAnimate = new Set([ Math.floor( currentPos ), Math.ceil( currentPos ) ]);
 
