@@ -3,7 +3,7 @@
 	position: fixed;
 	background: radial-gradient(ellipse at 25% 25%, #ffffff 0%, #edeff2 62%, #b8c0cc 100%);
 	height: 100%;
-	width: 100%;
+	width: 100vw;
 	top: 0px;
 	padding: var(--menu-padding);
 	box-sizing: border-box;
