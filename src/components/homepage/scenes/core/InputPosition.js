@@ -39,7 +39,13 @@ function tweenRotationBack() {
 				intervalToken = undefined
 			};
 
+			// report the recorded rotation to a [ 0 1 ] range,
+			// then copy it into inputPosition for camera positioning in scenes.
+
 			console.log( deviceRotation );
+
+			inputPosition.x = deviceRotation.x / 2000;
+			inputPosition.y = deviceRotation.y / 2000;
 
 		}, 15 );
 
@@ -53,8 +59,15 @@ window.addEventListener( 'devicemotion', (e) => {
 
 	const rot = e.rotationRate
 
-	deviceRotation.x = rot.beta ? deviceRotation.x + rot.beta : deviceRotation.x;
-	deviceRotation.y = rot.alpha ? deviceRotation.y + rot.alpha : deviceRotation.y;
+	deviceRotation.x = rot.alpha ? deviceRotation.x + rot.alpha : deviceRotation.x;
+	deviceRotation.y = rot.beta ? deviceRotation.y + rot.beta : deviceRotation.y;
+	
+	// clamp values to [ 2000, -2000 ]
+
+	deviceRotation.x = THREE.MathUtils.clamp( deviceRotation.x, -2000, 2000 );
+	deviceRotation.y = THREE.MathUtils.clamp( deviceRotation.y, -2000, 2000 );
+
+	// gently tween deviceRotation values back to 0
 
 	tweenRotationBack();
 
