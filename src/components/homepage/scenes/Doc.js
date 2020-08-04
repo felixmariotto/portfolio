@@ -10,8 +10,8 @@ export default function Doc( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	scene.background = new THREE.Color( 0xd7cbb1 );
-	scene.fog = new THREE.FogExp2( 0xd7cbb1, 1 );
+	scene.background = new THREE.Color( 0xffd1de );
+	scene.fog = new THREE.FogExp2( 0xffd1de, 1 );
 
 	// table
 

@@ -15,7 +15,7 @@ export default function Expertise( domElement ) {
 	// table
 
 	const tableGeometry = new THREE.BoxBufferGeometry( 1.5, 0.02, 1.5 );
-	const tableMaterial = new THREE.MeshLambertMaterial({ color: 0xd1b682 });
+	const tableMaterial = new THREE.MeshLambertMaterial({ color: 0xababab });
 
 	scene.add( new THREE.Mesh( tableGeometry, tableMaterial ) );
 
@@ -48,11 +48,11 @@ export default function Expertise( domElement ) {
 
 	// light
 
-	var light = new THREE.PointLight( 0xffffff, 1, 100 );
+	var light = new THREE.PointLight( 0xb6ffb3, 0.8, 100 );
 	light.position.set( 0.1, 0.5, -0.1 );
 	scene.add( light );
 
-	scene.add( new THREE.AmbientLight( 0xffffff, 0.8 ) );
+	scene.add( new THREE.AmbientLight( 0xb6ffb3, 0.6 ) );
 
 	// camera position
 
