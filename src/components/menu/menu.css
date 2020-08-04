@@ -29,17 +29,19 @@
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	transition: all 0.7s;
 	padding: var(--menu-padding);
 	box-sizing: border-box;
 	opacity: 0;
 	pointer-events: none;
 	z-index: 4901;
+	transform: translateX( -40% );
+	transition: all 0.7s;
 }
 
 	#menu-content.anim-open-menu {
 		pointer-events: auto;
 		opacity: 1;
+		transform: translateX( 0 );
 	}
 
 	/* // */
@@ -49,13 +51,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		transform: translateX( -40% );
-		transition: transform 0.8s;
 	}
-
-		#menu-content.anim-open-menu>#links-container {
-			transform: translateX( 0 );
-		}
 
 		#links-container>div {
 			width: -moz-min-content;
