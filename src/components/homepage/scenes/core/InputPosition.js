@@ -5,6 +5,9 @@ import Easing from './Easing.js';
 
 //
 
+// factor by which device motion multiply inputPosition normal values
+const DEVICE_MOTION_POWER = 2;
+
 const inputPosition = new THREE.Vector2();
 
 //
@@ -44,10 +47,8 @@ function tweenRotationBack() {
 			// report the recorded rotation to a [ 0 1 ] range,
 			// then copy it into inputPosition for camera positioning in scenes.
 
-			inputPosition.x = Easing.easeOutQuint( Math.abs( deviceRotation.x / 2000 ) ) * Math.sign( deviceRotation.x );
-			inputPosition.y = Easing.easeOutQuint( Math.abs( deviceRotation.y / 2000 ) ) * Math.sign( deviceRotation.y );
-
-			console.log( inputPosition );
+			inputPosition.x = DEVICE_MOTION_POWER * Easing.easeOutQuint( Math.abs( deviceRotation.x / 2000 ) ) * Math.sign( deviceRotation.x );
+			inputPosition.y = DEVICE_MOTION_POWER * Easing.easeOutQuint( Math.abs( deviceRotation.y / 2000 ) ) * Math.sign( deviceRotation.y );
 
 		}, 15 );
 
