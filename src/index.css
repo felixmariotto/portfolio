@@ -2,7 +2,7 @@
 
 :root {
 
-	--menu-button-radius: 23px;
+	--menu-button-radius: 24px;
 	--menu-padding: calc( ( var(--menu-button-radius) * 2 ) + 15vh ) 15vw 15vh 15vw;
 	--generic-border: 3px solid var(--color1-0);
 
@@ -15,6 +15,11 @@
 	--color1-4: #bdccf0;
 	--color1-5: #f5f8ff;
 
+}
+
+@font-face {
+	font-family: champagne;
+	src: url(https://cad-portfolio.s3.eu-west-3.amazonaws.com/fonts/Champagne.ttf);
 }
 
 * {
@@ -47,10 +52,11 @@ h1, h2, h3, h4 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-size: calc( 20px + 3vmin );
 }
 
 	#logo {
-		height: calc( var(--menu-button-radius) * 1.2 );
+		font-family: 'champagne', sans-serif;
 	}
 
 /* PAGE CONTAINER */

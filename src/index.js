@@ -52,9 +52,9 @@ logoContainer.id = 'logo-container';
 
 document.body.append( logoContainer );
 
-const logo = document.createElement('IMG');
+const logo = document.createElement('DIV');
 logo.id = 'logo';
-logo.src = 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/images/logo-portfolio.png';
+logo.innerHTML = 'Félix Mariotto';
 
 logoContainer.append( logo );
 

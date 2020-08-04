@@ -40,12 +40,35 @@
 					opacity: 0;
 				}
 
+				.textual-ui .link:hover {
+					cursor: pointer;
+					text-decoration: underline;
+				}
+
 			.service-ui {
 				right: 10%;
 				top: 62%;
-				padding: 25px;
+				max-width: 30vw;
+				min-width: 200px;
+				padding: 15px 25px;
 				border: var(--generic-border);
 			}
+
+				.service-ui > * {
+					margin: 7px 0;
+				}
+
+				.service-ui > p {
+					font-size: calc( 10px + 1vmin );
+				}
+
+				.service-ui > div {
+					font-size: calc( 12px + 1.8vmin );
+				}
+
+				.service-ui > h2 {
+					font-size: calc( 12px + 2vmin );
+				}
 
 			#intro-textual-ui {
 				top: 70%;

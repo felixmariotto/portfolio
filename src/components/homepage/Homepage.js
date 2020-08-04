@@ -76,10 +76,24 @@ const scenes = [
 
 	scenesContainers[ 1 ].append( container );
 
-	//
+	// title
+
+	const title = document.createElement('H2');
+	title.innerHTML = "Consult";
+
+	container.append( title );
+
+	// speech
+
+	const speech = document.createElement('P');
+	speech.innerHTML = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
+
+	container.append( speech );
+
+	// link
 
 	const link = Link( 'expertise' );
-	link.innerHTML = 'expertise';
+	link.innerHTML = 'learn more...';
 
 	container.append( link );
 
