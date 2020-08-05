@@ -121,14 +121,14 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = "Consult";
+	title.innerHTML = "Consulting";
 
 	container.append( title );
 
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
+	speech.innerHTML = "Trust my expertise in designing high jewelery pieces to make your projects happen. I have experience designing jewels for the highest brands from wedding bands to necklace masterpieces."
 
 	container.append( speech );
 
@@ -156,7 +156,7 @@ function makeLink( linkTo, text ) {
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
+	speech.innerHTML = "Early in development you will be presented with resin prototypes or photorealistic viewers of your jewel project, so we can pinpoint needs for modification early and respect your delivery schedules.";
 
 	container.append( speech );
 
@@ -184,7 +184,7 @@ function makeLink( linkTo, text ) {
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
+	speech.innerHTML = "Once your jewel is designed, I can supply lost-wax casting parts in all kind of metals : silver, gold, platinum, or even titanium. You need only assemble them."
 
 	container.append( speech );
 
@@ -212,7 +212,7 @@ function makeLink( linkTo, text ) {
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
+	speech.innerHTML = "Assembling your jewel will go unhindered, thanks to the technical documentation I provide with each finished project. Assembling sheets, stone setting plans, everything is covered."
 
 	container.append( speech );
 
