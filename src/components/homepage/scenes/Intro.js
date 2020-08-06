@@ -2,6 +2,7 @@
 import Startup from './core/Startup.js';
 import ShadowedLight from './core/ShadowedLight.js';
 import InputPosition from './core/InputPosition.js';
+import Particles from './core/Particles.js';
 
 import * as THREE from 'three';
 
@@ -17,6 +18,10 @@ export default function Intro( domElement ) {
 	const material = new THREE.MeshLambertMaterial();
 
 	scene.add( ShadowedLight({ color: 0xffa1c2 }), new THREE.AmbientLight( 0x404040, 2 ) );
+
+	const particles = Particles();
+
+	scene.add( particles.container );
 
 	const meshes = [];
 
@@ -64,6 +69,8 @@ export default function Intro( domElement ) {
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
 
 		camera.lookAt( 0, 0, 0 );
+
+		particles.update();
 
 		renderer.render( scene, camera );
 
