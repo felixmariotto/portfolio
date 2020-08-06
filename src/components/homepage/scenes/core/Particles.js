@@ -39,6 +39,8 @@ export default function Particles() {
 
 		const sprite = PointSprite();
 
+		sprite.scale.setScalar( 0.015 + ( Math.random() * 0.015 ) );
+
 		sprites.push( sprite );
 
 		container.add( sprite );
@@ -85,13 +87,14 @@ export default function Particles() {
 const spriteMaterial = new THREE.SpriteMaterial({
 	map: new THREE.CanvasTexture( generatePointTexture() ),
 	sizeAttenuation: false,
-	depthTest: false
+	depthTest: false,
+	transparent: true,
+	opacity: 0.5
 })
 
 function PointSprite() {
 
 	const sprite = new THREE.Sprite( spriteMaterial );
-	sprite.scale.set(0.015, 0.015, 1)
 	
 	return sprite
 
@@ -110,7 +113,6 @@ function generatePointTexture() {
 	ctx.beginPath();
 	ctx.arc(32, 32, 29, 0, 2 * Math.PI);
 	ctx.lineWidth = 5;
-	ctx.stroke();
 	ctx.fillStyle = "white";
 	ctx.fill();
 
