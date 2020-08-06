@@ -41,6 +41,8 @@ export default function Intro( domElement ) {
 
 	}
 
+	// camera position
+
 	const cameraGroup = new THREE.Group();
 	scene.add( cameraGroup );
 
