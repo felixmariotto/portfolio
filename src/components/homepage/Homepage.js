@@ -128,7 +128,7 @@ function makeLink( linkTo, text ) {
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "Trust my expertise in designing high jewelery pieces to make your projects happen. I have experience designing jewels for the highest brands from wedding bands to necklace masterpieces."
+	speech.innerHTML = "Do you need advise on how to design and manage a high jewelry project ? As I have experience working with the most picky high jewelry companies, I can assist you."
 
 	container.append( speech );
 
@@ -184,7 +184,7 @@ function makeLink( linkTo, text ) {
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "Once your jewel is designed, I can supply lost-wax casting parts in all kind of metals : silver, gold, platinum, or even titanium. You need only assemble them."
+	speech.innerHTML = "Once your jewel is designed, I can supply lost-wax casting parts in all kind of metals : silver, gold, platinum, or even titanium. You only have to assemble them."
 
 	container.append( speech );
 
