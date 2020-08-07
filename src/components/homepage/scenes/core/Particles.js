@@ -10,66 +10,53 @@ export default function Particles() {
 
 	//
 
-	const spritePositions = [];
+	var children = [];
+	var vertices = [];
+	var materials = [];
 
-	for ( let i=0 ; i<50 ; i++ ) {
+	var textureLoader = new THREE.TextureLoader();
 
-		const vec = new THREE.Vector3();
+	var spriteTexture = generatePointTexture();
 
-		vec.initX = (Math.random() - 0.5) * 1.4;
-
-		vec.set(
-			vec.initX,
-			(Math.random() - 0.5) * 0.8,
-			0.3 + ( Math.random() * 0.5 )
-		);
-
-		vec.upSpeed = 0.0003 + ( Math.random() * 0.0005 );
-		vec.t = Math.random() * Math.PI;
-
-		spritePositions.push( vec );
-
-	};
-
+	
 	//
 
-	const sprites = [];
+	for ( let i=0 ; i<5 ; i++ ) {
 
-	for ( let i=0 ; i<50 ; i++ ) {
+		materials[ i ] = new THREE.PointsMaterial({
+			size: 0.02,
+			map: spriteTexture,
+			blending: THREE.AdditiveBlending,
+			depthTest: false,
+			transparent: true
+		});
 
-		const sprite = PointSprite();
+		var geometry = new THREE.BufferGeometry();
 
-		sprite.scale.setScalar( 0.015 + ( Math.random() * 0.015 ) );
+		for ( var j = 0; j < 50; j ++ ) {
 
-		sprites.push( sprite );
+			var x = Math.random() * 2 - 1;
+			var y = Math.random() * 1 - 0.5;
+			var z = Math.random() * 0.4 + 0.2;
 
-		container.add( sprite );
+			vertices.push( x, y, z );
 
-	};
+		}
+
+		geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+
+
+		children = new THREE.Points( geometry, materials[ i ] );
+
+		container.add( children );
+
+	}
 
 	//
 
 	function update() {
 
-		spritePositions.forEach( (spritePos, i) => {
-
-			spritePos.y += spritePos.upSpeed;
-
-			spritePos.t += 0.004;
-
-			spritePos.x = spritePos.initX + ( Math.sin(spritePos.t) * 0.05 );
-
-			if ( spritePos.y > 0.4 ) spritePos.y = -0.4;
-
-		})
-
-		//
-
-		sprites.forEach( (sprite, i) => {
-
-			sprite.position.copy( spritePositions[ i ] )
-
-		})
+		children.position.y += 0.0005;
 
 	}
 
@@ -116,6 +103,6 @@ function generatePointTexture() {
 	ctx.fillStyle = "white";
 	ctx.fill();
 
-	return canvas;
+	return new THREE.CanvasTexture( canvas );
 
 };
