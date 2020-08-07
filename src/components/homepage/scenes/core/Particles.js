@@ -10,15 +10,13 @@ export default function Particles() {
 
 	//
 
-	var children = [];
-	var vertices = [];
-	var materials = [];
+	const particlesGroups = [];
+	const vertices = [];
+	const materials = [];
 
-	var textureLoader = new THREE.TextureLoader();
+	const textureLoader = new THREE.TextureLoader();
+	const spriteTexture = generatePointTexture();
 
-	var spriteTexture = generatePointTexture();
-
-	
 	//
 
 	for ( let i=0 ; i<5 ; i++ ) {
@@ -26,29 +24,54 @@ export default function Particles() {
 		materials[ i ] = new THREE.PointsMaterial({
 			size: 0.02,
 			map: spriteTexture,
-			blending: THREE.AdditiveBlending,
 			depthTest: false,
-			transparent: true
+			transparent: true,
+			opacity: 0.3
 		});
 
-		var geometry = new THREE.BufferGeometry();
+		const geometry = new THREE.BufferGeometry();
 
-		for ( var j = 0; j < 50; j ++ ) {
+		for ( var j = 0; j < 30; j ++ ) {
 
-			var x = Math.random() * 2 - 1;
-			var y = Math.random() * 1 - 0.5;
-			var z = Math.random() * 0.4 + 0.2;
-
-			vertices.push( x, y, z );
+			vertices.push(
+				Math.random() * 2.5 - 1.25,
+				Math.random() * 1 - 0.5,
+				Math.random() * 0.4 + 0.2
+			);
 
 		}
 
 		geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
 
+		const newGroup = {
+			speed: (Math.random() * 0.0002) + 0.0002,
+			child1: new THREE.Points( geometry, materials[ i ] ),
+			child2: new THREE.Points( geometry, materials[ i ] ),
+			update: function update() {
 
-		children = new THREE.Points( geometry, materials[ i ] );
+				[ this.child1, this.child2 ].forEach( (child) => {
 
-		container.add( children );
+					child.position.y += this.speed;
+
+					if ( child.position.y > 1 ) child.position.y = -1;
+
+				})
+
+			}
+		}
+
+
+
+		newGroup.child1.geometry.translate(
+			(Math.random() - 0.5) * 0.1,
+			(Math.random() - 0.5) * 0.1,
+			0
+		);
+		newGroup.child2.position.y -= 1;
+
+		particlesGroups.push( newGroup );
+
+		container.add( newGroup.child1, newGroup.child2 );
 
 	}
 
@@ -56,7 +79,11 @@ export default function Particles() {
 
 	function update() {
 
-		children.position.y += 0.0005;
+		particlesGroups.forEach( (particlesGroup) => {
+
+			particlesGroup.update();
+
+		})
 
 	}
 
@@ -66,24 +93,6 @@ export default function Particles() {
 		container,
 		update
 	}
-
-}
-
-//
-
-const spriteMaterial = new THREE.SpriteMaterial({
-	map: new THREE.CanvasTexture( generatePointTexture() ),
-	sizeAttenuation: false,
-	depthTest: false,
-	transparent: true,
-	opacity: 0.5
-})
-
-function PointSprite() {
-
-	const sprite = new THREE.Sprite( spriteMaterial );
-	
-	return sprite
 
 }
 
