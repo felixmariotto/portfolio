@@ -44,7 +44,7 @@ export default function Startup( domElement ) {
 		camera.aspect = WIDTH / HEIGHT;
 		camera.updateProjectionMatrix();
 
-		renderer.setSize( WIDTH, HEIGHT - 50 );
+		renderer.setSize( WIDTH, HEIGHT );
 
 	}
 
