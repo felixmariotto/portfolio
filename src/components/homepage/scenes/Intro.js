@@ -3,6 +3,7 @@ import Startup from './core/Startup.js';
 import ShadowedLight from './core/ShadowedLight.js';
 import InputPosition from './core/InputPosition.js';
 import Particles from './core/Particles.js';
+import { bezel } from './core/Assets.js';
 
 import * as THREE from 'three';
 
@@ -23,23 +24,42 @@ export default function Intro( domElement ) {
 
 	scene.add( particles.container );
 
-	const meshes = [];
+	// bezels
 
-	for ( let i = 0 ; i < 15 ; i++ ) {
+	const BEZEL_COUNT = 10;
+	let bezelMesh;
 
-		const cube = new THREE.Mesh( geometry, material );
+	const dummy = new THREE.Object3D();
 
-		cube.position.x = (i - 5) * -0.25;
-		cube.position.y = (( i - 5 / 10 ) * -0.1) + 0.5 ;
+	const bezelMat = new THREE.MeshLambertMaterial({
+		transparent: true,
+		opacity: 1,
+		color: 0xffffff
+	});
 
-		cube.rotation.x = Math.random() * Math.PI;
-		cube.rotation.y = Math.random() * Math.PI;
+	bezel.then( (obj) => {
 
-		meshes.push( cube );
+		obj.children[ 0 ].geometry.computeVertexNormals();
 
-		scene.add( cube );
+		bezelMesh = new THREE.InstancedMesh(
+			obj.children[ 0 ].geometry,
+			bezelMat,
+			BEZEL_COUNT
+		);
 
-	}
+		bezelMesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage );
+
+		bezelMesh.position.x -= 1;
+		bezelMesh.rotation.x += Math.PI / 1.3;
+		bezelMesh.scale.setScalar( 0.7 );
+
+		const container = new THREE.Group();
+		container.rotation.z += 0.3;
+		container.add( bezelMesh );
+
+		scene.add( container );
+
+	});
 
 	// camera position
 
@@ -56,13 +76,27 @@ export default function Intro( domElement ) {
 
 	function animate() {
 
-		meshes.forEach( (mesh, i) => {
+		if ( bezelMesh ) {
 
-			const basePos = (( i - 5 / 10 ) * -0.1) + 0.5;
+			const time = Date.now() * 0.001;
 
-			mesh.position.y = basePos + ( ( Math.sin( (Date.now() + ( 300 * i ) ) / 1000 ) ) * 0.05 )
+			for ( let i = 0 ; i < BEZEL_COUNT ; i ++ ) {
 
-		})
+				dummy.position.set( i * 0.558, 0, 0 );
+				dummy.rotation.y = 0;
+				dummy.rotation.z = 0;
+
+				dummy.updateMatrix();
+
+				bezelMesh.setMatrixAt( i, dummy.matrix );
+
+			}
+
+			bezelMesh.instanceMatrix.needsUpdate = true;
+
+		}
+
+		//
 
 		targetRot.y = 0.25 * -InputPosition.x;
 		targetRot.x = 0.1 * -InputPosition.y;
