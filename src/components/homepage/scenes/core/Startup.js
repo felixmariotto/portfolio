@@ -19,7 +19,8 @@ export default function Startup( domElement ) {
 
 	const renderer = new WebGLRenderer({
 		antialias: true,
-		alpha: true
+		alpha: true,
+		precision: 'mediump'
 	});
 	renderer.shadowMap.enabled = true ;
 
