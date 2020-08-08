@@ -1,6 +1,7 @@
 
 import * as THREE from 'three';
 import Easing from './Easing.js';
+import particlePNG from '../assets/particle.png';
 
 //
 
@@ -10,28 +11,30 @@ export default function Particles() {
 
 	//
 
+	const PARTICLES_GROUPS = 5;
+
 	const particlesGroups = [];
-	const vertices = [];
 	const materials = [];
 
 	const textureLoader = new THREE.TextureLoader();
-	const spriteTexture = generatePointTexture();
+	const texture = textureLoader.load( particlePNG );
 
 	//
 
-	for ( let i=0 ; i<5 ; i++ ) {
+	for ( let i=0 ; i<PARTICLES_GROUPS ; i++ ) {
 
 		materials[ i ] = new THREE.PointsMaterial({
-			size: 0.02,
-			map: spriteTexture,
+			size: 0.02 + ( 0.02 * Math.pow( i, 1.7 ) ),
+			map: texture,
 			depthTest: false,
 			transparent: true,
-			opacity: 0.3
+			opacity: 0.25
 		});
 
 		const geometry = new THREE.BufferGeometry();
+		const vertices = [];
 
-		for ( var j = 0; j < 30; j ++ ) {
+		for ( var j = 0; j < 10 * Math.pow( PARTICLES_GROUPS - i, 2 ); j ++ ) {
 
 			vertices.push(
 				Math.random() * 2.5 - 1.25,
@@ -59,8 +62,6 @@ export default function Particles() {
 
 			}
 		}
-
-
 
 		newGroup.child1.geometry.translate(
 			(Math.random() - 0.5) * 0.1,
@@ -95,23 +96,3 @@ export default function Particles() {
 	}
 
 }
-
-//
-
-function generatePointTexture() {
-
-	var canvas = document.createElement( 'canvas' );
-	canvas.width = 64;
-	canvas.height = 64;
-
-	var ctx = canvas.getContext("2d");
-
-	ctx.beginPath();
-	ctx.arc(32, 32, 29, 0, 2 * Math.PI);
-	ctx.lineWidth = 5;
-	ctx.fillStyle = "white";
-	ctx.fill();
-
-	return new THREE.CanvasTexture( canvas );
-
-};
