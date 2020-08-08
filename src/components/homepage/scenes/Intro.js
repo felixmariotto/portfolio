@@ -15,7 +15,7 @@ export default function Intro( domElement ) {
 	const { scene, camera, renderer } = Startup( domElement );
 
 	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2);
-	const material = new THREE.MeshLambertMaterial();
+	const material = new THREE.MeshLambertMaterial({ transparent: true });
 
 	scene.add( ShadowedLight({ color: 0xffa1c2 }), new THREE.AmbientLight( 0x404040, 2 ) );
 

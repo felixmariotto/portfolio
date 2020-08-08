@@ -39,7 +39,7 @@ export default function Particles() {
 			vertices.push(
 				Math.random() * 2.5 - 1.25,
 				Math.random() * 1 - 0.5,
-				Math.random() * 0.4 + 0.2
+				Math.random() * 0.65
 			);
 
 		}
@@ -69,6 +69,9 @@ export default function Particles() {
 			0
 		);
 		newGroup.child2.position.y -= 1;
+
+		newGroup.child1.position.z = 0.3;
+		newGroup.child2.position.z = 0.3;
 
 		particlesGroups.push( newGroup );
 
