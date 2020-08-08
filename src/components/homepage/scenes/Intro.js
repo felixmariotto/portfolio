@@ -27,9 +27,10 @@ export default function Intro( domElement ) {
 	// bezels
 
 	const BEZEL_COUNT = 10;
+	const BEZEL_MAX_ANGLE = 0.05;
 	let bezelMesh;
 
-	const dummy = new THREE.Object3D();
+	const dummyObj = new THREE.Object3D();
 
 	const bezelMat = new THREE.MeshLambertMaterial({
 		transparent: true,
@@ -49,7 +50,7 @@ export default function Intro( domElement ) {
 
 		bezelMesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage );
 
-		bezelMesh.position.x -= 1;
+		bezelMesh.position.x -= 1.5;
 		bezelMesh.rotation.x += Math.PI / 1.3;
 		bezelMesh.scale.setScalar( 0.7 );
 
@@ -80,15 +81,28 @@ export default function Intro( domElement ) {
 
 			const time = Date.now() * 0.001;
 
+			const targetPosition = new THREE.Vector3();
+
+			const rotAxis = new THREE.Vector3( 0, 1, 0 );
+
 			for ( let i = 0 ; i < BEZEL_COUNT ; i ++ ) {
 
-				dummy.position.set( i * 0.558, 0, 0 );
-				dummy.rotation.y = 0;
-				dummy.rotation.z = 0;
+				const angle = Math.sin( ( Date.now() / 1200 ) + i ) * BEZEL_MAX_ANGLE;
 
-				dummy.updateMatrix();
+				dummyObj.position.copy( targetPosition );
+				dummyObj.rotation.y = angle;
+				dummyObj.rotation.z = 0;
 
-				bezelMesh.setMatrixAt( i, dummy.matrix );
+				dummyObj.updateMatrix();
+
+				bezelMesh.setMatrixAt( i, dummyObj.matrix );
+
+				//
+
+				const additionVec = new THREE.Vector3( 0.558, 0, 0 );
+				additionVec.applyAxisAngle( rotAxis, angle );
+
+				targetPosition.add( additionVec );
 
 			}
 
