@@ -11,35 +11,70 @@ export default function Particles() {
 
 	//
 
-	const PARTICLES_GROUPS = 5;
+	const FRONT_PARTICLES_GROUPS = 5;
+	const BACK_PARTICLES_GROUPS = 3;
 
 	const particlesGroups = [];
-	const materials = [];
 
 	const textureLoader = new THREE.TextureLoader();
 	const texture = textureLoader.load( particlePNG );
 
-	//
+	// background
 
-	for ( let i=0 ; i<PARTICLES_GROUPS ; i++ ) {
+	for ( let i=0 ; i<BACK_PARTICLES_GROUPS ; i++ ) {
 
-		materials[ i ] = new THREE.PointsMaterial({
-			size: 0.02 + ( 0.02 * Math.pow( i, 1.7 ) ),
+		const material = new THREE.PointsMaterial({
+			size: 0.5 + ( 0.3 * Math.pow( i, 1.5 ) ),
 			map: texture,
 			depthTest: false,
 			transparent: true,
-			opacity: 0.25
+			opacity: 0.5
 		});
 
 		const geometry = new THREE.BufferGeometry();
 		const vertices = [];
 
-		for ( var j = 0; j < 10 * Math.pow( PARTICLES_GROUPS - i, 2 ); j ++ ) {
+		for ( var j = 0; j < 5 * Math.pow( BACK_PARTICLES_GROUPS - i, 2 ); j ++ ) {
+
+			vertices.push(
+				Math.random() * 4 - 2,
+				Math.random() * 2 - 1,
+				Math.random() * -0.65
+			);
+
+		}
+
+		geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+
+		const particles = new THREE.Points( geometry, material );
+
+		particles.position.z -= 0.3;
+
+		container.add( particles );
+
+	}
+
+	// foreground
+
+	for ( let i=0 ; i<FRONT_PARTICLES_GROUPS ; i++ ) {
+
+		const material = new THREE.PointsMaterial({
+			size: 0.02 + ( 0.02 * Math.pow( i, 1.7 ) ),
+			map: texture,
+			depthTest: false,
+			transparent: true,
+			opacity: 0.2
+		});
+
+		const geometry = new THREE.BufferGeometry();
+		const vertices = [];
+
+		for ( var j = 0; j < 10 * Math.pow( FRONT_PARTICLES_GROUPS - i, 2 ); j ++ ) {
 
 			vertices.push(
 				Math.random() * 2.5 - 1.25,
 				Math.random() * 1 - 0.5,
-				Math.random() * 0.65
+				Math.random() * 0.55
 			);
 
 		}
@@ -48,8 +83,8 @@ export default function Particles() {
 
 		const newGroup = {
 			speed: (Math.random() * 0.0002) + 0.0002,
-			child1: new THREE.Points( geometry, materials[ i ] ),
-			child2: new THREE.Points( geometry, materials[ i ] ),
+			child1: new THREE.Points( geometry, material ),
+			child2: new THREE.Points( geometry, material ),
 			update: function update() {
 
 				[ this.child1, this.child2 ].forEach( (child) => {
