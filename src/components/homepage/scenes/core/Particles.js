@@ -11,8 +11,8 @@ export default function Particles() {
 
 	//
 
-	const FRONT_PARTICLES_GROUPS = 5;
-	const BACK_PARTICLES_GROUPS = 3;
+	const FRONT_PARTICLES_GROUPS = 3;
+	const BACK_PARTICLES_GROUPS = 2;
 
 	const particlesGroups = [];
 
@@ -24,7 +24,7 @@ export default function Particles() {
 	for ( let i=0 ; i<BACK_PARTICLES_GROUPS ; i++ ) {
 
 		const material = new THREE.PointsMaterial({
-			size: 0.5 + ( 0.3 * Math.pow( i, 1.5 ) ),
+			size: 0.5 + ( 0.5 * Math.pow( i, 1.7 ) ),
 			map: texture,
 			depthTest: false,
 			transparent: true,
@@ -34,7 +34,7 @@ export default function Particles() {
 		const geometry = new THREE.BufferGeometry();
 		const vertices = [];
 
-		for ( var j = 0; j < 5 * Math.pow( BACK_PARTICLES_GROUPS - i, 2 ); j ++ ) {
+		for ( var j = 0; j < 8 * Math.pow( BACK_PARTICLES_GROUPS - i, 2 ); j ++ ) {
 
 			vertices.push(
 				Math.random() * 4 - 2,
@@ -59,7 +59,7 @@ export default function Particles() {
 	for ( let i=0 ; i<FRONT_PARTICLES_GROUPS ; i++ ) {
 
 		const material = new THREE.PointsMaterial({
-			size: 0.02 + ( 0.02 * Math.pow( i, 1.7 ) ),
+			size: 0.04 + ( 0.02 * Math.pow( i, 2 ) ),
 			map: texture,
 			depthTest: false,
 			transparent: true,
@@ -69,7 +69,7 @@ export default function Particles() {
 		const geometry = new THREE.BufferGeometry();
 		const vertices = [];
 
-		for ( var j = 0; j < 10 * Math.pow( FRONT_PARTICLES_GROUPS - i, 2 ); j ++ ) {
+		for ( var j = 0; j < 20 * Math.pow( FRONT_PARTICLES_GROUPS - i, 2 ); j ++ ) {
 
 			vertices.push(
 				Math.random() * 2.5 - 1.25,
