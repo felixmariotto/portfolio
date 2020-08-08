@@ -27,7 +27,7 @@ export default function Intro( domElement ) {
 	// bezels
 
 	const BEZEL_COUNT = 10;
-	const BEZEL_MAX_ANGLE = 0.05;
+	const BEZEL_MAX_ANGLE = 0.07;
 	let bezelMesh;
 
 	const dummyObj = new THREE.Object3D();
@@ -91,7 +91,6 @@ export default function Intro( domElement ) {
 
 				dummyObj.position.copy( targetPosition );
 				dummyObj.rotation.y = angle;
-				dummyObj.rotation.z = 0;
 
 				dummyObj.updateMatrix();
 
