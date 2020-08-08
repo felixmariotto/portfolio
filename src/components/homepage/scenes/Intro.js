@@ -26,7 +26,7 @@ export default function Intro( domElement ) {
 
 	// bezels
 
-	const BEZEL_COUNT = 8;
+	const BEZEL_COUNT = 9;
 	const BEZEL_MAX_ANGLE = 0.07;
 	let bezelMesh;
 
@@ -50,7 +50,7 @@ export default function Intro( domElement ) {
 
 		bezelMesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage );
 
-		bezelMesh.position.x -= 1.4;
+		bezelMesh.position.x -= 1.55;
 		bezelMesh.rotation.x += Math.PI / 1.3;
 		bezelMesh.scale.setScalar( 0.7 );
 
