@@ -164,8 +164,8 @@ export default function Intro( domElement ) {
 
 		//
 
-		targetRot.y = 0.25 * -InputPosition.x;
-		targetRot.x = 0.15 * -InputPosition.y;
+		targetRot.y = Math.min( 0.35, Math.max( -0.35, 0.25 * -InputPosition.x ) );
+		targetRot.x = Math.min( 0.25, Math.max( -0.25, 0.15 * -InputPosition.y ) );
 
 		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * (0.02 * speedRatio);
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * (0.02 * speedRatio);
