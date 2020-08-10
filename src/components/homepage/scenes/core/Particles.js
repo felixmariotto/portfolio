@@ -69,7 +69,7 @@ export default function Particles() {
 		const geometry = new THREE.BufferGeometry();
 		const vertices = [];
 
-		for ( var j = 0; j < 20 * Math.pow( FRONT_PARTICLES_GROUPS - i, 2 ); j ++ ) {
+		for ( var j = 0; j < 25 * Math.pow( FRONT_PARTICLES_GROUPS - i, 2 ); j ++ ) {
 
 			vertices.push(
 				Math.random() * 2.5 - 1.25,
