@@ -101,12 +101,13 @@ export default function Intro( domElement ) {
 	//
 
 	const targetRot = new THREE.Vector2();
+	let time = 0;
 
-	function animate() {
+	function animate( speedRatio ) {
+
+		time += ( speedRatio / 80 )
 
 		if ( bezelMeshes ) {
-
-			const time = Date.now() * 0.001;
 
 			const targetPosition = new THREE.Vector3();
 
@@ -114,7 +115,7 @@ export default function Intro( domElement ) {
 
 			for ( let i = 0 ; i < BEZEL_COUNT ; i ++ ) {
 
-				const angle = Math.sin( ( Date.now() / 1200 ) + i ) * BEZEL_MAX_ANGLE;
+				const angle = Math.sin( time + (i * 1.1) ) * BEZEL_MAX_ANGLE;
 
 				dummyObj.position.copy( targetPosition );
 				dummyObj.rotation.y = angle;
@@ -145,8 +146,8 @@ export default function Intro( domElement ) {
 		targetRot.y = 0.25 * -InputPosition.x;
 		targetRot.x = 0.1 * -InputPosition.y;
 
-		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
-		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
+		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * (0.02 * speedRatio);
+		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * (0.02 * speedRatio);
 
 		camera.lookAt( 0, 0, 0 );
 

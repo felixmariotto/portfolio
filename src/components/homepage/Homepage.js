@@ -1,6 +1,8 @@
 
 import './homepage.css';
 
+import * as THREE from 'three';
+
 import Link from '../link/Link.js';
 
 import Intro from './scenes/Intro.js';
@@ -9,6 +11,10 @@ import Prototypes from './scenes/Prototypes.js';
 import Casting from './scenes/Casting.js';
 import Doc from './scenes/Doc.js';
 import Contact from './scenes/Contact.js';
+
+//
+
+const clock = new THREE.Clock();
 
 //
 
@@ -251,6 +257,8 @@ loop();
 
 function loop() {
 
+	const speedRatio = clock.getDelta() / ( 1 / 60 );
+
 	requestAnimationFrame( loop );
 
 	// decide which scenes must be animated
@@ -271,7 +279,7 @@ function loop() {
 
 	*/
 
-	scenes[ Math.round( currentPos ) ].animate();
+	scenes[ Math.round( currentPos ) ].animate( speedRatio );
 
 }
 
