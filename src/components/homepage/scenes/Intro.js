@@ -93,10 +93,31 @@ export default function Intro( domElement ) {
 
 	const cameraGroup = new THREE.Group();
 	scene.add( cameraGroup );
+	cameraGroup.add( camera );
 
 	camera.position.z = 1;
-	camera.lookAt( 0, 0, 0 );
-	cameraGroup.add( camera );
+	
+	positionCamera();
+
+	window.addEventListener( 'resize', positionCamera );
+
+	function positionCamera() {
+
+		const ratio = window.innerHeight / window.innerWidth;
+
+		if ( ratio > 1 ) {
+
+			camera.position.z = ratio;
+
+		} else {
+
+			camera.position.z = 1;
+
+		}
+
+		camera.lookAt( 0, 0, 0 );
+
+	}
 
 	//
 
