@@ -14,7 +14,7 @@ export default function Startup( domElement ) {
 		60,
 		WIDTH / HEIGHT,
 		0.05,
-		3
+		5
 	);
 
 	const renderer = new WebGLRenderer({

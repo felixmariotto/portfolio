@@ -34,11 +34,11 @@ export default function Particles() {
 		const geometry = new THREE.BufferGeometry();
 		const vertices = [];
 
-		for ( var j = 0; j < 8 * Math.pow( BACK_PARTICLES_GROUPS - i, 2 ); j ++ ) {
+		for ( var j = 0; j < 12 * Math.pow( BACK_PARTICLES_GROUPS - i, 2 ); j ++ ) {
 
 			vertices.push(
 				Math.random() * 4 - 2,
-				Math.random() * 2 - 1,
+				Math.random() * 4 - 2,
 				Math.random() * -0.65
 			);
 
@@ -69,11 +69,11 @@ export default function Particles() {
 		const geometry = new THREE.BufferGeometry();
 		const vertices = [];
 
-		for ( var j = 0; j < 25 * Math.pow( FRONT_PARTICLES_GROUPS - i, 2 ); j ++ ) {
+		for ( var j = 0; j < 35 * Math.pow( FRONT_PARTICLES_GROUPS - i, 2 ); j ++ ) {
 
 			vertices.push(
 				Math.random() * 2.5 - 1.25,
-				Math.random() * 1 - 0.5,
+				Math.random() * 1.5 - 0.75,
 				Math.random() * 0.55
 			);
 
@@ -91,7 +91,7 @@ export default function Particles() {
 
 					child.position.y += this.speed;
 
-					if ( child.position.y > 1 ) child.position.y = -1;
+					if ( child.position.y > 1.5 ) child.position.y = -1.5;
 
 				})
 
