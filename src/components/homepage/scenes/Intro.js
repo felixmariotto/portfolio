@@ -107,7 +107,7 @@ export default function Intro( domElement ) {
 
 		if ( ratio > 1 ) {
 
-			camera.position.z = ratio;
+			camera.position.z = 1.6;
 
 		} else {
 
