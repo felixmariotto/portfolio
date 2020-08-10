@@ -16,9 +16,16 @@ export default function Intro( domElement ) {
 	const { scene, camera, renderer } = Startup( domElement );
 
 	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2);
-	const material = new THREE.MeshLambertMaterial({ transparent: true });
 
-	scene.add( ShadowedLight({ color: 0xffa1c2 }), new THREE.AmbientLight( 0x404040, 2 ) );
+	const light = ShadowedLight({
+		color: 0xffb5cf,
+		z: 10,
+		x: -2,
+		y: 1,
+		intensity: 0.7
+	});
+
+	scene.add( light, new THREE.AmbientLight( 0xc0f8fc, 0.5 ) );
 
 	const particles = Particles();
 
@@ -28,13 +35,21 @@ export default function Intro( domElement ) {
 
 	const BEZEL_COUNT = 9;
 	const BEZEL_MAX_ANGLE = 0.07;
-	let bezelMesh;
+	const bezelMeshes = [];
 
 	const dummyObj = new THREE.Object3D();
 
-	const bezelMat = new THREE.MeshLambertMaterial({
+	const backMat = new THREE.MeshLambertMaterial({
 		transparent: true,
-		opacity: 1,
+		opacity: 0.8,
+		side: THREE.BackSide,
+		color: 0xffffff
+	});
+
+	const frontMat = new THREE.MeshLambertMaterial({
+		transparent: true,
+		opacity: 0.8,
+		side: THREE.FrontSide,
 		color: 0xffffff
 	});
 
@@ -42,23 +57,35 @@ export default function Intro( domElement ) {
 
 		obj.children[ 0 ].geometry.computeVertexNormals();
 
-		bezelMesh = new THREE.InstancedMesh(
+		bezelMeshes[ 0 ] = new THREE.InstancedMesh(
 			obj.children[ 0 ].geometry,
-			bezelMat,
+			backMat,
 			BEZEL_COUNT
 		);
 
-		bezelMesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage );
+		bezelMeshes[ 1 ] = new THREE.InstancedMesh(
+			obj.children[ 0 ].geometry,
+			frontMat,
+			BEZEL_COUNT
+		);
 
-		bezelMesh.position.x -= 1.55;
-		bezelMesh.rotation.x += Math.PI / 1.3;
-		bezelMesh.scale.setScalar( 0.7 );
+		bezelMeshes.forEach( (mesh, i) => {
 
-		const container = new THREE.Group();
-		container.rotation.z += 0.3;
-		container.add( bezelMesh );
+			mesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage );
 
-		scene.add( container );
+			mesh.renderOrder = i;
+
+			mesh.position.x -= 1.55;
+			mesh.rotation.x += Math.PI / 1.3;
+			mesh.scale.setScalar( 0.7 );
+
+			const container = new THREE.Group();
+			container.rotation.z += 0.3;
+			container.add( mesh );
+
+			scene.add( container );
+
+		})
 
 	});
 
@@ -77,7 +104,7 @@ export default function Intro( domElement ) {
 
 	function animate() {
 
-		if ( bezelMesh ) {
+		if ( bezelMeshes ) {
 
 			const time = Date.now() * 0.001;
 
@@ -94,7 +121,9 @@ export default function Intro( domElement ) {
 
 				dummyObj.updateMatrix();
 
-				bezelMesh.setMatrixAt( i, dummyObj.matrix );
+				bezelMeshes.forEach( (mesh) => {
+					mesh.setMatrixAt( i, dummyObj.matrix );
+				})
 
 				//
 
@@ -105,7 +134,9 @@ export default function Intro( domElement ) {
 
 			}
 
-			bezelMesh.instanceMatrix.needsUpdate = true;
+			bezelMeshes.forEach( (mesh) => {
+				mesh.instanceMatrix.needsUpdate = true;
+			});
 
 		}
 
