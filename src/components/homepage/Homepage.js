@@ -257,6 +257,8 @@ function loop() {
 
 	const currentPos = document.documentElement.scrollTop / (document.body.clientHeight * 1.4);
 
+	/* animate two visible scenes
+
 	const toAnimate = new Set([ Math.floor( currentPos ), Math.ceil( currentPos ) ]);
 
 	toAnimate.forEach( (id) => {
@@ -266,6 +268,10 @@ function loop() {
 		scenes[ id ].animate();
 
 	});
+
+	*/
+
+	scenes[ Math.round( currentPos ) ].animate();
 
 }
 
