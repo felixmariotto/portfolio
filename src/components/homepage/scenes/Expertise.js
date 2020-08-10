@@ -1,6 +1,7 @@
 
 import Startup from './core/Startup.js';
 import InputPosition from './core/InputPosition.js';
+import { expertise } from './core/Assets.js';
 
 import * as THREE from 'three';
 
@@ -12,6 +13,15 @@ export default function Expertise( domElement ) {
 
 	scene.background = new THREE.Color( 'blue' );
 
+	// assets
+
+	expertise.then( (obj) => {
+
+		scene.add( obj );
+
+	});
+
+	/*
 	// table
 
 	const tableGeometry = new THREE.BoxBufferGeometry( 1.5, 0.02, 1.5 );
@@ -45,6 +55,7 @@ export default function Expertise( domElement ) {
 	pen.rotation.y = -0.5;
 
 	scene.add( pen );
+	*/
 
 	// light
 

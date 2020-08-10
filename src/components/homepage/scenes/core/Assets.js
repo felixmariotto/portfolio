@@ -15,8 +15,11 @@ loader.setDRACOLoader( dracoLoader );
 
 const bezel = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/bezel-processed.glb' );
 
+const expertise = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/expertise-processed.glb' );
+
 const models = {
-	bezel
+	bezel,
+	expertise
 };
 
 //
@@ -38,4 +41,5 @@ function loadItem( url ) {
 //
 
 export { bezel }
+export { expertise }
 export default models
