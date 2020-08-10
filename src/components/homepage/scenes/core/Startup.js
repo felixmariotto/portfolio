@@ -29,7 +29,7 @@ export default function Startup( domElement ) {
 		HEIGHT
 	);
 
-	renderer.setPixelRatio( window.devicePixelRatio );
+	renderer.setPixelRatio( Math.min( window.devicePixelRatio, 2 ) );
 
 	domElement.append( renderer.domElement );
 
