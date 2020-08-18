@@ -12,7 +12,7 @@ export default function Expertise( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	scene.fog = new THREE.Fog( 0xffffff, 0.05, 1 )
+	scene.fog = new THREE.Fog( 0xffffff, 0.05, 1.2 )
 
 	scene.background = new THREE.Color( 'blue' );
 
