@@ -10,15 +10,15 @@ import * as THREE from 'three';
 
 export default function Expertise( domElement ) {
 
-	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #ffffff 0%, #cdd0d4 62%, #97a4b8 100%)';
+	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #ffffff 0%, #cdd0d4 62%, #022559 100%)';
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	renderer.domElement.style.opacity = "0.7";
+	renderer.domElement.style.opacity = "0.6";
 
 	// scene.fog = new THREE.Fog( 0xffffff, 0.05, 1.2 );
 
-	scene.fog = new THREE.FogExp2( 0x00ff95, 0.8 )
+	scene.fog = new THREE.FogExp2( 0x0095ff, 0.7 )
 
 	scene.background = new THREE.Color( 0xf7f7f7 );
 
@@ -91,13 +91,13 @@ export default function Expertise( domElement ) {
 
 			camera.lookAt( 0, 0, (ratio - 1) * 0.15 );
 
-			scene.fog.density = 0.8 / ratio;
+			scene.fog.density = 0.7 / ratio;
 
 		} else {
 
 			camera.lookAt( 0, 0, 0 );
 
-			scene.fog.density = 0.8;
+			scene.fog.density = 0.7;
 
 		}
 
