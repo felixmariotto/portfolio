@@ -14,7 +14,7 @@ export default function Expertise( domElement ) {
 
 	scene.fog = new THREE.Fog( 0xffffff, 0.05, 1.2 )
 
-	scene.background = new THREE.Color( 'blue' );
+	scene.background = new THREE.Color( 0xf7f7f7 );
 
 	// assets
 
@@ -22,21 +22,34 @@ export default function Expertise( domElement ) {
 
 		scene.add( obj );
 
+		obj.traverse( (child) => {
+
+			if ( child.material ) child.material.side = THREE.FrontSide;
+
+			child.castShadow = true;
+			child.receiveShadow = true;
+
+		})
+
 	});
 
 	// light
 
 	const light = ShadowedLight({
+		// bias: -0.0001,
 		color: 0xffffff,
-		z: 10,
-		x: -2,
-		y: 1,
-		intensity: 0.7
+		x: -1,
+		y: 2,
+		z: -2,
+		intensity: 0.6,
+		width: 1
 	});
+
+	light.shadow.radius = 10;
 
 	scene.add( light );
 
-	scene.add( new THREE.AmbientLight( 0xffffff, 0.6 ) );
+	scene.add( new THREE.AmbientLight( 0xffffff, 0.7 ) );
 
 	// camera position
 
