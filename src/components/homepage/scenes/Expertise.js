@@ -13,7 +13,7 @@ export default function Expertise( domElement ) {
 
 	scene.background = new THREE.Color( 'blue' );
 
-	scene.overrideMaterial = new THREE.MeshBasicMaterial();
+	scene.overrideMaterial = new THREE.MeshBasicMaterial({ color: 'red' });
 
 	// assets
 
