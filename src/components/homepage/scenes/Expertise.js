@@ -18,7 +18,7 @@ export default function Expertise( domElement ) {
 
 	// scene.fog = new THREE.Fog( 0xffffff, 0.05, 1.2 );
 
-	scene.fog = new THREE.FogExp2( 0x00ff95, 0.5 )
+	scene.fog = new THREE.FogExp2( 0x00ff95, 0.8 )
 
 	scene.background = new THREE.Color( 0xf7f7f7 );
 
@@ -91,9 +91,13 @@ export default function Expertise( domElement ) {
 
 			camera.lookAt( 0, 0, (ratio - 1) * 0.15 );
 
+			scene.fog.density = 0.8 / ratio;
+
 		} else {
 
 			camera.lookAt( 0, 0, 0 );
+
+			scene.fog.density = 0.8;
 
 		}
 
