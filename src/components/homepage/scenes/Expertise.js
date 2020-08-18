@@ -39,6 +39,15 @@ export default function Expertise( domElement ) {
 
 	});
 
+	// plane
+
+	var planeGeometry = new THREE.PlaneBufferGeometry( 2, 2 );
+	var planeMaterial = new THREE.MeshLambertMaterial({ color: 0xd1d1d1 });
+	var plane = new THREE.Mesh( planeGeometry, planeMaterial );
+	plane.rotation.x = -Math.PI / 2;
+	plane.receiveShadow = true;
+	scene.add( plane );
+
 	// light
 
 	const light = ShadowedLight({
@@ -50,10 +59,11 @@ export default function Expertise( domElement ) {
 		intensity: 0.6,
 		width: 0.5,
 		near: 2,
-		far: 4
+		far: 4,
+		resolution: 1024
 	});
 
-	light.shadow.radius = 15;
+	light.shadow.radius = 10;
 
 	scene.add( light );
 
