@@ -1,5 +1,6 @@
 
 import Startup from './core/Startup.js';
+import ShadowedLight from './core/ShadowedLight.js';
 import InputPosition from './core/InputPosition.js';
 import { expertise } from './core/Assets.js';
 
@@ -10,6 +11,8 @@ import * as THREE from 'three';
 export default function Expertise( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
+
+	scene.fog = new THREE.Fog( 0xffffff, 0.05, 1 )
 
 	scene.background = new THREE.Color( 'blue' );
 
@@ -23,11 +26,17 @@ export default function Expertise( domElement ) {
 
 	// light
 
-	var light = new THREE.PointLight( 0xb6ffb3, 0.8, 100 );
-	light.position.set( 0.1, 0.5, -0.1 );
+	const light = ShadowedLight({
+		color: 0xffffff,
+		z: 10,
+		x: -2,
+		y: 1,
+		intensity: 0.7
+	});
+
 	scene.add( light );
 
-	scene.add( new THREE.AmbientLight( 0xb6ffb3, 0.6 ) );
+	scene.add( new THREE.AmbientLight( 0xffffff, 0.6 ) );
 
 	// camera position
 
