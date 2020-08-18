@@ -48,10 +48,12 @@ export default function Expertise( domElement ) {
 		y: 2,
 		z: -2,
 		intensity: 0.6,
-		width: 1
+		width: 0.5,
+		near: 2,
+		far: 4
 	});
 
-	light.shadow.radius = 10;
+	light.shadow.radius = 15;
 
 	scene.add( light );
 
@@ -63,8 +65,29 @@ export default function Expertise( domElement ) {
 	scene.add( cameraGroup );
 	cameraGroup.add( camera );
 
-	camera.position.set( 0, 0.4, 0.2 );
-	camera.lookAt( 0, 0, 0 );
+	setTimeout( positionCamera, 0 );
+
+	window.addEventListener( 'resize', positionCamera );
+	
+	function positionCamera() {
+
+		let ratio = domElement.clientHeight / domElement.clientWidth;
+
+		camera.position.set( 0, 0.4, 0.2 );
+
+		if ( ratio && ratio > 1 ) {
+
+			camera.position.multiplyScalar( ratio );
+
+			camera.lookAt( 0, 0, (ratio - 1) * 0.15 );
+
+		} else {
+
+			camera.lookAt( 0, 0, 0 );
+
+		}
+
+	};
 
 	//
 
