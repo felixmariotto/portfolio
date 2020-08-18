@@ -13,8 +13,6 @@ export default function Expertise( domElement ) {
 
 	scene.background = new THREE.Color( 'blue' );
 
-	scene.overrideMaterial = new THREE.MeshBasicMaterial({ color: 'red' });
-
 	// assets
 
 	expertise.then( (obj) => {
@@ -37,7 +35,7 @@ export default function Expertise( domElement ) {
 	scene.add( cameraGroup );
 	cameraGroup.add( camera );
 
-	camera.position.set( 0, 0.5, 0.2 );
+	camera.position.set( 0, 0.4, 0.2 );
 	camera.lookAt( 0, 0, 0 );
 
 	//
