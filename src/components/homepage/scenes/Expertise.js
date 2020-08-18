@@ -10,9 +10,15 @@ import * as THREE from 'three';
 
 export default function Expertise( domElement ) {
 
+	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #ffffff 0%, #cdd0d4 62%, #97a4b8 100%)';
+
 	const { scene, camera, renderer } = Startup( domElement );
 
-	scene.fog = new THREE.Fog( 0xffffff, 0.05, 1.2 )
+	renderer.domElement.style.opacity = "0.7";
+
+	// scene.fog = new THREE.Fog( 0xffffff, 0.05, 1.2 );
+
+	scene.fog = new THREE.FogExp2( 0x00ff95, 0.5 )
 
 	scene.background = new THREE.Color( 0xf7f7f7 );
 
@@ -36,7 +42,7 @@ export default function Expertise( domElement ) {
 	// light
 
 	const light = ShadowedLight({
-		// bias: -0.0001,
+		bias: -0.0001,
 		color: 0xffffff,
 		x: -1,
 		y: 2,
