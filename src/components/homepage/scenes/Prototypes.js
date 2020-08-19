@@ -62,9 +62,11 @@ export default function Prototypes( domElement ) {
 
 	const textureLoader = new THREE.TextureLoader();
 
+	const EXTENSION = 'jpg';
+
 	const envMap = new THREE.CubeTextureLoader()
 					.setPath( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/expertise-cubemap/' )
-					.load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
+					.load( [ `px.${ EXTENSION }`, `nx.${ EXTENSION }`, `py.${ EXTENSION }`, `ny.${ EXTENSION }`, `pz.${ EXTENSION }`, `nz.${ EXTENSION }` ] );
 
 	const planeTop = new THREE.Plane( new THREE.Vector3( 0, -1, 0 ), 0.14 );
 	const planeBottom = new THREE.Plane( new THREE.Vector3( 0, 1, 0 ), -0.01 );
@@ -89,7 +91,7 @@ export default function Prototypes( domElement ) {
 
 			const material = new THREE.MeshLambertMaterial({
 				map: texture,
-				reflectivity: 0.2,
+				reflectivity: 0.5,
 				clippingPlanes: planes,
 				envMap
 			});
