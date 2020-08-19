@@ -162,7 +162,7 @@ function makeLink( linkTo, text ) {
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "Early in development you will be presented with resin prototypes or photorealistic viewers of your jewel project, so we can pinpoint needs for modification early and respect your delivery schedules.";
+	speech.innerHTML = "Early in development you will review resin prototypes or photorealistic viewers, in order to pinpoint issues fast and respect your schedules.";
 
 	container.append( speech );
 
