@@ -13,6 +13,8 @@ export default function Prototypes( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
+	renderer.localClippingEnabled = true;
+
 	scene.background = new THREE.Color( 0xd7cbb1 );
 	scene.fog = new THREE.FogExp2( 0xd7cbb1, 1 );
 
@@ -61,6 +63,13 @@ export default function Prototypes( domElement ) {
 					.setPath( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/expertise-cubemap/' )
 					.load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
 
+	const planeTop = new THREE.Plane( new THREE.Vector3( 0, -1, 0 ), 0.14 );
+	const planeBottom = new THREE.Plane( new THREE.Vector3( 0, 1, 0 ), -0.01 );
+	const planeRight = new THREE.Plane( new THREE.Vector3( -1, 0, 0 ), 0.12 );
+	const planeLeft = new THREE.Plane( new THREE.Vector3( 1, 0, 0 ), 0.12 );
+
+	const planes = [ planeTop, planeBottom, planeRight, planeLeft ];
+
 	const images = [];
 
 	for ( let i=0 ; i<3 ; i++ ) {
@@ -78,6 +87,7 @@ export default function Prototypes( domElement ) {
 			const material = new THREE.MeshLambertMaterial({
 				map: texture,
 				reflectivity: 0.2,
+				clippingPlanes: planes,
 				envMap
 			});
 
