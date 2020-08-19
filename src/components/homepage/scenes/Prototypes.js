@@ -11,18 +11,21 @@ import * as THREE from 'three';
 
 export default function Prototypes( domElement ) {
 
+	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #ffffff 0%, #cdd0d4 62%, #022559 100%)';
+
 	const { scene, camera, renderer } = Startup( domElement );
 
 	renderer.localClippingEnabled = true;
+	renderer.domElement.style.opacity = "0.8";
 
-	scene.background = new THREE.Color( 0xd7cbb1 );
-	scene.fog = new THREE.FogExp2( 0xd7cbb1, 1 );
+	scene.background = new THREE.Color( 0xffedf3 );
+	scene.fog = new THREE.FogExp2( 0xffedf3, 1.2 );
 
 	const clock = new THREE.Clock();
 
 	// plane
 
-	var planeGeometry = new THREE.PlaneBufferGeometry( 2, 2 );
+	var planeGeometry = new THREE.PlaneBufferGeometry( 8, 8 );
 	var planeMaterial = new THREE.MeshLambertMaterial({ color: 0xd1d1d1 });
 	var plane = new THREE.Mesh( planeGeometry, planeMaterial );
 	plane.rotation.x = -Math.PI / 2;
@@ -104,7 +107,7 @@ export default function Prototypes( domElement ) {
 		color: 0xffffff,
 		x: -1,
 		y: 2,
-		z: 1,
+		z: 0.5,
 		intensity: 0.6,
 		width: 0.5,
 		near: 2,
@@ -112,7 +115,7 @@ export default function Prototypes( domElement ) {
 		resolution: 1024
 	});
 
-	light.shadow.radius = 10;
+	light.shadow.radius = 8;
 
 	scene.add( light );
 
@@ -155,7 +158,7 @@ export default function Prototypes( domElement ) {
 	//
 
 	const targetRot = new THREE.Vector2();
-	let targetPos = 0.2;
+	let targetPos = 0;
 
 	const SCREEN_SHIT_DURATION = 3000;
 	let screenShit = 0;
@@ -184,7 +187,7 @@ export default function Prototypes( domElement ) {
 
 		// CAMERA
 
-		targetRot.y = 1 * -InputPosition.x;
+		targetRot.y = 0.3 * -InputPosition.x;
 
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
 
