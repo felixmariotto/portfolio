@@ -2,6 +2,7 @@
 import Startup from './core/Startup.js';
 import ShadowedLight from './core/ShadowedLight.js';
 import InputPosition from './core/InputPosition.js';
+import Easing from './core/Easing.js';
 import { prototypes } from './core/Assets.js';
 
 import * as THREE from 'three';
@@ -14,6 +15,8 @@ export default function Prototypes( domElement ) {
 
 	scene.background = new THREE.Color( 0xd7cbb1 );
 	scene.fog = new THREE.FogExp2( 0xd7cbb1, 1 );
+
+	const clock = new THREE.Clock();
 
 	// plane
 
@@ -43,7 +46,29 @@ export default function Prototypes( domElement ) {
 
 	});
 
-	// light
+	// screen
+
+	const IMAGE_WIDTH = 0.23;
+
+	const imagesGroup = new THREE.Group();
+	imagesGroup.position.set( 0.005, 0.07, -0.064 );
+	imagesGroup.rotation.x = -0.57;
+	scene.add( imagesGroup );
+
+	const images = [];
+
+	for ( let i=0 ; i<3 ; i++ ) {
+
+		var planeGeometry = new THREE.PlaneBufferGeometry( IMAGE_WIDTH, IMAGE_WIDTH );
+		var planeMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff * Math.random() });
+		var plane = new THREE.Mesh( planeGeometry, planeMaterial );
+		plane.position.x = IMAGE_WIDTH * i;
+		plane.receiveShadow = true;
+		imagesGroup.add( plane );
+
+		images.push( plane );
+
+	};
 
 	// light
 
@@ -75,8 +100,6 @@ export default function Prototypes( domElement ) {
 	setTimeout( positionCamera, 0 );
 
 	window.addEventListener( 'resize', positionCamera );
-	
-let test;
 
 	function positionCamera() {
 
@@ -107,9 +130,34 @@ let test;
 	const targetRot = new THREE.Vector2();
 	let targetPos = 0.2;
 
+	const SCREEN_SHIT_DURATION = 3000;
+	let screenShit = 0;
+
 	function animate() {
 
-		targetRot.y = 0.2 * -InputPosition.x;
+		// TABLET SCREEN
+
+		screenShit = ( screenShit + ( clock.getDelta() * 1000 ) / SCREEN_SHIT_DURATION );
+
+		if ( screenShit > 1 ) {
+
+			screenShit = 0;
+
+			images.push( images.shift() );
+
+		};
+
+		images.forEach( (plane, i) => {
+
+			const t = Easing.easeInOutQuint( screenShit );
+
+			plane.position.x = ( IMAGE_WIDTH * i ) - ( IMAGE_WIDTH * t );
+
+		});
+
+		// CAMERA
+
+		targetRot.y = 1 * -InputPosition.x;
 
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
 
