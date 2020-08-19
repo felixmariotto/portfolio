@@ -56,7 +56,7 @@ export default function Prototypes( domElement ) {
 	const IMAGE_WIDTH = 0.23;
 
 	const imagesGroup = new THREE.Group();
-	imagesGroup.position.set( 0.005, 0.07, -0.064 );
+	imagesGroup.position.set( 0.005, 0.07, -0.065 );
 	imagesGroup.rotation.x = -0.57;
 	scene.add( imagesGroup );
 
@@ -67,6 +67,18 @@ export default function Prototypes( domElement ) {
 	const envMap = new THREE.CubeTextureLoader()
 					.setPath( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/expertise-cubemap/' )
 					.load( [ `px.${ EXTENSION }`, `nx.${ EXTENSION }`, `py.${ EXTENSION }`, `ny.${ EXTENSION }`, `pz.${ EXTENSION }`, `nz.${ EXTENSION }` ] );
+
+	const glassGeometry = new THREE.PlaneBufferGeometry( 0.24, 0.17 );
+	const glass = new THREE.Mesh( glassGeometry, new THREE.MeshLambertMaterial({
+		reflectivity: 1,
+		transparent: true,
+		opacity: 0.35,
+		envMap
+	}));
+	glass.position.set( 0.005, 0.07, -0.0635 );
+	glass.rotation.x = -0.57;
+	glass.receiveShadow = true;
+	scene.add( glass );
 
 	const planeTop = new THREE.Plane( new THREE.Vector3( 0, -1, 0 ), 0.14 );
 	const planeBottom = new THREE.Plane( new THREE.Vector3( 0, 1, 0 ), -0.01 );
@@ -82,7 +94,6 @@ export default function Prototypes( domElement ) {
 		let planeGeometry = new THREE.PlaneBufferGeometry( IMAGE_WIDTH, IMAGE_WIDTH );
 		let plane = new THREE.Mesh( planeGeometry );
 		plane.position.x = IMAGE_WIDTH * i;
-		plane.receiveShadow = true;
 		imagesGroup.add( plane );
 
 		images.push( plane );
@@ -91,9 +102,7 @@ export default function Prototypes( domElement ) {
 
 			const material = new THREE.MeshLambertMaterial({
 				map: texture,
-				reflectivity: 0.5,
 				clippingPlanes: planes,
-				envMap
 			});
 
 			plane.material = material;
