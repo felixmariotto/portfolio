@@ -55,18 +55,35 @@ export default function Prototypes( domElement ) {
 	imagesGroup.rotation.x = -0.57;
 	scene.add( imagesGroup );
 
+	const textureLoader = new THREE.TextureLoader();
+
+	const envMap = new THREE.CubeTextureLoader()
+					.setPath( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/expertise-cubemap/' )
+					.load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
+
 	const images = [];
 
 	for ( let i=0 ; i<3 ; i++ ) {
 
-		var planeGeometry = new THREE.PlaneBufferGeometry( IMAGE_WIDTH, IMAGE_WIDTH );
-		var planeMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff * Math.random() });
-		var plane = new THREE.Mesh( planeGeometry, planeMaterial );
+		let planeGeometry = new THREE.PlaneBufferGeometry( IMAGE_WIDTH, IMAGE_WIDTH );
+		let plane = new THREE.Mesh( planeGeometry );
 		plane.position.x = IMAGE_WIDTH * i;
 		plane.receiveShadow = true;
 		imagesGroup.add( plane );
 
 		images.push( plane );
+
+		textureLoader.load( `https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/viewer${ i }.jpg`, (texture) => {
+
+			const material = new THREE.MeshLambertMaterial({
+				map: texture,
+				reflectivity: 0.2,
+				envMap
+			});
+
+			plane.material = material;
+
+		});
 
 	};
 
