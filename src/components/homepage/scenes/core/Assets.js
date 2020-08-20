@@ -19,10 +19,13 @@ const expertise = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/mo
 
 const prototypes = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/prototypes-processed.glb' );
 
+const head1 = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/head1-processed.glb' );
+
 const models = {
 	bezel,
 	expertise,
-	prototypes
+	prototypes,
+	head1
 };
 
 //
@@ -43,6 +46,7 @@ function loadItem( url ) {
 
 //
 
+export { head1 }
 export { bezel }
 export { expertise }
 export { prototypes }

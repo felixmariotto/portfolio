@@ -1,0 +1,5 @@
+- render scene once when assets loaded, otherwise lower scenes take 1sec to appear when user scrolls
+
+- prototypes scene : make tablet border visible from inner angle, or tablet's and background's white merge and it's hard to see the outline of the tablet
+
+- prototypes scene : make tablet's border color a bit less dark

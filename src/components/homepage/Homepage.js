@@ -134,7 +134,7 @@ function makeLink( linkTo, text ) {
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "Do you need advise on how to design and manage a high jewelry project ? As I have experience working with the most picky high jewelry companies, I can assist you."
+	speech.innerHTML = "Do you need advices on how to design and manage a high jewelry project ? I have experience working with the most picky high jewelry companies, and I can assist you."
 
 	container.append( speech );
 
@@ -162,7 +162,7 @@ function makeLink( linkTo, text ) {
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "Early in development you will review resin prototypes or photorealistic viewers, in order to pinpoint issues fast and respect your schedules.";
+	speech.innerHTML = "Early in development you will review resin prototypes and photorealistic viewers, in order to pinpoint issues fast and respect your schedules.";
 
 	container.append( speech );
 

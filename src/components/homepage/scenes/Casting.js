@@ -3,6 +3,7 @@ import Startup from './core/Startup.js';
 import InputPosition from './core/InputPosition.js';
 import ShadowedLight from './core/ShadowedLight.js';
 import Easing from './core/Easing.js';
+import { head1 } from './core/Assets.js';
 
 import * as THREE from 'three';
 
@@ -14,22 +15,60 @@ export default function Casting( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	const geometry = new THREE.SphereBufferGeometry( 0.1, 16, 16 );
-	const material = new THREE.MeshLambertMaterial();
-
-	// parts
-
-	const partTop = new THREE.Mesh( geometry, material );
-	const partRight = new THREE.Mesh( geometry, material );
-	const partBottom = new THREE.Mesh( geometry, material );
-	const partLeft = new THREE.Mesh( geometry, material );
-
-	scene.add( partTop, partRight, partBottom, partLeft );
-
 	// light
 
-	scene.add( ShadowedLight({ color: 0xffa1c2 }) );
+	const light = ShadowedLight({
+		color: 0xffa1c2,
+		x: -1,
+		y: 2,
+		z: 1,
+		intensity: 3,
+		resolution: 1024,
+		width: 1
+	})
+
+	scene.add( light );
+
 	scene.add( new THREE.AmbientLight( 0xffffff, 0.5 ) );
+
+	// assets
+
+	const EXTENSION = 'jpg';
+
+	const envMap = new THREE.CubeTextureLoader()
+					.setPath( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/expertise-cubemap/' )
+					.load( [ `px.${ EXTENSION }`, `nx.${ EXTENSION }`, `py.${ EXTENSION }`, `ny.${ EXTENSION }`, `pz.${ EXTENSION }`, `nz.${ EXTENSION }` ] );
+
+	const roughnessMap = new THREE.TextureLoader().load( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/metal_roughness.jpg' )
+
+	const material = new THREE.MeshStandardMaterial({
+		envMap,
+		roughnessMap,
+		metalness: 1
+	})
+
+	head1.then( (obj) => {
+
+		obj.scale.setScalar( 0.01 );
+
+		obj.traverse( (child) => {
+
+			if ( child.isMesh )  child.material = material;
+
+		});
+
+		scene.add( obj );
+
+		obj.traverse( (child) => {
+
+			if ( child.material ) child.material.side = THREE.FrontSide;
+
+			child.castShadow = true;
+			child.receiveShadow = true;
+
+		})
+
+	});
 
 	// camera position
 
@@ -37,7 +76,7 @@ export default function Casting( domElement ) {
 	scene.add( cameraGroup );
 	cameraGroup.add( camera );
 
-	camera.position.z = 1;
+	camera.position.z = 0.5;
 	camera.lookAt( 0, 0, 0 );
 
 	//
@@ -46,6 +85,8 @@ export default function Casting( domElement ) {
 	let time = 0;
 
 	function animate() {
+
+		/*
 
 		// animation
 
@@ -115,9 +156,11 @@ export default function Casting( domElement ) {
 
 			}
 
+		*/
+
 		// camera
 
-		targetRot.y = 1 * -InputPosition.x;
+		targetRot.y = 2 * -InputPosition.x;
 		targetRot.x = 1 * -InputPosition.y;
 
 		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
