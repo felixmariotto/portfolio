@@ -265,7 +265,7 @@ function loop() {
 
 	const currentPos = document.documentElement.scrollTop / (document.body.clientHeight * 1.4);
 
-	console.log( Math.round( currentPos ) )
+	console.log( document.documentElement.scrollTop )
 
 	scenes[ Math.round( currentPos ) ].animate( speedRatio );
 
