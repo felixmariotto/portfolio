@@ -261,23 +261,11 @@ function loop() {
 
 	requestAnimationFrame( loop );
 
-	// decide which scenes must be animated
+	// decide which scene must be animated
 
 	const currentPos = document.documentElement.scrollTop / (document.body.clientHeight * 1.4);
 
-	/* animate two visible scenes
-
-	const toAnimate = new Set([ Math.floor( currentPos ), Math.ceil( currentPos ) ]);
-
-	toAnimate.forEach( (id) => {
-
-		if ( id > 5 ) return
-
-		scenes[ id ].animate();
-
-	});
-
-	*/
+	console.log( Math.round( currentPos ) )
 
 	scenes[ Math.round( currentPos ) ].animate( speedRatio );
 
