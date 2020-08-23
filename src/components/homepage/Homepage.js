@@ -263,9 +263,9 @@ function loop() {
 
 	// decide which scene must be animated
 
-	const currentPos = document.documentElement.scrollTop / (document.body.clientHeight * 1.4);
+	const currentPos = window.scrollY / (document.body.clientHeight * 1.4);
 
-	console.log( document.documentElement.scrollTop )
+	console.log( window.scrollY )
 
 	scenes[ Math.round( currentPos ) ].animate( speedRatio );
 
