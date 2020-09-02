@@ -163,7 +163,7 @@ export default function Casting( domElement ) {
 			// marquise 3
 
 			marquiseBigDummy3.position.set( 0.065, 0.10, -0.016 );
-			marquiseBigDummy3.rotation.y = Math.PI / 1.7;
+			marquiseBigDummy3.rotation.y = Math.PI / 1.75;
 			marquiseBigDummy3.updateMatrix();
 
 			instancedMeshes.marquiseBig.setMatrixAt( 2, marquiseBigDummy3.matrix );
@@ -178,7 +178,7 @@ export default function Casting( domElement ) {
 
 			// marquise 1
 
-			marquiseMediumDummy1.position.set( 0.051, 0.105, -0.044 );
+			marquiseMediumDummy1.position.set( 0.051, 0.104, -0.044 );
 			marquiseMediumDummy1.rotation.z = 0.1;
 			marquiseMediumDummy1.rotation.x = 0.1;
 			marquiseMediumDummy1.updateMatrix();
@@ -187,7 +187,10 @@ export default function Casting( domElement ) {
 
 			// marquise 2
 
-			marquiseMediumDummy2.position.set( 0.05, 0.05, 0 );
+			marquiseMediumDummy2.position.set( 0.079, 0.104, -0.037 );
+			marquiseMediumDummy2.rotation.z = -0.5;
+			marquiseMediumDummy2.rotation.x = 0.5;
+			marquiseMediumDummy2.rotation.y = Math.PI / 1.75;
 			marquiseMediumDummy2.updateMatrix();
 
 			instancedMeshes.marquiseMedium.setMatrixAt( 1, marquiseMediumDummy2.matrix );
