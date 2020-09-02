@@ -146,21 +146,24 @@ export default function Casting( domElement ) {
 
 			// marquise 1
 
-			marquiseBigDummy1.position.set( 0, 0.02, 0 );
+			marquiseBigDummy1.position.set( 0.045, 0.10, 0.005 );
+			marquiseBigDummy1.rotation.y = Math.PI / 2.3;
 			marquiseBigDummy1.updateMatrix();
 
 			instancedMeshes.marquiseBig.setMatrixAt( 0, marquiseBigDummy1.matrix );
 
 			// marquise 2
 
-			marquiseBigDummy2.position.set( 0, 0.03, 0 );
+			marquiseBigDummy2.position.set( 0.032, 0.10, -0.03 );
+			marquiseBigDummy2.rotation.y = 0.1;
 			marquiseBigDummy2.updateMatrix();
 
 			instancedMeshes.marquiseBig.setMatrixAt( 1, marquiseBigDummy2.matrix );
 
 			// marquise 3
 
-			marquiseBigDummy3.position.set( 0, 0.04, 0 );
+			marquiseBigDummy3.position.set( 0.065, 0.10, -0.016 );
+			marquiseBigDummy3.rotation.y = Math.PI / 1.7;
 			marquiseBigDummy3.updateMatrix();
 
 			instancedMeshes.marquiseBig.setMatrixAt( 2, marquiseBigDummy3.matrix );
@@ -175,14 +178,16 @@ export default function Casting( domElement ) {
 
 			// marquise 1
 
-			marquiseMediumDummy1.position.set( 0.05, 0.12, 0 );
+			marquiseMediumDummy1.position.set( 0.051, 0.105, -0.044 );
+			marquiseMediumDummy1.rotation.z = 0.1;
+			marquiseMediumDummy1.rotation.x = 0.1;
 			marquiseMediumDummy1.updateMatrix();
 
 			instancedMeshes.marquiseMedium.setMatrixAt( 0, marquiseMediumDummy1.matrix );
 
 			// marquise 2
 
-			marquiseMediumDummy2.position.set( 0.05, 0.15, 0 );
+			marquiseMediumDummy2.position.set( 0.05, 0.05, 0 );
 			marquiseMediumDummy2.updateMatrix();
 
 			instancedMeshes.marquiseMedium.setMatrixAt( 1, marquiseMediumDummy2.matrix );
@@ -196,7 +201,7 @@ export default function Casting( domElement ) {
 		// camera
 
 		targetRot.y = 2 * -InputPosition.x;
-		targetRot.x = 1 * -InputPosition.y;
+		targetRot.x = 2 * -InputPosition.y;
 
 		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
