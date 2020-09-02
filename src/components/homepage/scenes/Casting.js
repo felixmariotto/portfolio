@@ -75,10 +75,14 @@ export default function Casting( domElement ) {
 	const marquiseMediumDummy1 = new THREE.Object3D();
 	const marquiseMediumDummy2 = new THREE.Object3D();
 
+	const marquiseSmallDummy1 = new THREE.Object3D();
+	const marquiseSmallDummy2 = new THREE.Object3D();
+	const marquiseSmallDummy3 = new THREE.Object3D();
+
 	marquiseBig.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'marquiseBig', 3 ) } );
 	marquiseMedium.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'marquiseMedium', 2 ) } );
+	marquiseSmall.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'marquiseSmall', 3 ) } );
 	
-	// marquiseSmall.then( ( loadedObj ) => { initObj( loadedObj, marquiseSmallGroup ) } );
 	// pearBig.then( ( loadedObj ) => { initObj( loadedObj, pearBigGroup ) } );
 	// pearMedium.then( ( loadedObj ) => { initObj( loadedObj, pearMediumGroup ) } );
 	// pearSmall.then( ( loadedObj ) => { initObj( loadedObj, pearSmallGroup ) } );
@@ -162,7 +166,7 @@ export default function Casting( domElement ) {
 
 			// marquise 3
 
-			marquiseBigDummy3.position.set( 0.065, 0.10, -0.016 );
+			marquiseBigDummy3.position.set( 0.065, 0.10, -0.0135 );
 			marquiseBigDummy3.rotation.y = Math.PI / 1.75;
 			marquiseBigDummy3.updateMatrix();
 
@@ -187,7 +191,7 @@ export default function Casting( domElement ) {
 
 			// marquise 2
 
-			marquiseMediumDummy2.position.set( 0.079, 0.104, -0.037 );
+			marquiseMediumDummy2.position.set( 0.082, 0.104, -0.032 );
 			marquiseMediumDummy2.rotation.z = -0.5;
 			marquiseMediumDummy2.rotation.x = 0.5;
 			marquiseMediumDummy2.rotation.y = Math.PI / 1.75;
@@ -200,6 +204,21 @@ export default function Casting( domElement ) {
 			instancedMeshes.marquiseMedium.instanceMatrix.needsUpdate = true;
 
 		}
+
+		if ( instancedMeshes.marquiseSmall ) {
+
+			// marquise 1
+
+			marquiseSmallDummy1.position.set( 0.08, 0.106, -0.04 );
+			marquiseSmallDummy1.updateMatrix();
+
+			instancedMeshes.marquiseSmall.setMatrixAt( 0, marquiseSmallDummy1.matrix );
+
+			//
+
+			instancedMeshes.marquiseSmall.instanceMatrix.needsUpdate = true;
+
+		};
 
 		// camera
 
