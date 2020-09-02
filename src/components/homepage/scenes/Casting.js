@@ -4,6 +4,7 @@ import InputPosition from './core/InputPosition.js';
 import ShadowedLight from './core/ShadowedLight.js';
 import Easing from './core/Easing.js';
 import { ring1, ring2, head1, head2 } from './core/Assets.js';
+import { marquiseBig, marquiseMedium, marquiseSmall, pearBig, pearMedium, pearSmall } from './core/Assets.js';
 
 import * as THREE from 'three';
 
@@ -52,10 +53,33 @@ export default function Casting( domElement ) {
 	const head1Group = new THREE.Group();
 	const head2Group = new THREE.Group();
 
+	const instancedMeshes = {};
+
+	const marquiseBigDummy1 = new THREE.Object3D();
+	const marquiseBigDummy2 = new THREE.Object3D();
+	const marquiseBigDummy3 = new THREE.Object3D();
+
+	const marquiseBigGroup = new THREE.Group();
+	const marquiseMediumGroup = new THREE.Group();
+	const marquiseSmallGroup = new THREE.Group();
+	const pearBigGroup = new THREE.Group();
+	const pearMediumGroup = new THREE.Group();
+	const pearSmallGroup = new THREE.Group();
+
 	ring1.then( ( loadedObj ) => { initObj( loadedObj, ring1Group ) } );
 	ring2.then( ( loadedObj ) => { initObj( loadedObj, ring2Group ) } );
 	head1.then( ( loadedObj ) => { initObj( loadedObj, head1Group ) } );
 	head2.then( ( loadedObj ) => { initObj( loadedObj, head2Group ) } );
+
+	marquiseBig.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'marquiseBig', 3 ) } );
+
+	// marquiseBig.then( ( loadedObj ) => { initObj( loadedObj, marquiseBigGroup ) } );
+	
+	// marquiseMedium.then( ( loadedObj ) => { initObj( loadedObj, 'marquiseBig', 3 ) } );
+	// marquiseSmall.then( ( loadedObj ) => { initObj( loadedObj, marquiseSmallGroup ) } );
+	// pearBig.then( ( loadedObj ) => { initObj( loadedObj, pearBigGroup ) } );
+	// pearMedium.then( ( loadedObj ) => { initObj( loadedObj, pearMediumGroup ) } );
+	// pearSmall.then( ( loadedObj ) => { initObj( loadedObj, pearSmallGroup ) } );
 
 	function initObj( obj, group ) {
 
@@ -63,7 +87,7 @@ export default function Casting( domElement ) {
 
 		obj.traverse( (child) => {
 
-			if ( child.isMesh )  child.material = material;
+			if ( child.isMesh ) child.material = material;
 
 		});
 
@@ -78,6 +102,23 @@ export default function Casting( domElement ) {
 			child.receiveShadow = true;
 
 		})
+
+	}
+
+	function initInstancedMesh( obj, name, number ) {
+
+		obj.children[ 0 ].geometry.scale( 0.01, 0.01, 0.01 );
+		obj.children[ 0 ].geometry.rotateX( Math.PI / 2 );
+
+		instancedMeshes[ name ] = new THREE.InstancedMesh(
+			obj.children[ 0 ].geometry,
+			new THREE.MeshNormalMaterial(),
+			number
+		);
+
+		instancedMeshes[ name ].instanceMatrix.setUsage( THREE.DynamicDrawUsage );
+
+		scene.add( instancedMeshes[ name ] );
 
 	}
 
@@ -97,77 +138,36 @@ export default function Casting( domElement ) {
 
 	function animate() {
 
-		/*
+		// parts animation
 
-		// animation
+		if ( instancedMeshes.marquiseBig ) {
 
-		time = ( time + 0.002 ) % 1;
+			// marquise 1
 
-			// top part
+			marquiseBigDummy1.position.set( 0, 0.02, 0 );
+			marquiseBigDummy1.updateMatrix();
 
-			if ( time < 0.25 ) {
+			instancedMeshes.marquiseBig.setMatrixAt( 0, marquiseBigDummy1.matrix );
 
-				const t = Easing.easeOutQuart( time * 4 );
+			// marquise 2
 
-				partTop.position.set( 0, THREE.MathUtils.lerp( 0.4, 0.1, t ), 0 );
+			marquiseBigDummy2.position.set( 0, 0.03, 0 );
+			marquiseBigDummy2.updateMatrix();
 
-			} else {
+			instancedMeshes.marquiseBig.setMatrixAt( 1, marquiseBigDummy2.matrix );
 
-				partTop.position.set( 0, 0.1, 0 );
+			// marquise 3
 
-			}
+			marquiseBigDummy3.position.set( 0, 0.04, 0 );
+			marquiseBigDummy3.updateMatrix();
 
-			// bottom part
+			instancedMeshes.marquiseBig.setMatrixAt( 2, marquiseBigDummy3.matrix );
 
-			if ( time < 0.25 ) {
+			//
 
-				partBottom.position.set( 0, -0.4, 0 );
+			instancedMeshes.marquiseBig.instanceMatrix.needsUpdate = true;
 
-			} else if ( time > 0.5 ) {
-
-				partBottom.position.set( 0, -0.1, 0 );
-
-			} else {
-
-				const t = Easing.easeOutQuart( ( time - 0.25 ) * 4 );
-
-				partBottom.position.set( 0, THREE.MathUtils.lerp( -0.4, -0.1, t ), 0 );
-
-			}
-
-			// left part
-
-			if ( time < 0.5 ) {
-
-				partLeft.position.set( -0.4, 0, 0 );
-
-			} else if ( time > 0.75 ) {
-
-				partLeft.position.set( -0.1, -0, 0 );
-
-			} else {
-
-				const t = Easing.easeOutQuart( ( time - 0.5 ) * 4 );
-
-				partLeft.position.set( THREE.MathUtils.lerp( -0.4, -0.1, t ), 0, 0 );
-
-			}
-
-			// right part
-
-			if ( time < 0.75 ) {
-
-				partRight.position.set( 0.4, 0, 0 );
-
-			} else {
-
-				const t = Easing.easeOutQuart( ( time - 0.75 ) * 4 );
-
-				partRight.position.set( THREE.MathUtils.lerp( 0.4, 0.1, t ), 0, 0 );
-
-			}
-
-		*/
+		}
 
 		// camera
 

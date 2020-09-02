@@ -27,6 +27,18 @@ const head1 = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models
 
 const head2 = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/head2-processed.glb' );
 
+const marquiseBig = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/marquiseBig-processed.glb' );
+
+const marquiseMedium = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/marquiseMedium-processed.glb' );
+
+const marquiseSmall = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/marquiseSmall-processed.glb' );
+
+const pearBig = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/pearBig-processed.glb' );
+
+const pearMedium = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/pearMedium-processed.glb' );
+
+const pearSmall = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/pearSmall-processed.glb' );
+
 const models = {
 	bezel,
 	expertise,
@@ -34,7 +46,13 @@ const models = {
 	ring1,
 	ring2,
 	head1,
-	head2
+	head2,
+	marquiseBig,
+	marquiseMedium,
+	marquiseSmall,
+	pearBig,
+	pearMedium,
+	pearSmall
 };
 
 //
@@ -60,6 +78,12 @@ export { ring2 }
 export { head1 }
 export { head2 }
 export { bezel }
+export { marquiseBig }
+export { marquiseMedium }
+export { marquiseSmall }
+export { pearBig }
+export { pearMedium }
+export { pearSmall }
 export { expertise }
 export { prototypes }
 export default models

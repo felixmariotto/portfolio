@@ -4,4 +4,4 @@
 
 - prototypes scene : make tablet's border color a bit less dark
 
-- stop rendering when menu or link is clicked, so that menu animation feel smoother on slow devices
+- animate tablet carousel with clock delta instead of absolute time, to avoid cuts when animation is stopped then restarted
