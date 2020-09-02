@@ -32,7 +32,9 @@ export default function Casting( domElement ) {
 
 	scene.add( new THREE.AmbientLight( 0xffffff, 0.5 ) );
 
-	// assets
+	/// ASSETS
+
+	// material
 
 	const EXTENSION = 'jpg';
 
@@ -46,12 +48,23 @@ export default function Casting( domElement ) {
 		envMap,
 		roughnessMap,
 		metalness: 1
-	})
+	});
+
+	const instanceMaterial = material.clone();
+
+	// unique parts
 
 	const ring1Group = new THREE.Group();
 	const ring2Group = new THREE.Group();
 	const head1Group = new THREE.Group();
 	const head2Group = new THREE.Group();
+
+	ring1.then( ( loadedObj ) => { initObj( loadedObj, ring1Group ) } );
+	ring2.then( ( loadedObj ) => { initObj( loadedObj, ring2Group ) } );
+	head1.then( ( loadedObj ) => { initObj( loadedObj, head1Group ) } );
+	head2.then( ( loadedObj ) => { initObj( loadedObj, head2Group ) } );
+
+	// instanced parts
 
 	const instancedMeshes = {};
 
@@ -59,23 +72,12 @@ export default function Casting( domElement ) {
 	const marquiseBigDummy2 = new THREE.Object3D();
 	const marquiseBigDummy3 = new THREE.Object3D();
 
-	const marquiseBigGroup = new THREE.Group();
-	const marquiseMediumGroup = new THREE.Group();
-	const marquiseSmallGroup = new THREE.Group();
-	const pearBigGroup = new THREE.Group();
-	const pearMediumGroup = new THREE.Group();
-	const pearSmallGroup = new THREE.Group();
-
-	ring1.then( ( loadedObj ) => { initObj( loadedObj, ring1Group ) } );
-	ring2.then( ( loadedObj ) => { initObj( loadedObj, ring2Group ) } );
-	head1.then( ( loadedObj ) => { initObj( loadedObj, head1Group ) } );
-	head2.then( ( loadedObj ) => { initObj( loadedObj, head2Group ) } );
+	const marquiseMediumDummy1 = new THREE.Object3D();
+	const marquiseMediumDummy2 = new THREE.Object3D();
 
 	marquiseBig.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'marquiseBig', 3 ) } );
-
-	// marquiseBig.then( ( loadedObj ) => { initObj( loadedObj, marquiseBigGroup ) } );
+	marquiseMedium.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'marquiseMedium', 2 ) } );
 	
-	// marquiseMedium.then( ( loadedObj ) => { initObj( loadedObj, 'marquiseBig', 3 ) } );
 	// marquiseSmall.then( ( loadedObj ) => { initObj( loadedObj, marquiseSmallGroup ) } );
 	// pearBig.then( ( loadedObj ) => { initObj( loadedObj, pearBigGroup ) } );
 	// pearMedium.then( ( loadedObj ) => { initObj( loadedObj, pearMediumGroup ) } );
@@ -112,7 +114,7 @@ export default function Casting( domElement ) {
 
 		instancedMeshes[ name ] = new THREE.InstancedMesh(
 			obj.children[ 0 ].geometry,
-			new THREE.MeshNormalMaterial(),
+			instanceMaterial,
 			number
 		);
 
@@ -166,6 +168,28 @@ export default function Casting( domElement ) {
 			//
 
 			instancedMeshes.marquiseBig.instanceMatrix.needsUpdate = true;
+
+		}
+
+		if ( instancedMeshes.marquiseMedium ) {
+
+			// marquise 1
+
+			marquiseMediumDummy1.position.set( 0.05, 0.12, 0 );
+			marquiseMediumDummy1.updateMatrix();
+
+			instancedMeshes.marquiseMedium.setMatrixAt( 0, marquiseMediumDummy1.matrix );
+
+			// marquise 2
+
+			marquiseMediumDummy2.position.set( 0.05, 0.15, 0 );
+			marquiseMediumDummy2.updateMatrix();
+
+			instancedMeshes.marquiseMedium.setMatrixAt( 1, marquiseMediumDummy2.matrix );
+
+			//
+
+			instancedMeshes.marquiseMedium.instanceMatrix.needsUpdate = true;
 
 		}
 
