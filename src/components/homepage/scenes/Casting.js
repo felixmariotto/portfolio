@@ -3,7 +3,7 @@ import Startup from './core/Startup.js';
 import InputPosition from './core/InputPosition.js';
 import ShadowedLight from './core/ShadowedLight.js';
 import Easing from './core/Easing.js';
-import { ring1 } from './core/Assets.js';
+import { ring1, ring2, head1, head2 } from './core/Assets.js';
 
 import * as THREE from 'three';
 
@@ -47,7 +47,17 @@ export default function Casting( domElement ) {
 		metalness: 1
 	})
 
-	ring1.then( (obj) => {
+	const ring1Group = new THREE.Group();
+	const ring2Group = new THREE.Group();
+	const head1Group = new THREE.Group();
+	const head2Group = new THREE.Group();
+
+	ring1.then( ( loadedObj ) => { initObj( loadedObj, ring1Group ) } );
+	ring2.then( ( loadedObj ) => { initObj( loadedObj, ring2Group ) } );
+	head1.then( ( loadedObj ) => { initObj( loadedObj, head1Group ) } );
+	head2.then( ( loadedObj ) => { initObj( loadedObj, head2Group ) } );
+
+	function initObj( obj, group ) {
 
 		obj.scale.setScalar( 0.01 );
 
@@ -57,7 +67,8 @@ export default function Casting( domElement ) {
 
 		});
 
-		scene.add( obj );
+		group.add( obj );
+		scene.add( group );
 
 		obj.traverse( (child) => {
 
@@ -68,7 +79,7 @@ export default function Casting( domElement ) {
 
 		})
 
-	});
+	}
 
 	// camera position
 

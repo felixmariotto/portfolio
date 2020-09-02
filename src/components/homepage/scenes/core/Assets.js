@@ -21,11 +21,20 @@ const prototypes = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/m
 
 const ring1 = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/ring1-processed.glb' );
 
+const ring2 = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/ring2-processed.glb' );
+
+const head1 = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/head1-processed.glb' );
+
+const head2 = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/head2-processed.glb' );
+
 const models = {
 	bezel,
 	expertise,
 	prototypes,
-	ring1
+	ring1,
+	ring2,
+	head1,
+	head2
 };
 
 //
@@ -47,6 +56,9 @@ function loadItem( url ) {
 //
 
 export { ring1 }
+export { ring2 }
+export { head1 }
+export { head2 }
 export { bezel }
 export { expertise }
 export { prototypes }
