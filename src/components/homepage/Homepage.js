@@ -253,6 +253,8 @@ function makeLink( linkTo, text ) {
 
 //
 
+let skipAnimation;
+
 loop();
 
 function loop() {
@@ -263,9 +265,25 @@ function loop() {
 
 	// decide which scene must be animated
 
+	if ( skipAnimation ) return
+
 	const currentPos = window.scrollY / (document.body.clientHeight * 1.4);
 
 	scenes[ Math.round( currentPos ) ].animate( speedRatio );
+
+}
+
+function stopOrStartAnim( currentLocation ) {
+
+	if ( currentLocation === 'home' ) {
+
+		skipAnimation = false;
+
+	} else {
+
+		skipAnimation = true;
+
+	}
 
 }
 
@@ -285,6 +303,7 @@ function focusHomepage() {
 
 //
 
+export { stopOrStartAnim }
 export { blurHomepage }
 export { focusHomepage }
 export default container

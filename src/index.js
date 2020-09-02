@@ -17,6 +17,7 @@ import { setModule } from './components/modules/ModuleContainer.js';
 import Homepage from './components/homepage/Homepage.js';
 import { blurHomepage } from './components/homepage/Homepage.js';
 import { focusHomepage } from './components/homepage/Homepage.js';
+import { stopOrStartAnim } from './components/homepage/Homepage.js';
 
 //
 
@@ -70,6 +71,7 @@ MenuButton.addEventListener( 'click', () => {
 		blurHomepage();
 		updateButtonTo( 'close' );
 		udpateLocation( 'menu' );
+		stopOrStartAnim( currentLocation );
 		break
 
 	case 'menu' :
@@ -77,11 +79,17 @@ MenuButton.addEventListener( 'click', () => {
 		focusHomepage();
 		updateButtonTo( 'menu' );
 		udpateLocation( 'home' );
+		setTimeout( () => {
+			stopOrStartAnim( currentLocation );
+		}, 500 );
 		break
 
 	case 'module' :
 		exitModuleMode();
 		currentLocation = previousLocation;
+		setTimeout( () => {
+			stopOrStartAnim( currentLocation );
+		}, 500 );
 		if ( currentLocation === 'home' ) updateButtonTo( 'menu' );
 		else if ( currentLocation === 'menu' ) updateButtonTo( 'close' );
 		break
@@ -114,6 +122,8 @@ linkEventEmitter.addEventListener( 'clicklink', ( message ) => {
 
 	udpateLocation( 'module' );
 	updateButtonTo( 'back' );
+
+	stopOrStartAnim( currentLocation )
 
 	//
 

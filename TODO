@@ -3,3 +3,5 @@
 - prototypes scene : make tablet border visible from inner angle, or tablet's and background's white merge and it's hard to see the outline of the tablet
 
 - prototypes scene : make tablet's border color a bit less dark
+
+- stop rendering when menu or link is clicked, so that menu animation feel smoother on slow devices
