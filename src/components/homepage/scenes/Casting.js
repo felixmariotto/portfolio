@@ -3,7 +3,7 @@ import Startup from './core/Startup.js';
 import InputPosition from './core/InputPosition.js';
 import ShadowedLight from './core/ShadowedLight.js';
 import Easing from './core/Easing.js';
-import { head1 } from './core/Assets.js';
+import { ring1 } from './core/Assets.js';
 
 import * as THREE from 'three';
 
@@ -47,7 +47,7 @@ export default function Casting( domElement ) {
 		metalness: 1
 	})
 
-	head1.then( (obj) => {
+	ring1.then( (obj) => {
 
 		obj.scale.setScalar( 0.01 );
 
