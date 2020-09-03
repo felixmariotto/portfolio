@@ -216,6 +216,26 @@ export default function Casting( domElement ) {
 
 			instancedMeshes.marquiseSmall.setMatrixAt( 0, marquiseSmallDummy1.matrix );
 
+			// marquise 2
+
+			marquiseSmallDummy2.position.set( 0.083, 0.117, -0.069 );
+			marquiseSmallDummy2.rotation.x = 0.4;
+			marquiseSmallDummy2.rotation.z = 0.2;
+			marquiseSmallDummy2.rotation.y = -0.15;
+			marquiseSmallDummy2.updateMatrix();
+
+			instancedMeshes.marquiseSmall.setMatrixAt( 1, marquiseSmallDummy2.matrix );
+
+			// marquise 3
+
+			marquiseSmallDummy3.position.set( 0.096, 0.112, -0.052 );
+			marquiseSmallDummy3.rotation.z = -0.8;
+			marquiseSmallDummy3.rotation.x = 1.0;
+			marquiseSmallDummy3.rotation.y = Math.PI / 1.5;
+			marquiseSmallDummy3.updateMatrix();
+
+			instancedMeshes.marquiseSmall.setMatrixAt( 2, marquiseSmallDummy3.matrix );
+
 			//
 
 			instancedMeshes.marquiseSmall.instanceMatrix.needsUpdate = true;
