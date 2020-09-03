@@ -296,6 +296,16 @@ export default function Casting( domElement ) {
 
 			instancedMeshes.pearMedium.setMatrixAt( 0, pearMediumDummy1.matrix );
 
+			// marquise 2
+
+			pearMediumDummy2.position.set( -0.048, 0.103, 0.042 );
+			pearMediumDummy2.rotation.y = 0.2;
+			pearMediumDummy2.rotation.x = -0.12;
+			pearMediumDummy2.rotation.z = -0.1;
+			pearMediumDummy2.updateMatrix();
+
+			instancedMeshes.pearMedium.setMatrixAt( 1, pearMediumDummy2.matrix );
+
 			//
 
 			instancedMeshes.pearMedium.instanceMatrix.needsUpdate = true;
