@@ -153,7 +153,7 @@ export default function Casting( domElement ) {
 	scene.add( cameraGroup );
 	cameraGroup.add( camera );
 
-	camera.position.z = 0.5;
+	camera.position.set( 0.3, 0.3, 0.4 );
 	camera.lookAt( 0, 0, 0 );
 
 	//
