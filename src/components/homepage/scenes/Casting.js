@@ -68,6 +68,8 @@ export default function Casting( domElement ) {
 
 	const instancedMeshes = {};
 
+	//
+
 	const marquiseBigDummy1 = new THREE.Object3D();
 	const marquiseBigDummy2 = new THREE.Object3D();
 	const marquiseBigDummy3 = new THREE.Object3D();
@@ -83,9 +85,24 @@ export default function Casting( domElement ) {
 	marquiseMedium.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'marquiseMedium', 2 ) } );
 	marquiseSmall.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'marquiseSmall', 3 ) } );
 	
-	// pearBig.then( ( loadedObj ) => { initObj( loadedObj, pearBigGroup ) } );
-	// pearMedium.then( ( loadedObj ) => { initObj( loadedObj, pearMediumGroup ) } );
-	// pearSmall.then( ( loadedObj ) => { initObj( loadedObj, pearSmallGroup ) } );
+	//
+
+	const pearBigDummy1 = new THREE.Object3D();
+	const pearBigDummy2 = new THREE.Object3D();
+
+	const pearMediumDummy1 = new THREE.Object3D();
+	const pearMediumDummy2 = new THREE.Object3D();
+	const pearMediumDummy3 = new THREE.Object3D();
+
+	const pearSmallDummy1 = new THREE.Object3D();
+	const pearSmallDummy2 = new THREE.Object3D();
+	const pearSmallDummy3 = new THREE.Object3D();
+
+	pearBig.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'pearBig', 2 ) } );
+	pearMedium.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'pearMedium', 3 ) } );
+	pearSmall.then( ( loadedObj ) => { initInstancedMesh( loadedObj, 'pearSmall', 3 ) } );
+
+	//
 
 	function initObj( obj, group ) {
 
@@ -241,6 +258,24 @@ export default function Casting( domElement ) {
 			instancedMeshes.marquiseSmall.instanceMatrix.needsUpdate = true;
 
 		};
+
+		// pears
+
+		if ( instancedMeshes.pearBig ) {
+
+			// marquise 1
+
+			pearBigDummy1.position.set( -0.047, 0.10, -0.006 );
+			pearBigDummy1.rotation.y = -Math.PI / 1.6;
+			pearBigDummy1.updateMatrix();
+
+			instancedMeshes.pearBig.setMatrixAt( 0, pearBigDummy1.matrix );
+
+			//
+
+			instancedMeshes.pearBig.instanceMatrix.needsUpdate = true;
+
+		}
 
 		// camera
 
