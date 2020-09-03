@@ -271,6 +271,15 @@ export default function Casting( domElement ) {
 
 			instancedMeshes.pearBig.setMatrixAt( 0, pearBigDummy1.matrix );
 
+			// marquise 2
+
+			pearBigDummy2.position.set( -0.065, 0.101, 0.014 );
+			pearBigDummy2.rotation.y = -Math.PI / 1.9;
+			pearBigDummy2.rotation.z = 0.12;
+			pearBigDummy2.updateMatrix();
+
+			instancedMeshes.pearBig.setMatrixAt( 1, pearBigDummy2.matrix );
+
 			//
 
 			instancedMeshes.pearBig.instanceMatrix.needsUpdate = true;
@@ -281,7 +290,7 @@ export default function Casting( domElement ) {
 
 			// marquise 1
 
-			pearMediumDummy1.position.set( -0.03, 0.101, 0.028 );
+			pearMediumDummy1.position.set( -0.029, 0.101, 0.028 );
 			pearMediumDummy1.rotation.y = 0.2;
 			pearMediumDummy1.updateMatrix();
 
