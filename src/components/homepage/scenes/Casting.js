@@ -182,7 +182,7 @@ export default function Casting( domElement ) {
 
 			// marquise 1
 
-			marquiseMediumDummy1.position.set( 0.051, 0.104, -0.044 );
+			marquiseMediumDummy1.position.set( 0.051, 0.104, -0.041 );
 			marquiseMediumDummy1.rotation.z = 0.1;
 			marquiseMediumDummy1.rotation.x = 0.1;
 			marquiseMediumDummy1.updateMatrix();
