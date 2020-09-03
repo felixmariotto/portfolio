@@ -209,7 +209,9 @@ export default function Casting( domElement ) {
 
 			// marquise 1
 
-			marquiseSmallDummy1.position.set( 0.08, 0.106, -0.04 );
+			marquiseSmallDummy1.position.set( 0.069, 0.109, -0.057 );
+			marquiseSmallDummy1.rotation.x = 0.35;
+			marquiseSmallDummy1.rotation.z = 0.2;
 			marquiseSmallDummy1.updateMatrix();
 
 			instancedMeshes.marquiseSmall.setMatrixAt( 0, marquiseSmallDummy1.matrix );
