@@ -36,6 +36,10 @@ export default function Casting( domElement ) {
 
 	/// ASSETS
 
+	const ringContainer = new THREE.Group();
+
+	scene.add( ringContainer );
+
 	// material
 
 	const EXTENSION = 'jpg';
@@ -199,7 +203,7 @@ export default function Casting( domElement ) {
 		});
 
 		group.add( obj );
-		scene.add( group );
+		ringContainer.add( group );
 
 		obj.traverse( (child) => {
 
@@ -227,7 +231,7 @@ export default function Casting( domElement ) {
 
 		mesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage );
 
-		scene.add( mesh );
+		ringContainer.add( mesh );
 
 		// set each instance transform
 
@@ -261,8 +265,14 @@ export default function Casting( domElement ) {
 
 	function animate() {
 
+		// assets group
+
+		ringContainer.rotation.y += 0.005;
+
+		// camera
+
 		targetRot.y = 2 * -InputPosition.x;
-		targetRot.x = 2 * -InputPosition.y;
+		targetRot.x = 0.4 * -InputPosition.y;
 
 		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
