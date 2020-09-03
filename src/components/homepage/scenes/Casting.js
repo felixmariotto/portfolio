@@ -16,7 +16,7 @@ export default function Casting( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	scene.fog = new THREE.FogExp2( 0xffffff, 0.7 )
+	scene.fog = new THREE.FogExp2( 0xffffff, 0.9 )
 
 	// light
 
