@@ -322,6 +322,24 @@ export default function Casting( domElement ) {
 
 		}
 
+		if ( instancedMeshes.pearSmall ) {
+
+			// marquise 1
+
+			pearSmallDummy1.position.set( -0.063, 0.107, 0.058 );
+			pearSmallDummy1.rotation.y = 0.15;
+			pearSmallDummy1.rotation.x = -0.2;
+			pearSmallDummy1.rotation.z = -0.15;
+			pearSmallDummy1.updateMatrix();
+
+			instancedMeshes.pearSmall.setMatrixAt( 0, pearSmallDummy1.matrix );
+
+			//
+
+			instancedMeshes.pearSmall.instanceMatrix.needsUpdate = true;
+
+		}
+
 		// camera
 
 		targetRot.y = 2 * -InputPosition.x;
