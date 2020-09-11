@@ -39,6 +39,10 @@ const pearMedium = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/m
 
 const pearSmall = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/pearSmall-processed.glb' );
 
+const workbenchMisc = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/workbench-misc-processed.glb' );
+
+const workbenchBoard = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/workbench-board-processed.glb' );
+
 const models = {
 	bezel,
 	expertise,
@@ -52,7 +56,9 @@ const models = {
 	marquiseSmall,
 	pearBig,
 	pearMedium,
-	pearSmall
+	pearSmall,
+	workbenchMisc,
+	workbenchBoard
 };
 
 //
@@ -86,4 +92,6 @@ export { pearMedium }
 export { pearSmall }
 export { expertise }
 export { prototypes }
+export { workbenchMisc }
+export { workbenchBoard }
 export default models

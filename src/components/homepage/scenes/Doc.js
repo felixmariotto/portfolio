@@ -1,6 +1,7 @@
 
 import Startup from './core/Startup.js';
 import InputPosition from './core/InputPosition.js';
+import { workbenchMisc, workbenchBoard } from './core/Assets.js';
 
 import * as THREE from 'three';
 
@@ -13,41 +14,41 @@ export default function Doc( domElement ) {
 	scene.background = new THREE.Color( 0xffd1de );
 	scene.fog = new THREE.FogExp2( 0xffd1de, 1 );
 
-	// table
+	// assets
 
-	const tableGeometry = new THREE.BoxBufferGeometry( 3, 0.06, 3 );
-	const tableMaterial = new THREE.MeshLambertMaterial({ color: 0x6b593c });
+	workbenchBoard.then( (obj) => {
 
-	const table = new THREE.Mesh( tableGeometry, tableMaterial )
-	table.position.z -= 1.4;
+		obj.scale.setScalar( 0.02 );
 
-	scene.add( table );
+		scene.add( obj );
 
-	// bench pin
+		obj.traverse( (child) => {
 
-	const pinGeometry = new THREE.BoxBufferGeometry( 0.07, 0.05, 0.15 );
-	const pinMaterial = new THREE.MeshLambertMaterial({ color: 0x6b593c });
+			if ( child.material ) child.material.side = THREE.FrontSide;
 
-	const pin = new THREE.Mesh( pinGeometry, pinMaterial )
-	pin.position.z = 0.12;
+			child.castShadow = true;
+			child.receiveShadow = true;
 
-	scene.add( pin );
+		})
 
-	// papers
+	});
 
-	const paperGeometry = new THREE.PlaneBufferGeometry( 0.21, 0.297 );
-	paperGeometry.rotateX( -Math.PI / 2 );
-	const paperMaterial = new THREE.MeshLambertMaterial();
+	workbenchMisc.then( (obj) => {
 
-	const paper1 = new THREE.Mesh( paperGeometry, paperMaterial );
-	paper1.position.set( -0.1, 0.035, -0.1 );
-	paper1.rotation.y = 0.1;
-	scene.add( paper1 );
+		obj.scale.setScalar( 0.02 );
 
-	const paper2 = new THREE.Mesh( paperGeometry, paperMaterial );
-	paper2.position.set( 0.1, 0.035, -0.2 );
-	paper2.rotation.y = -0.2;
-	scene.add( paper2 );
+		scene.add( obj );
+
+		obj.traverse( (child) => {
+
+			if ( child.material ) child.material.side = THREE.FrontSide;
+
+			child.castShadow = true;
+			child.receiveShadow = true;
+
+		})
+
+	});
 
 	// light
 
@@ -66,8 +67,8 @@ export default function Doc( domElement ) {
 	scene.add( cameraGroup );
 	cameraGroup.add( camera );
 
-	camera.position.set( 0, 0.5, 0.5 );
-	camera.lookAt( 0, 0, 0 );
+	camera.position.set( -0.2, 0.6, 0.25 );
+	camera.lookAt( 0.05, 0, -0.05 );
 
 	//
 
