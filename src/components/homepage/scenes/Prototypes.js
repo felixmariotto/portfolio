@@ -175,18 +175,20 @@ export default function Prototypes( domElement ) {
 	const targetRot = new THREE.Vector2();
 	let targetPos = 0;
 
-	const SCREEN_SHIT_DURATION = 3000;
-	let screenShit = 0;
+	const SCREEN_SHIFT_DURATION = 3000;
+	let screenShift = 0;
 
-	function animate() {
+	function animate( speedRatio ) {
+
+		const deltaMS = speedRatio * ( 1 / 60 ) * 1000;
 
 		// TABLET SCREEN
 
-		screenShit = ( screenShit + ( clock.getDelta() * 1000 ) / SCREEN_SHIT_DURATION );
+		screenShift += ( screenShift + deltaMS ) / SCREEN_SHIFT_DURATION;
 
-		if ( screenShit > 1 ) {
+		if ( screenShift > 1 ) {
 
-			screenShit = 0;
+			screenShift = 0;
 
 			images.push( images.shift() );
 
@@ -194,7 +196,7 @@ export default function Prototypes( domElement ) {
 
 		images.forEach( (plane, i) => {
 
-			const t = Easing.easeInOutQuint( screenShit );
+			const t = Easing.easeInOutQuint( screenShift );
 
 			plane.position.x = ( IMAGE_WIDTH * i ) - ( IMAGE_WIDTH * t );
 
@@ -204,7 +206,7 @@ export default function Prototypes( domElement ) {
 
 		targetRot.y = 0.3 * -InputPosition.x;
 
-		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
+		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02 * speedRatio;
 
 		//
 

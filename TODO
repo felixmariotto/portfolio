@@ -3,5 +3,3 @@
 - prototypes scene : make tablet border visible from inner angle, or tablet's and background's white merge and it's hard to see the outline of the tablet
 
 - prototypes scene : make tablet's border color a bit less dark
-
-- animate tablet carousel with clock delta instead of absolute time, to avoid cuts when animation is stopped then restarted
