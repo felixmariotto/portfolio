@@ -22,10 +22,10 @@ export default function Intro( domElement ) {
 		z: 10,
 		x: -2,
 		y: 1,
-		intensity: 0.7
+		intensity: 0.6
 	});
 
-	scene.add( light, new THREE.AmbientLight( 0xc0f8fc, 0.5 ) );
+	scene.add( light, new THREE.AmbientLight( 0xc0f8fc, 0.45 ) );
 
 	const particles = Particles();
 

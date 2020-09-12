@@ -56,7 +56,7 @@ export default function Expertise( domElement ) {
 		x: -1,
 		y: 2,
 		z: -2,
-		intensity: 0.6,
+		intensity: 0.52,
 		width: 0.5,
 		near: 2,
 		far: 4,
@@ -67,7 +67,7 @@ export default function Expertise( domElement ) {
 
 	scene.add( light );
 
-	scene.add( new THREE.AmbientLight( 0xffffff, 0.7 ) );
+	scene.add( new THREE.AmbientLight( 0xffffff, 0.6 ) );
 
 	// camera position
 

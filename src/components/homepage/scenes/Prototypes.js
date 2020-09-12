@@ -16,10 +16,10 @@ export default function Prototypes( domElement ) {
 	const { scene, camera, renderer } = Startup( domElement );
 
 	renderer.localClippingEnabled = true;
-	renderer.domElement.style.opacity = "0.8";
+	renderer.domElement.style.opacity = "0.7";
 
 	scene.background = new THREE.Color( 0xffedf3 );
-	scene.fog = new THREE.FogExp2( 0xffedf3, 1.2 );
+	scene.fog = new THREE.Fog( 0xffedf3, 0.25, 1 );
 
 	const clock = new THREE.Clock();
 
@@ -72,7 +72,7 @@ export default function Prototypes( domElement ) {
 	const glass = new THREE.Mesh( glassGeometry, new THREE.MeshLambertMaterial({
 		reflectivity: 1,
 		transparent: true,
-		opacity: 0.35,
+		opacity: 0.3,
 		envMap
 	}));
 	glass.position.set( 0.005, 0.07, -0.0635 );
@@ -119,7 +119,7 @@ export default function Prototypes( domElement ) {
 		x: -1,
 		y: 2,
 		z: 0.5,
-		intensity: 0.6,
+		intensity: 0.65,
 		width: 0.5,
 		near: 2,
 		far: 4,
@@ -130,7 +130,7 @@ export default function Prototypes( domElement ) {
 
 	scene.add( light );
 
-	scene.add( new THREE.AmbientLight( 0xffffff, 0.7 ) );
+	scene.add( new THREE.AmbientLight( 0xffffff, 0.3 ) );
 
 	// camera position
 
@@ -154,13 +154,17 @@ export default function Prototypes( domElement ) {
 
 			camera.lookAt( (0.05 / ratio) , 0.08, (ratio - 1) * 0.13 );
 
-			// scene.fog.density = 0.7 / ratio;
+			const newCamLength = camera.position.length();
+
+			scene.fog.near = newCamLength - 0.05 ;
+			scene.fog.far = newCamLength + 0.3;
 
 		} else {
 
 			camera.lookAt( 0.05, 0.08, 0 );
 
-			// scene.fog.density = 0.7;
+			scene.fog.near = 0.25;
+			scene.fog.far = 1;
 
 		}
 
@@ -201,18 +205,6 @@ export default function Prototypes( domElement ) {
 		targetRot.y = 0.3 * -InputPosition.x;
 
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
-
-		//
-
-		/*
-
-		targetPos = 0.2 + ( 0.04 * -InputPosition.y );
-
-		camera.position.y += ( targetPos - camera.position.y ) * 0.02;
-
-		camera.lookAt( 0, 0.08, 0 );
-
-		*/
 
 		//
 

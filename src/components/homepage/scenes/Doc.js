@@ -13,7 +13,7 @@ export default function Doc( domElement ) {
 	const { scene, camera, renderer } = Startup( domElement );
 
 	scene.background = new THREE.Color( 0xffd1de );
-	scene.fog = new THREE.Fog( 0xffd1de, 0.45, 1.15 );
+	scene.fog = new THREE.Fog( 0xffd1de, 0.48, 1.12 );
 
 	// assets
 
