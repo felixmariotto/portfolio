@@ -214,6 +214,10 @@ export default function Prototypes( domElement ) {
 
 	};
 
+	prototypes.then( () => {
+		animate( 1 );
+	});
+
 	return { animate }
 
 }

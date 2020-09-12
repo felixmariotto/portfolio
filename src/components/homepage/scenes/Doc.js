@@ -134,6 +134,10 @@ export default function Doc( domElement ) {
 
 	};
 
+	Promise.all([ workbenchMisc, workbenchBoard ]).then( () => {
+		animate( 1 );
+	});
+
 	return { animate }
 
 }

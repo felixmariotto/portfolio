@@ -50,6 +50,8 @@ export default function Contact( domElement ) {
 
 	};
 
+	animate( 1 );
+
 	return { animate }
 
 }

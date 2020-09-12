@@ -1,1 +1,0 @@
-- render scene once when assets loaded, otherwise lower scenes take 1sec to appear when user scrolls

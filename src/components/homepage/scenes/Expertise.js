@@ -129,6 +129,10 @@ export default function Expertise( domElement ) {
 
 	};
 
+	expertise.then( () => {
+		animate( 1 );
+	});
+
 	return { animate }
 
 }

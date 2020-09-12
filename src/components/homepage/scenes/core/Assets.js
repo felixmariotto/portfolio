@@ -13,7 +13,7 @@ loader.setDRACOLoader( dracoLoader );
 
 //
 
-const bezel = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/bezel-processed.glb' );
+const bezel = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/bezel-processed.glb', true );
 
 const expertise = loadItem( 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/models/expertise-processed.glb' );
 
@@ -63,17 +63,35 @@ const models = {
 
 //
 
-function loadItem( url ) {
+function loadItem( url, priority ) {
 
-	return new Promise( (resolve) => {
+	const promise = new Promise( (resolve) => {
 
-		loader.load( url, (glb) => {
+		if ( priority ) {
 
-			resolve( glb.scene );
+			loader.load( url, (glb) => {
 
-		});
+				resolve( glb.scene );
+
+			});
+
+		} else {
+
+			setTimeout( () => {
+
+				loader.load( url, (glb) => {
+
+					resolve( glb.scene );
+
+				});
+
+			}, 1000 );
+			
+		}
 
 	})
+
+	return promise
 
 };
 

@@ -297,6 +297,10 @@ export default function Casting( domElement ) {
 
 	};
 
+	Promise.all([ ring1, ring2, head1, head2 ]).then( () => {
+		animate( 1 );
+	})
+
 	return { animate }
 
 }
