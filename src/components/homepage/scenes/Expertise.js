@@ -14,12 +14,9 @@ export default function Expertise( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	renderer.domElement.style.opacity = "0.6";
+	renderer.domElement.style.opacity = "0.7";
 
-	// scene.fog = new THREE.Fog( 0xffffff, 0.05, 1.2 );
-
-	scene.fog = new THREE.FogExp2( 0x0095ff, 0.7 )
-
+	scene.fog = new THREE.Fog( 0x0095ff, 0.25, 1.1 );
 	scene.background = new THREE.Color( 0xf7f7f7 );
 
 	// assets
@@ -91,13 +88,17 @@ export default function Expertise( domElement ) {
 
 			camera.lookAt( 0, 0, (ratio - 1) * 0.15 );
 
-			scene.fog.density = 0.7 / ratio;
+			const newCamLength = camera.position.length();
+
+			scene.fog.near = newCamLength - 0.15 ;
+			scene.fog.far = newCamLength + 0.45;
 
 		} else {
 
 			camera.lookAt( 0, 0, 0 );
 
-			scene.fog.density = 0.7;
+			scene.fog.near = 0.25;
+			scene.fog.far = 1.1;
 
 		}
 
