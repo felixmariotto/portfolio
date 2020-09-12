@@ -13,7 +13,7 @@ export default function Doc( domElement ) {
 	const { scene, camera, renderer } = Startup( domElement );
 
 	scene.background = new THREE.Color( 0xffd1de );
-	// scene.fog = new THREE.FogExp2( 0xffd1de, 1 );
+	scene.fog = new THREE.Fog( 0xffd1de, 0.45, 1.15 );
 
 	// assets
 
@@ -91,11 +91,11 @@ export default function Doc( domElement ) {
 		resolution: 1024
 	});
 
-	light.shadow.radius = 7;
+	light.shadow.radius = 5;
 
 	light.target.position.z -= 0.5;
 
-	scene.add( light, new THREE.AmbientLight( 0xffffff, 0.35 ) );
+	scene.add( light, new THREE.AmbientLight( 0xffffff, 0.25 ) );
 
 	// camera position
 

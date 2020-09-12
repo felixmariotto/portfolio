@@ -1,5 +1,5 @@
 
-import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import * as THREE from 'three';
 
 //
 
@@ -8,20 +8,22 @@ export default function Startup( domElement ) {
 	const HEIGHT = domElement.clientHeight;
 	const WIDTH = domElement.clientWidth;
 
-	const scene = new Scene();
+	const scene = new THREE.Scene();
 
-	const camera = new PerspectiveCamera(
+	const camera = new THREE.PerspectiveCamera(
 		60,
 		WIDTH / HEIGHT,
 		0.05,
 		5
 	);
 
-	const renderer = new WebGLRenderer({
+	const renderer = new THREE.WebGLRenderer({
 		antialias: true,
 		alpha: true
 	});
 	renderer.shadowMap.enabled = true ;
+	renderer.outputEncoding = THREE.sRGBEncoding;
+	renderer.gammaFactor = 2.2;
 
 	renderer.setSize(
 		WIDTH,
