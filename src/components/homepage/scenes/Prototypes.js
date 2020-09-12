@@ -16,7 +16,7 @@ export default function Prototypes( domElement ) {
 	const { scene, camera, renderer } = Startup( domElement );
 
 	renderer.localClippingEnabled = true;
-	renderer.domElement.style.opacity = "0.7";
+	renderer.domElement.style.opacity = "0.8";
 
 	scene.background = new THREE.Color( 0xffedf3 );
 	scene.fog = new THREE.Fog( 0xffedf3, 0.25, 1 );
@@ -119,18 +119,18 @@ export default function Prototypes( domElement ) {
 		x: -1,
 		y: 2,
 		z: 0.5,
-		intensity: 0.65,
+		intensity: 0.8,
 		width: 0.5,
 		near: 2,
 		far: 4,
 		resolution: 1024
 	});
 
-	light.shadow.radius = 4;
+	light.shadow.radius = 3.5;
 
 	scene.add( light );
 
-	scene.add( new THREE.AmbientLight( 0xffffff, 0.3 ) );
+	scene.add( new THREE.AmbientLight( 0xffffff, 0.35 ) );
 
 	// camera position
 
