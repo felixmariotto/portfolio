@@ -14,7 +14,7 @@ export default function Expertise( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
-	renderer.domElement.style.opacity = "0.7";
+	renderer.domElement.style.opacity = "0.85";
 
 	scene.fog = new THREE.Fog( 0x0095ff, 0.25, 1.1 );
 	scene.background = new THREE.Color( 0xf7f7f7 );
@@ -53,18 +53,18 @@ export default function Expertise( domElement ) {
 		x: -1,
 		y: 2,
 		z: -2,
-		intensity: 0.52,
+		intensity: 0.57,
 		width: 0.5,
 		near: 2,
 		far: 4,
 		resolution: 1024
 	});
 
-	light.shadow.radius = 10;
+	light.shadow.radius = 5;
 
 	scene.add( light );
 
-	scene.add( new THREE.AmbientLight( 0xffffff, 0.6 ) );
+	scene.add( new THREE.AmbientLight( 0xffffff, 0.55 ) );
 
 	// camera position
 
