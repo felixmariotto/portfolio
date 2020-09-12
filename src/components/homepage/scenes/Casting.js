@@ -285,11 +285,11 @@ export default function Casting( domElement ) {
 		targetRot.y = 2 * -InputPosition.x;
 		targetRot.x = 0.4 * -InputPosition.y;
 
-		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
-		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
+		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02 * speedRatio;
+		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02 * speedRatio;
 
-		particlesGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.018;
-		particlesGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.018;
+		particlesGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.0185 * speedRatio;
+		particlesGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.0185 * speedRatio;
 
 		renderer.render( scene, camera );
 

@@ -112,29 +112,21 @@ export default function Doc( domElement ) {
 	const targetTarget = new THREE.Vector2();
 	const currentTarget = new THREE.Vector3( 0, 0, 0.15 );
 
-	function animate() {
-
-		/*
-		targetRot.y = 0.4 * -InputPosition.x;
-		targetRot.x = 0.2 * -InputPosition.y;
-
-		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
-		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
-		*/
+	function animate( speedRatio ) {
 
 		targetPos.x = InputPosition.x * 0.05;
 		targetPos.y = ( InputPosition.y * 0.05 ) + 0.3;
 
-		cameraGroup.position.x += ( targetPos.x - cameraGroup.position.x ) * 0.02;
-		cameraGroup.position.z += ( targetPos.y - cameraGroup.position.z ) * 0.02;
+		cameraGroup.position.x += ( targetPos.x - cameraGroup.position.x ) * 0.02 * speedRatio;
+		cameraGroup.position.z += ( targetPos.y - cameraGroup.position.z ) * 0.02 * speedRatio;
 
 		//
 
-		targetTarget.x = InputPosition.x * 0.03;
-		targetTarget.y = ( InputPosition.y * 0.03 ) + 0.15;
+		targetTarget.x = InputPosition.x * 0.02;
+		targetTarget.y = ( InputPosition.y * 0.02 ) + 0.15;
 
-		currentTarget.x += ( targetTarget.x - currentTarget.x ) * 0.02;
-		currentTarget.z += ( targetTarget.y - currentTarget.z ) * 0.02;
+		currentTarget.x += ( targetTarget.x - currentTarget.x ) * 0.05 * speedRatio;
+		currentTarget.z += ( targetTarget.y - currentTarget.z ) * 0.05 * speedRatio;
 
 		camera.lookAt( currentTarget );
 

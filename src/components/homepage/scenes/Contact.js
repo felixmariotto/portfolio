@@ -39,8 +39,8 @@ export default function Contact( domElement ) {
 		targetRot.y = 0.25 * -InputPosition.x;
 		targetRot.x = 0.1 * -InputPosition.y;
 
-		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
-		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
+		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02 * speedRatio;
+		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02 * speedRatio;
 
 		camera.lookAt( 0, 0, 0 );
 
