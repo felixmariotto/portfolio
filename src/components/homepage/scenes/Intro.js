@@ -15,6 +15,9 @@ export default function Intro( domElement ) {
 
 	const { scene, camera, renderer } = Startup( domElement );
 
+	// screen aspect ratio, used for camera position and particles speed
+	let ratio = 1;
+
 	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2);
 
 	const light = ShadowedLight({
@@ -22,10 +25,10 @@ export default function Intro( domElement ) {
 		z: 10,
 		x: -2,
 		y: 1,
-		intensity: 0.6
+		intensity: 0.57
 	});
 
-	scene.add( light, new THREE.AmbientLight( 0xc0f8fc, 0.45 ) );
+	scene.add( light, new THREE.AmbientLight( 0xc0f8fc, 0.42 ) );
 
 	const particles = Particles();
 
@@ -103,11 +106,11 @@ export default function Intro( domElement ) {
 
 	function positionCamera() {
 
-		const ratio = window.innerHeight / window.innerWidth;
+		ratio = window.innerHeight / window.innerWidth;
 
 		if ( ratio > 1 ) {
 
-			camera.position.z = 1.6;
+			camera.position.z = ratio;
 
 		} else {
 
@@ -129,6 +132,16 @@ export default function Intro( domElement ) {
 		time += ( speedRatio / 80 )
 
 		if ( bezelMeshes ) {
+
+			// translate mesh up and down
+
+			bezelMeshes.forEach( (mesh) => {
+
+				mesh.position.y = Math.sin( time ) * 0.02;
+
+			})
+
+			// rotate bezels
 
 			const targetPosition = new THREE.Vector3();
 
@@ -172,7 +185,7 @@ export default function Intro( domElement ) {
 
 		camera.lookAt( 0, 0, 0 );
 
-		particles.update();
+		particles.update( speedRatio * ratio );
 
 		renderer.render( scene, camera );
 

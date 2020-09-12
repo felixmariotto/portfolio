@@ -85,11 +85,11 @@ export default function Particles() {
 			speed: (Math.random() * 0.0002) + 0.0002,
 			child1: new THREE.Points( geometry, material ),
 			child2: new THREE.Points( geometry, material ),
-			update: function update() {
+			update: function update( speedRatio ) {
 
 				[ this.child1, this.child2 ].forEach( (child) => {
 
-					child.position.y += this.speed;
+					child.position.y += this.speed * speedRatio;
 
 					if ( child.position.y > 1.5 ) child.position.y = -1.5;
 
@@ -116,11 +116,11 @@ export default function Particles() {
 
 	//
 
-	function update() {
+	function update( speedRatio ) {
 
 		particlesGroups.forEach( (particlesGroup) => {
 
-			particlesGroup.update();
+			particlesGroup.update( speedRatio );
 
 		})
 

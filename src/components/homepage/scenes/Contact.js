@@ -34,7 +34,7 @@ export default function Contact( domElement ) {
 
 	const targetRot = new THREE.Vector2();
 
-	function animate() {
+	function animate( speedRatio ) {
 
 		targetRot.y = 0.25 * -InputPosition.x;
 		targetRot.x = 0.1 * -InputPosition.y;
@@ -44,7 +44,7 @@ export default function Contact( domElement ) {
 
 		camera.lookAt( 0, 0, 0 );
 
-		particles.update();
+		particles.update( speedRatio );
 
 		renderer.render( scene, camera );
 
