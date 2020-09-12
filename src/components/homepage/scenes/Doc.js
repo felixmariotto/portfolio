@@ -27,7 +27,7 @@ export default function Doc( domElement ) {
 
 		obj.traverse( (child) => {
 
-			if ( child.material ) child.material = new THREE.MeshLambertMaterial();
+			// if ( child.material ) child.material = new THREE.MeshLambertMaterial();
 
 			if ( child.material ) child.material.side = THREE.FrontSide;
 
@@ -48,10 +48,29 @@ export default function Doc( domElement ) {
 
 		obj.traverse( (child) => {
 
-			// if ( child.material ) child.material.side = THREE.FrontSide;
+			if ( child.material ) child.material.side = THREE.FrontSide;
 
 			child.castShadow = true;
 			child.receiveShadow = true;
+
+			// clone for shadows
+
+			if ( child.isMesh ) {
+
+				const clone = child.clone();
+				const matClone = child.material.clone();
+
+				clone.material = matClone;
+				matClone.side = THREE.BackSide;
+
+				clone.position.z += 0.18;
+				clone.position.x -= 0.052;
+				clone.position.y -= 0.0012;
+				clone.scale.setScalar( 0.02 );
+
+				scene.add( clone );
+
+			}
 
 		})
 
@@ -60,12 +79,12 @@ export default function Doc( domElement ) {
 	// light
 
 	const light = ShadowedLight({
-		bias: -0.0001,
+		bias: -0.0005,
 		color: 0xffffff,
 		x: -0.3,
 		y: 4,
 		z: -1,
-		intensity: 1,
+		intensity: 0.85,
 		width: 0.71,
 		near: 3.8,
 		far: 4.5,
@@ -76,7 +95,7 @@ export default function Doc( domElement ) {
 
 	light.target.position.z -= 0.5;
 
-	scene.add( light, new THREE.AmbientLight( 0xffffff, 0.1 ) );
+	scene.add( light, new THREE.AmbientLight( 0xffffff, 0.35 ) );
 
 	// camera position
 
