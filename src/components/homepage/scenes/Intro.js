@@ -21,14 +21,14 @@ export default function Intro( domElement ) {
 	const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2);
 
 	const light = ShadowedLight({
-		color: 0xffb5cf,
+		color: 0xffd1e1,
 		z: 10,
 		x: -2,
 		y: 1,
-		intensity: 0.55
+		intensity: 0.8
 	});
 
-	scene.add( light, new THREE.AmbientLight( 0xc0f8fc, 0.43 ) );
+	scene.add( light, new THREE.AmbientLight( 0xc0f8fc, 0.25 ) );
 
 	const particles = Particles();
 
