@@ -3,6 +3,7 @@ import Startup from './core/Startup.js';
 import InputPosition from './core/InputPosition.js';
 import ShadowedLight from './core/ShadowedLight.js';
 import Easing from './core/Easing.js';
+import Particles from './core/Particles.js';
 import { ring1, ring2, head1, head2 } from './core/Assets.js';
 import { marquiseBig, marquiseMedium, marquiseSmall, pearBig, pearMedium, pearSmall } from './core/Assets.js';
 
@@ -53,7 +54,8 @@ export default function Casting( domElement ) {
 	const material = new THREE.MeshStandardMaterial({
 		envMap,
 		roughnessMap,
-		metalness: 1
+		metalness: 1,
+		transparent: true
 	});
 
 	const instanceMaterial = material.clone();
@@ -258,12 +260,21 @@ export default function Casting( domElement ) {
 	camera.position.set( 0.3, 0.3, 0.4 );
 	camera.lookAt( 0, 0, 0 );
 
+
+	const particlesGroup = new THREE.Group();
+	scene.add( particlesGroup );
+	const particles = Particles();
+	particles.container.renderOrder = -1;
+	particles.container.scale.setScalar( 0.65 );
+	particles.container.rotation.y += Math.PI / 5;
+	particlesGroup.add( particles.container );
+
 	//
 
 	const targetRot = new THREE.Vector2();
 	let time = 0;
 
-	function animate() {
+	function animate( speedRatio ) {
 
 		// assets group
 
@@ -277,7 +288,12 @@ export default function Casting( domElement ) {
 		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
 
+		particlesGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.018;
+		particlesGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.018;
+
 		renderer.render( scene, camera );
+
+		particles.update( speedRatio );
 
 	};
 
