@@ -126,7 +126,7 @@ export default function Prototypes( domElement ) {
 		resolution: 1024
 	});
 
-	light.shadow.radius = 8;
+	light.shadow.radius = 4;
 
 	scene.add( light );
 

@@ -72,36 +72,52 @@ export default function Doc( domElement ) {
 		resolution: 1024
 	});
 
-	light.shadow.radius = 10;
+	light.shadow.radius = 7;
 
 	light.target.position.z -= 0.5;
-
-	var helper = new THREE.CameraHelper( light.shadow.camera );
-	scene.add( helper );
 
 	scene.add( light, new THREE.AmbientLight( 0xffffff, 0.1 ) );
 
 	// camera position
 
 	const cameraGroup = new THREE.Group();
+	cameraGroup.position.z += 0.3;
 	scene.add( cameraGroup );
 	cameraGroup.add( camera );
 
-	// camera.position.set( -0.15, 0.6, 0.3 );
-	camera.position.set( -0.2, 0.8, 0.4 );
-	camera.lookAt( 0.05, 0, -0.05 );
+	camera.position.set( -0.15, 0.6, 0.1 );
 
 	//
 
-	const targetRot = new THREE.Vector2();
+	const targetPos = new THREE.Vector2();
+	const targetTarget = new THREE.Vector2();
+	const currentTarget = new THREE.Vector3( 0, 0, 0.15 );
 
 	function animate() {
 
-		targetRot.y = 2 * -InputPosition.x;
-		targetRot.x = 2 * -InputPosition.y;
+		/*
+		targetRot.y = 0.4 * -InputPosition.x;
+		targetRot.x = 0.2 * -InputPosition.y;
 
 		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.02;
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02;
+		*/
+
+		targetPos.x = InputPosition.x * 0.05;
+		targetPos.y = ( InputPosition.y * 0.05 ) + 0.3;
+
+		cameraGroup.position.x += ( targetPos.x - cameraGroup.position.x ) * 0.02;
+		cameraGroup.position.z += ( targetPos.y - cameraGroup.position.z ) * 0.02;
+
+		//
+
+		targetTarget.x = InputPosition.x * 0.03;
+		targetTarget.y = ( InputPosition.y * 0.03 ) + 0.15;
+
+		currentTarget.x += ( targetTarget.x - currentTarget.x ) * 0.02;
+		currentTarget.z += ( targetTarget.y - currentTarget.z ) * 0.02;
+
+		camera.lookAt( currentTarget );
 
 		renderer.render( scene, camera );
 
