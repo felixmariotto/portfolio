@@ -18,7 +18,7 @@ export default function Startup( domElement ) {
 	);
 
 	const renderer = new THREE.WebGLRenderer({
-		antialias: true,
+		// antialias: true,
 		alpha: true
 	});
 	renderer.shadowMap.enabled = true ;
