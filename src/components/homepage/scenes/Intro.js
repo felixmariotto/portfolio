@@ -51,7 +51,7 @@ export default function Intro( domElement ) {
 
 	const frontMat = new THREE.MeshLambertMaterial({
 		transparent: true,
-		opacity: 0.8,
+		opacity: 0.7,
 		side: THREE.FrontSide,
 		color: 0xffffff
 	});
