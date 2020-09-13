@@ -53,20 +53,17 @@ scenesContainers.forEach( ( sceneContainer, i, arr ) => {
 	arrow.classList.add('fa', 'fa-caret-down');
 
 	if ( i === 0 ) arrow.classList.add('first');
-	else {
+	
+	arrow.addEventListener( 'click', () => {
 
-		arrow.addEventListener( 'click', () => {
+		const sceneHeight = document.body.clientHeight * 1.4;
 
-			const sceneHeight = document.body.clientHeight * 1.4;
+		window.scrollTo({
+			top: sceneHeight * (i + 1),
+			behavior: 'smooth'
+		});
 
-			window.scrollTo({
-				top: sceneHeight * (i + 1),
-				behavior: 'smooth'
-			});
-
-		})
-		
-	}
+	})
 
 	sceneContainer.append( arrow );
 
