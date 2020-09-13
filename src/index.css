@@ -56,7 +56,9 @@ h1, h2, h3, h4 {
 }
 
 	#logo {
-		font-family: 'champagne', sans-serif;
+		/* font-family: 'champagne', sans-serif; */
+		font-family: 'Arvo', serif;
+		font-size: 0.9em;
 	}
 
 /* PAGE CONTAINER */

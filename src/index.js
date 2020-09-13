@@ -56,7 +56,7 @@ document.body.append( logoContainer );
 
 const logo = document.createElement('DIV');
 logo.id = 'logo';
-logo.innerHTML = 'Félix Mariotto';
+logo.innerHTML = 'Felix Mariotto';
 
 logoContainer.append( logo );
 

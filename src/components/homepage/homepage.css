@@ -130,14 +130,14 @@
 			#intro-textual-ui {
 				top: 70%;
 				left: 50%;
-				padding: 15px 25px;
+				padding: 5px 0;
 				transform: translateX(-50%);
-				font-size: calc( 10px + 3vmin );
+				font-size: calc( 11px + 3vmin );
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				color: var(--color1-0);
-				border: var(--generic-border);
+				/* border-bottom: var(--generic-border); */
 				white-space: nowrap;
 			}
 
