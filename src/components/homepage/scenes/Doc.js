@@ -99,12 +99,46 @@ export default function Doc( domElement ) {
 
 	// camera position
 
+	let targetOffsetX = 0;
+
 	const cameraGroup = new THREE.Group();
 	cameraGroup.position.z += 0.3;
 	scene.add( cameraGroup );
 	cameraGroup.add( camera );
 
-	camera.position.set( -0.15, 0.6, 0.1 );
+	setTimeout( positionCamera, 0 );
+
+	window.addEventListener( 'resize', positionCamera );
+	
+	function positionCamera() {
+
+		let ratio = domElement.clientHeight / domElement.clientWidth;
+
+		camera.position.set( -0.15, 0.6, 0.1 );
+
+		if ( ratio && ratio > 1 ) {
+
+			camera.position.multiplyScalar( ratio );
+
+			targetOffsetX = (ratio - 1) * 0.12;
+
+			const newCamLength = camera.position.length();
+
+			scene.fog.near = newCamLength - 0.15 ;
+			scene.fog.far = newCamLength + 0.5;
+
+		} else {
+
+			camera.lookAt( 0, 0, 0 );
+
+			scene.fog.near = 0.48;
+			scene.fog.far = 1.12;
+
+			targetOffsetX = 0;
+
+		}
+
+	};
 
 	//
 
@@ -122,7 +156,7 @@ export default function Doc( domElement ) {
 
 		//
 
-		targetTarget.x = InputPosition.x * 0.02;
+		targetTarget.x = ( InputPosition.x * 0.02 ) - targetOffsetX;
 		targetTarget.y = ( InputPosition.y * 0.02 ) + 0.15;
 
 		currentTarget.x += ( targetTarget.x - currentTarget.x ) * 0.05 * speedRatio;
