@@ -7,6 +7,7 @@ import Easing from './Easing.js';
 
 // factor by which device motion multiply inputPosition normal values
 const DEVICE_MOTION_POWER = 2;
+const CAP_VALUE = 50;
 
 const inputPosition = new THREE.Vector2();
 
@@ -74,11 +75,11 @@ window.addEventListener( 'devicemotion', (e) => {
 	
 	deviceRotation.x = rot.beta ? deviceRotation.x + rot.beta : deviceRotation.x;
 	deviceRotation.y = rot.alpha ? deviceRotation.y + rot.alpha : deviceRotation.y;
-	
-	// clamp values to [ 2000, -2000 ]
 
-	deviceRotation.x = THREE.MathUtils.clamp( deviceRotation.x, -2000, 2000 );
-	deviceRotation.y = THREE.MathUtils.clamp( deviceRotation.y, -2000, 2000 );
+	// clamp values to avoid wild input
+
+	deviceRotation.x = THREE.MathUtils.clamp( deviceRotation.x, -1 * CAP_VALUE, CAP_VALUE );
+	deviceRotation.y = THREE.MathUtils.clamp( deviceRotation.y, -1 * CAP_VALUE, CAP_VALUE );
 
 	// gently tween deviceRotation values back to 0
 
