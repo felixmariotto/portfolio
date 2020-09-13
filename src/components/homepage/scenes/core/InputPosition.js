@@ -5,8 +5,7 @@ import Easing from './Easing.js';
 
 //
 
-// factor by which device motion multiply inputPosition normal values
-const DEVICE_MOTION_POWER = 2;
+const DEVICE_MOTION_SENSITIVITY = 2;
 const CAP_VALUE = 400;
 
 const inputPosition = new THREE.Vector2();
@@ -58,8 +57,8 @@ function tweenRotationBack() {
 			// report the recorded rotation to a [ 0 1 ] range,
 			// then copy it into inputPosition for camera positioning in scenes.
 
-			inputPosition.x = DEVICE_MOTION_POWER * ( deviceRotation.x / CAP_VALUE );
-			inputPosition.y = DEVICE_MOTION_POWER * ( deviceRotation.x / CAP_VALUE );
+			inputPosition.x = ( deviceRotation.x / CAP_VALUE );
+			inputPosition.y = ( deviceRotation.y / CAP_VALUE );
 
 		}, 15 );
 
@@ -73,8 +72,8 @@ window.addEventListener( 'devicemotion', (e) => {
 
 	const rot = e.rotationRate
 	
-	deviceRotation.x = rot.beta ? deviceRotation.x + rot.beta : deviceRotation.x;
-	deviceRotation.y = rot.alpha ? deviceRotation.y + rot.alpha : deviceRotation.y;
+	deviceRotation.x = rot.beta ? deviceRotation.x + ( rot.beta * DEVICE_MOTION_SENSITIVITY ) : deviceRotation.x;
+	deviceRotation.y = rot.alpha ? deviceRotation.y + ( rot.alpha * DEVICE_MOTION_SENSITIVITY ) : deviceRotation.y;
 
 	// clamp values to avoid wild input
 
