@@ -54,3 +54,20 @@
 	.info-module h3 {
 		font-size: calc( 13px + 1.2vmin );
 	}
+
+	/* */
+
+	#samples-container {
+		position: relative;
+	}
+
+		#samples-container > div {
+			background-color: red;
+			width: 100%;
+			max-width: 65vh;
+			height: 30vh;
+		}
+
+		#samples-container > * + * {
+			margin-top: 20px;
+		}

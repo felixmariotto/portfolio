@@ -13,6 +13,23 @@ title.innerHTML = 'Samples';
 
 container.append( title );
 
+// samples flex box
+
+const samplesContainer = document.createElement('DIV');
+samplesContainer.id = "samples-container";
+
+container.append( samplesContainer );
+
+// rendering
+
+const renderBox = document.createElement('DIV');
+
+const cadBox = document.createElement('DIV');
+
+const docBox = document.createElement('DIV');
+
+samplesContainer.append( renderBox, cadBox, docBox );
+
 // speech
 
 const speech1 = document.createElement('P');
