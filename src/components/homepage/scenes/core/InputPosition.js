@@ -43,8 +43,8 @@ function tweenRotationBack() {
 
 		intervalToken = setInterval( () => {
 
-			deviceRotation.x -= deviceRotation.x * 0.1;
-			deviceRotation.y -= deviceRotation.y * 0.1;
+			deviceRotation.x -= deviceRotation.x * 0.07;
+			deviceRotation.y -= deviceRotation.y * 0.07;
 
 			if (
 				Math.abs( deviceRotation.x ) < 0.5 &&

@@ -260,7 +260,9 @@ loop();
 
 function loop() {
 
-	const speedRatio = clock.getDelta() / ( 1 / 60 );
+	let speedRatio = clock.getDelta() / ( 1 / 60 );
+
+	speedRatio = speedRatio > 10 ? 10 : speedRatio;
 
 	requestAnimationFrame( loop );
 
