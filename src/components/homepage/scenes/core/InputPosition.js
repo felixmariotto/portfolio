@@ -54,11 +54,13 @@ function tweenRotationBack() {
 				intervalToken = undefined
 			};
 
-			// report the recorded rotation to a [ 0 1 ] range,
-			// then copy it into inputPosition for camera positioning in scenes.
+			//
 
 			inputPosition.x = ( deviceRotation.x / CAP_VALUE );
 			inputPosition.y = ( deviceRotation.y / CAP_VALUE );
+
+			inputPosition.x = THREE.MathUtils.clamp( inputPosition.x, -1, 1 );
+			inputPosition.y = THREE.MathUtils.clamp( inputPosition.y, -1, 1 );
 
 		}, 15 );
 
