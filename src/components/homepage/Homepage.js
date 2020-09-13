@@ -5,6 +5,8 @@ import * as THREE from 'three';
 
 import Link from '../link/Link.js';
 
+import texts from '../../data/texts.js';
+
 import Intro from './scenes/Intro.js';
 import Expertise from './scenes/Expertise.js';
 import Prototypes from './scenes/Prototypes.js';
@@ -99,7 +101,7 @@ function makeLink( linkTo, text ) {
 	icon.classList.add('fa', 'fa-long-arrow-right');
 
 	const link = Link( linkTo );
-	link.innerHTML = text ? text + '&#xA0;&#xA0;&#xA0;' : 'learn more&#xA0;&#xA0;&#xA0;';
+	link.innerHTML = text ? text + '&#xA0;&#xA0;&#xA0;' : texts.homepage.global.more + '&#xA0;&#xA0;&#xA0;';
 	link.append( icon );
 
 	return link
@@ -111,7 +113,7 @@ function makeLink( linkTo, text ) {
 	const container = document.createElement('H1');
 	container.id = 'intro-textual-ui';
 	container.classList.add('textual-ui')
-	container.innerHTML = 'High Jewellery Design';
+	container.innerHTML = texts.homepage.intro.intro;
 
 	scenesContainers[ 0 ].append( container );
 
@@ -128,14 +130,14 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = "Consulting";
+	title.innerHTML = texts.homepage.expertise.title;
 
 	container.append( title );
 
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "Do you need advices on how to design and manage a high jewelry project ? I have experience working with the most picky high jewelry companies, and I can assist you."
+	speech.innerHTML = texts.homepage.expertise.text;
 
 	container.append( speech );
 
@@ -156,14 +158,14 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = "Prototypes & viewers";
+	title.innerHTML = texts.homepage.prototypes.title;
 
 	container.append( title );
 
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "Early in development you will review resin prototypes and photorealistic viewers, in order to pinpoint issues fast and respect your schedules.";
+	speech.innerHTML = texts.homepage.prototypes.text;
 
 	container.append( speech );
 
@@ -184,14 +186,14 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = "Casting parts";
+	title.innerHTML = texts.homepage.casting.title;
 
 	container.append( title );
 
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "Once your jewel is designed, I can supply lost-wax casting parts in all kind of metals : silver, gold, platinum, or even titanium. You only have to assemble them."
+	speech.innerHTML = texts.homepage.casting.text;
 
 	container.append( speech );
 
@@ -212,14 +214,14 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = "Technical sheets";
+	title.innerHTML = texts.homepage.doc.title;
 
 	container.append( title );
 
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = "Assembling your jewel will go unhindered, thanks to the technical documentation I provide with each finished project. Assembling sheets, stone setting plans, everything is covered."
+	speech.innerHTML = texts.homepage.doc.text;
 
 	container.append( speech );
 
@@ -240,15 +242,15 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = "More information :";
+	title.innerHTML = texts.homepage.contact.title;
 
 	container.append( title );
 
 	// links
 
-	container.append( makeLink( 'webdev', 'Web development' ) );
-	container.append( makeLink( 'samples', 'See some samples' ) );
-	container.append( makeLink( 'contact', 'Contact' ) );
+	container.append( makeLink( 'webdev', texts.homepage.contact.webdevLink ) );
+	container.append( makeLink( 'samples', texts.homepage.contact.samplesLink ) );
+	container.append( makeLink( 'contact', texts.homepage.contact.contactLink ) );
 
 })();
 
