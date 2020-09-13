@@ -15,19 +15,45 @@ container.append( title );
 
 // speech
 
-const speech0 = document.createElement('P');
-speech0.innerHTML = "I am eager to answer any information demand and make quotation tailored to your special needs. I you want to discuss verbally, let's organize a Skype or Zoom meeting with you and your team.";
+const speech = document.createElement('P');
+speech.innerHTML = "I am eager to answer any information demand and make quotation tailored to your special needs. I you want to discuss verbally, let's organize a Skype or Zoom meeting with you and your team.";
 
-const speech1 = document.createElement('P');
-speech1.innerHTML = "email : felix.mariotto@gmail.com";
+//
 
-const speech2 = document.createElement('P');
-speech2.innerHTML = 'Linkedin : https://www.linkedin.com/in/felixmariotto'
+const mailLink = document.createElement('A');
+mailLink.target = "_blank";
+mailLink.href = 'mailto:felix.mariotto@gmail.com';
 
-const speech3 = document.createElement('P');
-speech3.innerHTML = 'GitHub : https://github.com/felixmariotto'
+const mailIcon = document.createElement('I');
+mailIcon.classList.add('fa', 'fa-envelope');
 
-container.append( speech0, speech1, speech2, speech3 );
+mailLink.append( mailIcon, 'felix.mariotto@gmail.com' );
+
+//
+
+const githubLink = document.createElement('A');
+githubLink.target = "_blank";
+githubLink.href = 'https://github.com/felixmariotto';
+
+const githubIcon = document.createElement('I');
+githubIcon.classList.add('fa', 'fa-github');
+
+githubLink.append( githubIcon, 'Github' );
+
+//
+
+const linkedinLink = document.createElement('A');
+linkedinLink.target = "_blank";
+linkedinLink.href = 'https://www.linkedin.com/in/felixmariotto';
+
+const linkedinIcon = document.createElement('I');
+linkedinIcon.classList.add('fa', 'fa-linkedin-square');
+
+linkedinLink.append( linkedinIcon, 'Linkedin' );
+
+//
+
+container.append( speech, mailLink, githubLink, linkedinLink );
 
 //
 

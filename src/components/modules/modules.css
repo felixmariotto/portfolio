@@ -30,6 +30,23 @@
 		font-size: calc( 11px + 1vmin );
 	}
 
+	.info-module a {
+		display: block;
+		color: var( --color1-0 );
+		font-size: calc( 11px + 1vmin );
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+	}
+
+		.info-module a > * {
+			margin-right: 10px;
+		}
+
+		.info-module a > i {
+			font-size: 30px;
+		}
+
 	.info-module h2 {
 		font-size: calc( 15px + 2vmin );
 	}
