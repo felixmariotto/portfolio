@@ -7,7 +7,7 @@ import Easing from './Easing.js';
 
 // factor by which device motion multiply inputPosition normal values
 const DEVICE_MOTION_POWER = 2;
-const CAP_VALUE = 200;
+const CAP_VALUE = 400;
 
 const inputPosition = new THREE.Vector2();
 

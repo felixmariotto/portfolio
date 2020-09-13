@@ -278,7 +278,7 @@ export default function Casting( domElement ) {
 
 		// assets group
 
-		ringContainer.rotation.y += 0.005;
+		ringContainer.rotation.y += 0.005 * speedRatio;
 
 		// camera
 
