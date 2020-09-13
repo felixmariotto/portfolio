@@ -20,28 +20,31 @@ samplesContainer.id = "samples-container";
 
 container.append( samplesContainer );
 
-// rendering
+//
 
-const renderBox = document.createElement('DIV');
+createSamplesBox( 'Photorealistic Rendering' );
 
-const cadBox = document.createElement('DIV');
+createSamplesBox( 'CAD 3D Models' );
 
-const docBox = document.createElement('DIV');
+createSamplesBox( 'Documentation' );
 
-samplesContainer.append( renderBox, cadBox, docBox );
+//
 
-// speech
+function createSamplesBox( title ) {
 
-const speech1 = document.createElement('P');
-speech1.innerHTML = "Click here to download some realistic renders and pictures of resin prototypes"
+	const container = document.createElement('DIV');
+	container.classList.add('sample-container');
 
-const speech2 = document.createElement('P');
-speech2.innerHTML = 'Click here to download some casting parts'
+	const img = document.createElement('IMG');
+	img.src = 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/viewer2.jpg';
 
-const speech3 = document.createElement('P');
-speech3.innerHTML = 'Click here to download samples of documentation ( assembly instructions, stone plans, parts spreadsheets, and more )'
+	const text = document.createElement('DIV');
+	text.innerHTML = title;
 
-container.append( speech1, speech2, speech3 );
+	container.append( img, text );
+	samplesContainer.append( container );
+
+};
 
 //
 

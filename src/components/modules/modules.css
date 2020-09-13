@@ -61,13 +61,42 @@
 		position: relative;
 	}
 
-		#samples-container > div {
-			background-color: red;
-			width: 100%;
-			max-width: 65vh;
-			height: 30vh;
-		}
-
 		#samples-container > * + * {
 			margin-top: 20px;
 		}
+
+		.sample-container {
+			position: relative;
+			background-color: white;
+			overflow: hidden;
+			border-radius: 20px;
+			border-color: var( --color1-0 );
+			border-style: solid;
+			border-width: 4px;
+			width: 100%;
+			max-width: 65vh;
+			height: 30vh;
+			cursor: pointer;
+			transition: all 0.2s linear;
+		}
+
+			.sample-container:hover {
+				border-color: var( --color1-2 );
+			}
+
+			.sample-container>img {
+				height: 80%;
+				width: 100%;
+				object-fit: cover;
+			}
+
+			.sample-container>div {
+				height: 20%;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: calc( 11px + 1vmin );
+			}
+
+		
