@@ -58,8 +58,8 @@ function tweenRotationBack() {
 			// report the recorded rotation to a [ 0 1 ] range,
 			// then copy it into inputPosition for camera positioning in scenes.
 
-			inputPosition.x = DEVICE_MOTION_POWER * Easing.easeOutQuint( Math.abs( deviceRotation.x / 2000 ) ) * Math.sign( deviceRotation.x );
-			inputPosition.y = DEVICE_MOTION_POWER * Easing.easeOutQuint( Math.abs( deviceRotation.y / 2000 ) ) * Math.sign( deviceRotation.y );
+			inputPosition.x = DEVICE_MOTION_POWER * Easing.easeOutQuint( Math.abs( deviceRotation.x / CAP_VALUE ) ) * Math.sign( deviceRotation.x );
+			inputPosition.y = DEVICE_MOTION_POWER * Easing.easeOutQuint( Math.abs( deviceRotation.y / CAP_VALUE ) ) * Math.sign( deviceRotation.y );
 
 		}, 15 );
 
@@ -80,6 +80,8 @@ window.addEventListener( 'devicemotion', (e) => {
 
 	deviceRotation.x = THREE.MathUtils.clamp( deviceRotation.x, -1 * CAP_VALUE, CAP_VALUE );
 	deviceRotation.y = THREE.MathUtils.clamp( deviceRotation.y, -1 * CAP_VALUE, CAP_VALUE );
+
+	if ( deviceRotation.x > CAP_VALUE || deviceRotation.x < -CAP_VALUE ) window.alert('bug')
 
 	// gently tween deviceRotation values back to 0
 
