@@ -76,19 +76,32 @@ const modules = {
 	expertise: {
 		title: "Consulting",
 
-		speech1: `I worked for some years as a 
-					technical designer for Lasbleiz Fournier Vitiello 
+		presentation: {
+			title: "Who am I ?",
+
+			speech1: `I worked for more than two years as a 
+					technical designer for <i>Lasbleiz Fournier Vitiello</i> 
 					in Paris, which is a workshop famous in 
 					Place Vendôme high jewelry community for 
 					its quality work. Thereafter I lived in 
 					Hong Kong for another couple of years, 
-					working for Michelle Ong who makes jewels 
+					working for <i>Michelle Ong</i> who makes jewels 
 					for the finest amateurs of this city-state.`,
 		
-		speech2: `Armed with the design and project management 
-					skills acquired during these years, 
-					I can give you precious advices to make 
-					your projects happen.`
+			speech2: `Armed with the design and project management 
+						skills acquired during these years, 
+						I can give you precious advices to make 
+						your projects happen.`
+		},
+
+		service: {
+			title: "My service",
+
+			speech: `You can hire my to manage a design project of yours,
+					 or simply as an advisor who can help you making the right
+					 decision when you have some doubts.`
+		}
+		
 	},
 
 	// PROTOTYPES
@@ -105,10 +118,14 @@ const modules = {
 					at the delivery date you will request.`,
 
 		speech2: `To arrive at this perfect design and 
-					to save us from discovering flaws in 
-					the design late in product development, 
+					to save us from discovering flaws 
+					late in product development, 
 					we will regularly organize design reviews 
-					supported by resin prototypes or 3D viewers.`
+					supported by resin prototypes and/or 3D viewers.`,
+
+		speech3: `If you don't happen to own a 3D printer to print
+					the prototypes, don't worry : I can handle that
+					for you, and ship them to your office.`
 	},
 
 	// CASTING
@@ -128,8 +145,8 @@ const modules = {
 					of jewelry handcrafting.`,
 
 		speech2: `If you are not lucky enough to own a 3D printer, 
-					it will be my pleasure to lead you 
-					towards the right contractor.`
+					I offer to ship the parts directly to your workshop
+					via reliable conveyor.`
 	},
 
 	// DOCUMENTATION
@@ -145,8 +162,8 @@ const modules = {
 
 		speech2: `I adapt the documentation to every project, 
 					and listen to your special demands, 
-					be it parts spreadsheets, documents for public presentations 
-					or customer use, outlined 4-views for painting... 
+					be it parts spreadsheets for your inventory, documents for public presentations 
+					or customer use, 4-views layouts for painting... 
 					Name your own needs.`
 	},
 
@@ -160,10 +177,14 @@ const modules = {
 					services in this field. My skills in jewelry, 
 					3D modeling and web development is a rare 
 					and precious combination if you are a 
-					jewelry company with a project of high-end website.`,
+					jewelry company with a project of high-end online service.`,
 
-		speech2: `This website was entirely designed and 
-					coded by myself.`
+		speech2: `This website you are browsing was entirely designed and 
+					coded by myself with the latest web technologies
+					(&#xA0;Node.js, Three.js, Webpack, etc...&#xA0;).
+					The 3D models displayed in the various scenes 
+					of the front page are mine, and necessitated
+					some specific treatment for realtime rendering.`
 	}
 
 }

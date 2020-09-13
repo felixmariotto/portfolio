@@ -33,3 +33,7 @@
 	.info-module h2 {
 		font-size: calc( 15px + 2vmin );
 	}
+
+	.info-module h3 {
+		font-size: calc( 13px + 1.2vmin );
+	}
