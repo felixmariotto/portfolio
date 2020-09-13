@@ -1,6 +1,8 @@
 
 import './modules.css';
 
+import texts from '../../data/texts.js';
+
 //
 
 const container = document.createElement('DIV');
@@ -9,17 +11,17 @@ container.classList.add('info-module');
 // title
 
 const title = document.createElement('H2');
-title.innerHTML = 'Technical Documentation';
+title.innerHTML = texts.modules.doc.title;
 
 container.append( title );
 
 // speech
 
 const speech1 = document.createElement('P');
-speech1.innerHTML = "Once your project is designed, you are not left alone in the wild. I send you all the documentation you need to assemble the parts, set the stones, and even communicate and advertise about it."
+speech1.innerHTML = texts.modules.doc.speech1;
 
 const speech2 = document.createElement('P');
-speech2.innerHTML = 'I adapt the documentation to every project, and listen to your special demands, be it parts spreadsheets, documents for public presentations or customer use, outlined 4-views for painting... Name your own needs.'
+speech2.innerHTML = texts.modules.doc.speech2;
 
 container.append( speech1, speech2 );
 
