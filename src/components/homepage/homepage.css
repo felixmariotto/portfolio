@@ -38,7 +38,12 @@
 				left: 50%;
 				animation: swing_homepage_carret 2s linear infinite;
 				transition: opacity 0.7s linear;
+				z-index: 2;
 			}
+
+				.scene-fixed-container .fa-caret-down:hover {
+					cursor: pointer;
+				}
 
 				.scene-fixed-container .fa-caret-down.first {
 					bottom: 60px;
