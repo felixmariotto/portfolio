@@ -26,7 +26,7 @@ export default function Casting( domElement ) {
 		x: -1,
 		y: 2,
 		z: 1,
-		intensity: 3,
+		intensity: 2,
 		resolution: 1024,
 		width: 1
 	})
