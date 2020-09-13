@@ -152,7 +152,7 @@ export default function Prototypes( domElement ) {
 
 			camera.position.multiplyScalar( ratio * 1.1 );
 
-			camera.lookAt( (0.05 / ratio) , 0.08, (ratio - 1) * 0.13 );
+			camera.lookAt( 0.05, 0.08, ( 1 - ratio ) * -0.11 );
 
 			const newCamLength = camera.position.length();
 
