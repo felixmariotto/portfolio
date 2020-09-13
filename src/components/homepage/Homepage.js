@@ -23,6 +23,12 @@ container.id = "homepage-container";
 
 //
 
+const dummy = document.createElement('DIV');
+dummy.id = 'dummy-container';
+document.body.append( dummy );
+
+//
+
 const scenesContainers = [];
 
 for ( let i = 0 ; i < 6 ; i++ ) {
@@ -53,13 +59,11 @@ scenesContainers.forEach( ( sceneContainer, i, arr ) => {
 	arrow.classList.add('fa', 'fa-caret-down');
 
 	if ( i === 0 ) arrow.classList.add('first');
-	
+
 	arrow.addEventListener( 'click', () => {
 
-		const sceneHeight = document.body.clientHeight * 1.4;
-
 		window.scrollTo({
-			top: sceneHeight * (i + 1),
+			top: getSceneContainerHeight() * (i + 1),
 			behavior: 'smooth'
 		});
 
@@ -264,7 +268,7 @@ function loop() {
 
 	if ( skipAnimation ) return
 
-	const currentPos = window.scrollY / (document.body.clientHeight * 1.4);
+	const currentPos = window.scrollY / getSceneContainerHeight();
 
 	scenes[ Math.round( currentPos ) ].animate( speedRatio );
 
@@ -296,6 +300,12 @@ function focusHomepage() {
 	scenesContainers.forEach( (domElement) => {
 		domElement.classList.remove( 'blurry' );
 	});
+}
+
+//
+
+function getSceneContainerHeight() {
+	return document.querySelector('#dummy-container').getBoundingClientRect().height;
 }
 
 //

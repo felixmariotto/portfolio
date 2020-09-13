@@ -1,19 +1,28 @@
 
+:root {
+	--scene-container-height: calc( 100vh + 12vw );
+	--containers-line-width: 1px;
+}
+
+#dummy-container {
+	position: absolute;
+	left: 150vw;
+	height: var( --scene-container-height );
+}
+
 #homepage-container {
 	position: relative;
 	overflow-y: scroll;
 	width: 100%;
 	z-index: 1;
-	/* */ background-color: var(--color1-0);
+	background-color: var(--color1-0);
 }
 
 	.scene-container {
-		height: 140vh;
+		height: var( --scene-container-height );
 		width: 100%;
-		/* clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100% - 12vw ), 50% 100%, 0 calc( 100% - 12vw )); */
-		/* -webkit-clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100% - 12vw ), 50% 100%, 0 calc( 100% - 12vw )); */
-		/* */clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100% - 12vw - 1px ), 50% calc( 100% - 1px ), 0 calc( 100% - 12vw - 1px ));
-		/* */-webkit-clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100% - 12vw - 1px ), 50% calc( 100% - 1px ), 0 calc( 100% - 12vw - 1px ));
+		clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100vh - var( --containers-line-width ) ), 50% calc( 100vh + 12vw - var( --containers-line-width ) ), 0 calc( 100vh - var( --containers-line-width ) ));
+		-webkit-clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100vh - var( --containers-line-width ) ), 50% calc( 100vh + 12vw - var( --containers-line-width ) ), 0 calc( 100vh - var( --containers-line-width ) ));
 		border-style: solid;
 	}
 

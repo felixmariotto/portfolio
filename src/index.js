@@ -143,7 +143,7 @@ window.addEventListener( 'scroll', (e) => {
 
 	const currentScroll = window.scrollY;
 
-	const sceneHeight = document.body.clientHeight * 1.4;
+	const sceneHeight = getSceneContainerHeight();
 
 	currentPage = Math.floor( (currentScroll + ( sceneHeight * 0.5 )) / sceneHeight );
 
@@ -161,9 +161,7 @@ setInterval( () => {
 
 	if ( scrollTime > Date.now() - DELAY_BEFORE_AUTOSCROLL ) return
 
-	const sceneHeight = document.body.clientHeight * 1.4;
-
-	const targetScroll = ( sceneHeight * currentPage );
+	const targetScroll = ( getSceneContainerHeight() * currentPage );
 
 	// return if scroll is already right
 	if ( Math.round( targetScroll ) === window.scrollY ) return
@@ -174,3 +172,9 @@ setInterval( () => {
 	});
 
 }, 100 );
+
+//
+
+function getSceneContainerHeight() {
+	return document.querySelector('#dummy-container').getBoundingClientRect().height;
+}
