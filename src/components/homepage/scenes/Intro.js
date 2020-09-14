@@ -129,7 +129,7 @@ export default function Intro( domElement ) {
 
 	function animate( speedRatio ) {
 
-		time += ( speedRatio / 80 )
+		time += speedRatio * ( 1 / 30 );
 
 		if ( bezelMeshes ) {
 
@@ -137,7 +137,7 @@ export default function Intro( domElement ) {
 
 			bezelMeshes.forEach( (mesh) => {
 
-				mesh.position.y = Math.sin( time ) * 0.02;
+				mesh.position.y = Math.sin( time ) * 0.01;
 
 			})
 

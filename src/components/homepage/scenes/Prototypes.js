@@ -175,24 +175,18 @@ export default function Prototypes( domElement ) {
 	const targetRot = new THREE.Vector2();
 	let targetPos = 0;
 
-	const SCREEN_SHIFT_DURATION = 3000;
+	const SCREEN_SHIFT_DURATION = 4500;
 	let screenShift = 0;
-
-	let time = Date.now();
 
 	function animate( speedRatio ) {
 
-		const deltaMS = speedRatio * ( 1 / 120 ) * 1000;
+		const deltaMS = speedRatio * ( 1 / 30 ) * 1000;
 
 		// TABLET SCREEN
 
 		screenShift += ( screenShift + deltaMS ) / SCREEN_SHIFT_DURATION;
 
 		if ( screenShift > 1 ) {
-
-			console.log( Date.now() - time );
-
-			time = Date.now();
 
 			screenShift = 0;
 
@@ -212,7 +206,7 @@ export default function Prototypes( domElement ) {
 
 		targetRot.y = 0.3 * -InputPosition.x;
 
-		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.02 * speedRatio;
+		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.04 * speedRatio;
 
 		//
 
