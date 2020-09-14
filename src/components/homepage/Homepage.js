@@ -257,16 +257,23 @@ function makeLink( linkTo, text ) {
 //
 
 let skipAnimation;
+let frameCount = 0;
 
 loop();
 
 function loop() {
 
+	requestAnimationFrame( loop );
+
+	frameCount ++;
+
+	if ( ( frameCount % 2 ) === 0 ) return
+
+	//
+
 	let speedRatio = clock.getDelta() / ( 1 / 60 );
 
 	speedRatio = speedRatio > 10 ? 10 : speedRatio;
-
-	requestAnimationFrame( loop );
 
 	// decide which scene must be animated
 
