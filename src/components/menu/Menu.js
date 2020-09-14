@@ -38,7 +38,7 @@ moreInfoContainer.id = 'more-info-container';
 
 linksContainer.append( moreInfoContainer );
 
-moreInfoContainer.append( MenuLink( 'See some samples', 'samples' ) );
+moreInfoContainer.append( MenuLink( 'Review some samples', 'samples' ) );
 moreInfoContainer.append( MenuLink( 'Contact', 'contact' ) );
 
 //

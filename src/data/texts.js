@@ -19,7 +19,7 @@ const homepage = {
 
 	expertise: {
 		title: "Consulting",
-		text: `Having worked with the most demanding 
+		text: `Backed by my experience working with the most demanding 
 				high jewelry companies, I can advise you 
 				wisely with your projects.`
 	},
@@ -33,7 +33,7 @@ const homepage = {
 				prototypes and photorealistic 
 				viewers in order to pinpoint 
 				issues fast and respect 
-				your schedules.`
+				your schedule.`
 	},
 
 	// CASTING PARTS SCENE
@@ -97,8 +97,8 @@ const modules = {
 		service: {
 			title: "My service",
 
-			speech: `You can hire my to manage a design project of yours,
-					 or simply as an advisor who can help you making the right
+			speech: `You can hire me to manage your design projects,
+					 or as an advisor who can help you making the right
 					 decision when you have some doubts.`
 		}
 		
@@ -185,6 +185,17 @@ const modules = {
 					The 3D models displayed in the various scenes 
 					of the front page are mine, and necessitated
 					some specific treatment for realtime rendering.`
+	},
+
+	// CONTACT
+
+	contact: {
+		title: 'Contact',
+
+		speech: `I am eager to answer any information
+					demand and make quotations tailored to
+					your special needs. I you want to discuss verbally, 
+					we can arrange a Skype or Zoom meeting on request.`
 	}
 
 }
