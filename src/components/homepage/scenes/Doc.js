@@ -15,7 +15,7 @@ const ASSETS_TRANSLATION = new THREE.Vector3( 0.08, 0, 0 );
 
 export default function Doc( domElement ) {
 
-	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #fff5fa 0%, #d7cedb 62%, #aebcd1 100%)';
+	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #fff5fa 0%, #e5e5e7 62%, #c1c8d2 100%)';
 
 	const { scene, camera, renderer } = Startup( domElement );
 
@@ -36,8 +36,6 @@ export default function Doc( domElement ) {
 		scene.add( obj );
 
 		obj.traverse( (child) => {
-
-			// if ( child.material ) child.material = new THREE.MeshLambertMaterial();
 
 			if ( child.material ) child.material.side = THREE.FrontSide;
 
@@ -151,15 +149,22 @@ export default function Doc( domElement ) {
 	const targetRot = new THREE.Vector2();
 	const targetTarget = new THREE.Vector2();
 	const currentTarget = new THREE.Vector3();
+	let targetScale = 1;
 
 	function animate( speedRatio ) {
 
-		targetRot.x = 0.19 * ( -InputPosition.y + 0.55 );
-		targetRot.y = 0.19 * -InputPosition.x;
+		targetRot.x = 0.17 * ( -InputPosition.y + 0.55 );
+		targetRot.y = 0.1 * -InputPosition.x;
 
-		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.05 * speedRatio;
+		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.04 * speedRatio;
 		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.05 * speedRatio;
 		
+		//
+
+		targetScale = 1 + ( InputPosition.y * 0.3 );
+
+		cameraGroup.scale.setScalar( cameraGroup.scale.x + ( ( targetScale - cameraGroup.scale.x ) * 0.035 * speedRatio ) ) ;
+
 		//
 
 		// targetTarget.x = ( InputPosition.x * 0.05 );
