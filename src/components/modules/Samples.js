@@ -22,15 +22,11 @@ container.append( samplesContainer );
 
 //
 
-const updateFns = [];
-
 createSamplesBox( 'Photorealistic Rendering' );
 
 createSamplesBox( 'CAD 3D Models' );
 
 createSamplesBox( 'Documentation' );
-
-container.onscroll = () => updateFns.forEach( fn => fn() );
 
 //
 
@@ -50,31 +46,6 @@ function createSamplesBox( title ) {
 
 	sampleContainer.append( icon, img, text );
 	samplesContainer.append( sampleContainer );
-
-	updateIconVisibility();
-
-	function updateIconVisibility() {
-
-		const contRect = container.getBoundingClientRect();
-
-		const rect = sampleContainer.getBoundingClientRect();
-
-		if ( 
-			contRect.bottom < rect.top + ( ( rect.bottom - rect.top ) * 0.7 ) ||
-			contRect.top > rect.bottom - ( ( rect.bottom - rect.top ) * 0.7 )
-		) {
-
-			icon.classList.add('hidden')
-
-		} else {
-
-			icon.classList.remove('hidden')
-
-		};
-
-	};
-
-	updateFns.push( updateIconVisibility );
 
 };
 
