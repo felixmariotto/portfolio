@@ -4,7 +4,7 @@ import './modules.css';
 //
 
 const container = document.createElement('DIV');
-container.classList.add('info-module');
+container.classList.add('info-module', 'contact');
 
 // title
 
