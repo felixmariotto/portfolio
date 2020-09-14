@@ -104,6 +104,7 @@ export default function Doc( domElement ) {
 	// camera position
 
 	let targetOffsetX = 0;
+	let targetOffsetZ = 0;
 
 	const cameraGroup = new THREE.Group();
 	cameraGroup.position.z += 0.3;
@@ -124,7 +125,8 @@ export default function Doc( domElement ) {
 
 			camera.position.multiplyScalar( ratio );
 
-			targetOffsetX = (ratio - 1) * 0.12;
+			targetOffsetX = (ratio - 1) * 0.15;
+			targetOffsetZ = (ratio - 1) * -0.1;
 
 			const newCamLength = camera.position.length();
 
@@ -139,6 +141,7 @@ export default function Doc( domElement ) {
 			scene.fog.far = 1.12;
 
 			targetOffsetX = 0;
+			targetOffsetZ = 0;
 
 		}
 
@@ -161,7 +164,7 @@ export default function Doc( domElement ) {
 		//
 
 		targetTarget.x = ( InputPosition.x * 0.02 ) - targetOffsetX;
-		targetTarget.y = ( InputPosition.y * 0.02 ) + 0.15;
+		targetTarget.y = ( InputPosition.y * 0.02 ) + 0.15 - targetOffsetZ;
 
 		currentTarget.x += ( targetTarget.x - currentTarget.x ) * 0.05 * speedRatio;
 		currentTarget.z += ( targetTarget.y - currentTarget.z ) * 0.05 * speedRatio;
