@@ -271,7 +271,7 @@ function loop() {
 
 	//
 
-	let speedRatio = clock.getDelta() / ( 1 / 60 );
+	let speedRatio = clock.getDelta() / ( 1 / 120 );
 
 	speedRatio = speedRatio > 10 ? 10 : speedRatio;
 

@@ -178,15 +178,21 @@ export default function Prototypes( domElement ) {
 	const SCREEN_SHIFT_DURATION = 3000;
 	let screenShift = 0;
 
+	let time = Date.now();
+
 	function animate( speedRatio ) {
 
-		const deltaMS = speedRatio * ( 1 / 60 ) * 1000;
+		const deltaMS = speedRatio * ( 1 / 120 ) * 1000;
 
 		// TABLET SCREEN
 
 		screenShift += ( screenShift + deltaMS ) / SCREEN_SHIFT_DURATION;
 
 		if ( screenShift > 1 ) {
+
+			console.log( Date.now() - time );
+
+			time = Date.now();
 
 			screenShift = 0;
 
