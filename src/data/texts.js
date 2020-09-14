@@ -61,7 +61,7 @@ const homepage = {
 	contact: {
 		title: "More information :",
 		webdevLink: 'Web development',
-		samplesLink: 'Review some samples',
+		samplesLink: 'Review samples',
 		contactLink: 'Contact'
 	}
 

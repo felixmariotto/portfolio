@@ -22,17 +22,23 @@ speech.innerHTML = "I am eager to answer any information demand and make quotati
 
 const mailLink = document.createElement('A');
 mailLink.target = "_blank";
+mailLink.ondragstart = () => { return false }
 mailLink.href = 'mailto:felix.mariotto@gmail.com';
 
 const mailIcon = document.createElement('I');
 mailIcon.classList.add('fa', 'fa-envelope');
 
-mailLink.append( mailIcon, 'felix.mariotto@gmail.com' );
+const mailText = document.createElement('P');
+mailText.innerHTML = 'felix.mariotto@gmail.com';
+
+mailLink.append( mailIcon, mailText );
 
 //
 
 const githubLink = document.createElement('A');
 githubLink.target = "_blank";
+githubLink.ondragstart = () => { return false }
+githubLink.draggable = "false";
 githubLink.href = 'https://github.com/felixmariotto';
 
 const githubIcon = document.createElement('I');
@@ -44,6 +50,8 @@ githubLink.append( githubIcon, 'Github' );
 
 const linkedinLink = document.createElement('A');
 linkedinLink.target = "_blank";
+linkedinLink.ondragstart = () => { return false }
+linkedinLink.draggable = "false";
 linkedinLink.href = 'https://www.linkedin.com/in/felixmariotto';
 
 const linkedinIcon = document.createElement('I');
