@@ -22,21 +22,21 @@ container.append( samplesContainer );
 
 //
 
-createSamplesBox( 'Photorealistic Rendering' );
+createSamplesBox( 'Photorealistic Rendering', 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/images/render-teaser.jpg' );
 
-createSamplesBox( 'CAD 3D Models' );
+createSamplesBox( 'CAD 3D Models', 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/images/cad-teaser.jpg' );
 
-createSamplesBox( 'Documentation' );
+// createSamplesBox( 'Documentation', 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/viewer2.jpg' );
 
 //
 
-function createSamplesBox( title ) {
+function createSamplesBox( title, imgUrl ) {
 
 	const sampleContainer = document.createElement('DIV');
 	sampleContainer.classList.add('sample-container');
 
 	const img = document.createElement('IMG');
-	img.src = 'https://cad-portfolio.s3.eu-west-3.amazonaws.com/textures/viewer2.jpg';
+	img.src = imgUrl;
 
 	const icon = document.createElement('I');
 	icon.classList.add('fa', 'fa-download');
