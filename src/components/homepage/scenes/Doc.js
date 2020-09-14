@@ -10,10 +10,14 @@ import * as THREE from 'three';
 
 export default function Doc( domElement ) {
 
+	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #fff5fa 0%, #d7cedb 62%, #aebcd1 100%)';
+
 	const { scene, camera, renderer } = Startup( domElement );
 
-	scene.background = new THREE.Color( 0xffd1de );
-	scene.fog = new THREE.Fog( 0xffd1de, 0.48, 1.12 );
+	// scene.background = new THREE.Color( 0xffd1de );
+	scene.fog = new THREE.Fog( 0xffe0e9, 0.48, 1.12 );
+
+	renderer.domElement.style.opacity = "0.92";
 
 	// assets
 
