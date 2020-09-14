@@ -8,6 +8,11 @@ import * as THREE from 'three';
 
 //
 
+const ASSETS_ROTATION = new THREE.Euler( 0, 0.6, 0 );
+const ASSETS_TRANSLATION = new THREE.Vector3( 0.08, 0, 0 );
+
+//
+
 export default function Doc( domElement ) {
 
 	domElement.style.background = 'radial-gradient(ellipse at 25% 25%, #fff5fa 0%, #d7cedb 62%, #aebcd1 100%)';
@@ -23,8 +28,9 @@ export default function Doc( domElement ) {
 
 	workbenchBoard.then( (obj) => {
 
-		obj.position.z += 0.18;
-		obj.position.x -= 0.052;
+		obj.position.copy( ASSETS_TRANSLATION );
+		obj.rotation.copy( ASSETS_ROTATION );
+
 		obj.scale.setScalar( 0.02 );
 
 		scene.add( obj );
@@ -44,8 +50,9 @@ export default function Doc( domElement ) {
 
 	workbenchMisc.then( (obj) => {
 
-		obj.position.z += 0.18;
-		obj.position.x -= 0.052;
+		obj.position.copy( ASSETS_TRANSLATION );
+		obj.rotation.copy( ASSETS_ROTATION );
+
 		obj.scale.setScalar( 0.02 );
 
 		scene.add( obj );
@@ -54,29 +61,33 @@ export default function Doc( domElement ) {
 
 			if ( child.material ) child.material.side = THREE.FrontSide;
 
-			child.castShadow = true;
 			child.receiveShadow = true;
 
-			// clone for shadows
+		});
 
-			if ( child.isMesh ) {
+		// clone
 
-				const clone = child.clone();
+		const clone = obj.clone( true );
+
+		clone.position.y -= 0.0012;
+
+		clone.traverse( (child) => {
+
+			if ( child.material ) {
+
 				const matClone = child.material.clone();
 
-				clone.material = matClone;
-				matClone.side = THREE.BackSide;
+				child.material = matClone;
 
-				clone.position.z += 0.18;
-				clone.position.x -= 0.052;
-				clone.position.y -= 0.0012;
-				clone.scale.setScalar( 0.02 );
-
-				scene.add( clone );
+				child.material.side = THREE.BackSide;
 
 			}
 
-		})
+			child.castShadow = true;
+
+		});
+
+		scene.add( clone );
 
 	});
 
@@ -103,11 +114,7 @@ export default function Doc( domElement ) {
 
 	// camera position
 
-	let targetOffsetX = 0;
-	let targetOffsetZ = 0;
-
 	const cameraGroup = new THREE.Group();
-	cameraGroup.position.z += 0.3;
 	scene.add( cameraGroup );
 	cameraGroup.add( camera );
 
@@ -119,14 +126,11 @@ export default function Doc( domElement ) {
 
 		let ratio = domElement.clientHeight / domElement.clientWidth;
 
-		camera.position.set( -0.15, 0.6, 0.1 );
+		camera.position.set( 0, 0.5, 0.2 );
 
 		if ( ratio && ratio > 1 ) {
 
 			camera.position.multiplyScalar( ratio );
-
-			targetOffsetX = (ratio - 1) * 0.15;
-			targetOffsetZ = (ratio - 1) * -0.1;
 
 			const newCamLength = camera.position.length();
 
@@ -135,13 +139,8 @@ export default function Doc( domElement ) {
 
 		} else {
 
-			camera.lookAt( 0, 0, 0 );
-
 			scene.fog.near = 0.48;
 			scene.fog.far = 1.12;
-
-			targetOffsetX = 0;
-			targetOffsetZ = 0;
 
 		}
 
@@ -149,27 +148,29 @@ export default function Doc( domElement ) {
 
 	//
 
-	const targetPos = new THREE.Vector2();
+	const targetRot = new THREE.Vector2();
 	const targetTarget = new THREE.Vector2();
-	const currentTarget = new THREE.Vector3( 0, 0, 0.15 );
+	const currentTarget = new THREE.Vector3();
 
 	function animate( speedRatio ) {
 
-		targetPos.x = InputPosition.x * 0.05;
-		targetPos.y = ( InputPosition.y * 0.05 ) + 0.3;
+		targetRot.x = 0.19 * ( -InputPosition.y + 0.55 );
+		targetRot.y = 0.19 * -InputPosition.x;
 
-		cameraGroup.position.x += ( targetPos.x - cameraGroup.position.x ) * 0.02 * speedRatio;
-		cameraGroup.position.z += ( targetPos.y - cameraGroup.position.z ) * 0.02 * speedRatio;
-
+		cameraGroup.rotation.x += ( targetRot.x - cameraGroup.rotation.x ) * 0.05 * speedRatio;
+		cameraGroup.rotation.y += ( targetRot.y - cameraGroup.rotation.y ) * 0.05 * speedRatio;
+		
 		//
 
-		targetTarget.x = ( InputPosition.x * 0.02 ) - targetOffsetX;
-		targetTarget.y = ( InputPosition.y * 0.02 ) + 0.15 - targetOffsetZ;
+		// targetTarget.x = ( InputPosition.x * 0.05 );
+		// targetTarget.y = ( InputPosition.y * 0.05 );
 
-		currentTarget.x += ( targetTarget.x - currentTarget.x ) * 0.05 * speedRatio;
-		currentTarget.z += ( targetTarget.y - currentTarget.z ) * 0.05 * speedRatio;
+		// currentTarget.x += ( targetTarget.x - currentTarget.x ) * 0.1 * speedRatio;
+		// currentTarget.z += ( targetTarget.y - currentTarget.z ) * 0.1 * speedRatio;
 
 		camera.lookAt( currentTarget );
+
+		//
 
 		renderer.render( scene, camera );
 
