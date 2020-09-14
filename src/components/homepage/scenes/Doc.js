@@ -101,6 +101,8 @@ export default function Doc( domElement ) {
 		z: -1,
 		intensity: 0.85,
 		width: 0.71,
+		shadowOffsetX: -0.12,
+		shadowOffsetY: -0.1,
 		near: 3.8,
 		far: 4.5,
 		resolution: 1024

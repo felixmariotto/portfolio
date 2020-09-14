@@ -11,6 +11,8 @@ export default function ShadowedLight( options ) {
 	const y = options.y || 10;
 	const z = options.z || 2;
 	const width = options.width || 10;
+    const shadowOffsetX = options.shadowOffsetX || 0;
+    const shadowOffsetY = options.shadowOffsetY || 0;
 	const near = options.near || 0.1;
 	const far = options.far || 30;
 	const bias = options.bias || -0;
@@ -29,10 +31,10 @@ export default function ShadowedLight( options ) {
 
     const d = width / 2;
 
-    directionalLight.shadow.camera.left = -d;
-    directionalLight.shadow.camera.right = d;
-    directionalLight.shadow.camera.top = d;
-    directionalLight.shadow.camera.bottom = -d;
+    directionalLight.shadow.camera.left = -d + shadowOffsetX;
+    directionalLight.shadow.camera.right = d + shadowOffsetX;
+    directionalLight.shadow.camera.top = d + shadowOffsetY;
+    directionalLight.shadow.camera.bottom = -d + shadowOffsetY;
     directionalLight.shadow.camera.near = near;
     directionalLight.shadow.camera.far = far;
     directionalLight.shadow.mapSize.width = resolution;
