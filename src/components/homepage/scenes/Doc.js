@@ -11,6 +11,8 @@ import * as THREE from 'three';
 const ASSETS_ROTATION = new THREE.Euler( 0, 0.6, 0 );
 const ASSETS_TRANSLATION = new THREE.Vector3( 0.08, 0, 0 );
 
+const CAMERA_POSITION = new THREE.Vector3( 0, 0.5, 0.2 );
+
 //
 
 export default function Doc( domElement ) {
@@ -20,7 +22,7 @@ export default function Doc( domElement ) {
 	const { scene, camera, renderer } = Startup( domElement );
 
 	// scene.background = new THREE.Color( 0xffd1de );
-	scene.fog = new THREE.Fog( 0xffe0e9, 0.48, 1.12 );
+	scene.fog = new THREE.Fog( 0xfcedf2, 0.48, 1.12 );
 
 	renderer.domElement.style.opacity = "0.92";
 
@@ -124,23 +126,9 @@ export default function Doc( domElement ) {
 
 		let ratio = domElement.clientHeight / domElement.clientWidth;
 
-		camera.position.set( 0, 0.5, 0.2 );
+		camera.position.copy( CAMERA_POSITION );
 
-		if ( ratio && ratio > 1 ) {
-
-			camera.position.multiplyScalar( ratio );
-
-			const newCamLength = camera.position.length();
-
-			scene.fog.near = newCamLength - 0.15 ;
-			scene.fog.far = newCamLength + 0.5;
-
-		} else {
-
-			scene.fog.near = 0.48;
-			scene.fog.far = 1.12;
-
-		}
+		if ( ratio && ratio > 1 )  camera.position.multiplyScalar( ratio );
 
 	};
 
@@ -164,6 +152,13 @@ export default function Doc( domElement ) {
 		targetScale = 1 + ( InputPosition.y * 0.3 );
 
 		cameraGroup.scale.setScalar( cameraGroup.scale.x + ( ( targetScale - cameraGroup.scale.x ) * 0.035 * speedRatio ) ) ;
+
+		//
+
+		const newCamLength = camera.position.length() * cameraGroup.scale.x;
+
+		scene.fog.near = ( newCamLength - 0.15 ) / cameraGroup.scale.x;
+		scene.fog.far = ( newCamLength + 0.5 ) / cameraGroup.scale.x;
 
 		//
 
