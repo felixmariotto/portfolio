@@ -267,7 +267,7 @@ function loop() {
 
 	frameCount ++;
 
-	if ( ( frameCount % 2 ) === 0 ) return
+	if ( ( frameCount % 2 ) === 0 || skipAnimation ) return
 
 	//
 
@@ -276,8 +276,6 @@ function loop() {
 	speedRatio = speedRatio > 10 ? 10 : speedRatio;
 
 	// decide which scene must be animated
-
-	if ( skipAnimation ) return
 
 	const currentPos = window.scrollY / getSceneContainerHeight();
 
