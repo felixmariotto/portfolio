@@ -11,20 +11,20 @@ container.classList.add('info-module');
 // title
 
 const title = document.createElement('H2');
-title.innerHTML = texts().modules.prototypes.title;
+title.append( texts.modules.prototypes.title );
 
 container.append( title );
 
 // speech
 
 const speech1 = document.createElement('P');
-speech1.innerHTML = texts().modules.prototypes.speech1;
+speech1.append( texts.modules.prototypes.speech1 );
 
 const speech2 = document.createElement('P');
-speech2.innerHTML = texts().modules.prototypes.speech2;
+speech2.append( texts.modules.prototypes.speech2 );
 
 const speech3 = document.createElement('P');
-speech3.innerHTML = texts().modules.prototypes.speech3;
+speech3.append( texts.modules.prototypes.speech3 );
 
 container.append( speech1, speech2, speech3 );
 

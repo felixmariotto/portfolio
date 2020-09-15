@@ -11,7 +11,7 @@ container.classList.add('info-module');
 // title
 
 const title = document.createElement('H2');
-title.innerHTML = texts().modules.samples.title;
+title.append( texts.modules.samples.title );
 
 container.append( title );
 
@@ -53,7 +53,7 @@ function createSamplesBox( textType, imgUrl, dlUrl ) {
 	icon.classList.add('fa', 'fa-download');
 
 	const text = document.createElement('DIV');
-	text.innerHTML = texts().modules.samples[ textType ];
+	text.append( texts.modules.samples[ textType ] );
 
 	sampleContainer.append( icon, img, text );
 	samplesContainer.append( sampleContainer );

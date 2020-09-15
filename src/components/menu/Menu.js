@@ -49,7 +49,7 @@ function MenuLink( textType, linkTo ) {
 
 	const link = Link( linkTo );
 	link.classList.add( 'menu-link' );
-	link.innerHTML = texts().menu[ textType ];
+	link.append( texts.menu[ textType ] )
 
 	//
 
