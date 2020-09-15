@@ -101,7 +101,7 @@ function makeLink( linkTo, text ) {
 	icon.classList.add('fa', 'fa-long-arrow-right');
 
 	const link = Link( linkTo );
-	link.innerHTML = text ? text + '&#xA0;&#xA0;&#xA0;' : texts.homepage.global.more + '&#xA0;&#xA0;&#xA0;';
+	link.innerHTML = text ? text + '&#xA0;&#xA0;&#xA0;' : texts().homepage.global.more + '&#xA0;&#xA0;&#xA0;';
 	link.append( icon );
 
 	return link
@@ -113,7 +113,7 @@ function makeLink( linkTo, text ) {
 	const container = document.createElement('H1');
 	container.id = 'intro-textual-ui';
 	container.classList.add('textual-ui')
-	container.innerHTML = texts.homepage.intro.intro;
+	container.innerHTML = texts().homepage.intro.intro;
 
 	scenesContainers[ 0 ].append( container );
 
@@ -130,14 +130,14 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = texts.homepage.expertise.title;
+	title.innerHTML = texts().homepage.expertise.title;
 
 	container.append( title );
 
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = texts.homepage.expertise.text;
+	speech.innerHTML = texts().homepage.expertise.text;
 
 	container.append( speech );
 
@@ -158,14 +158,14 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = texts.homepage.prototypes.title;
+	title.innerHTML = texts().homepage.prototypes.title;
 
 	container.append( title );
 
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = texts.homepage.prototypes.text;
+	speech.innerHTML = texts().homepage.prototypes.text;
 
 	container.append( speech );
 
@@ -186,14 +186,14 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = texts.homepage.casting.title;
+	title.innerHTML = texts().homepage.casting.title;
 
 	container.append( title );
 
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = texts.homepage.casting.text;
+	speech.innerHTML = texts().homepage.casting.text;
 
 	container.append( speech );
 
@@ -214,14 +214,14 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = texts.homepage.doc.title;
+	title.innerHTML = texts().homepage.doc.title;
 
 	container.append( title );
 
 	// speech
 
 	const speech = document.createElement('P');
-	speech.innerHTML = texts.homepage.doc.text;
+	speech.innerHTML = texts().homepage.doc.text;
 
 	container.append( speech );
 
@@ -242,15 +242,15 @@ function makeLink( linkTo, text ) {
 	// title
 
 	const title = document.createElement('H2');
-	title.innerHTML = texts.homepage.contact.title;
+	title.innerHTML = texts().homepage.contact.title;
 
 	container.append( title );
 
 	// links
 
-	container.append( makeLink( 'webdev', texts.homepage.contact.webdevLink ) );
-	container.append( makeLink( 'samples', texts.homepage.contact.samplesLink ) );
-	container.append( makeLink( 'contact', texts.homepage.contact.contactLink ) );
+	container.append( makeLink( 'webdev', texts().homepage.contact.webdevLink ) );
+	container.append( makeLink( 'samples', texts().homepage.contact.samplesLink ) );
+	container.append( makeLink( 'contact', texts().homepage.contact.contactLink ) );
 
 })();
 

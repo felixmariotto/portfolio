@@ -11,14 +11,14 @@ container.classList.add('info-module', 'contact');
 // title
 
 const title = document.createElement('H2');
-title.innerHTML = texts.modules.contact.title;
+title.innerHTML = texts().modules.contact.title;
 
 container.append( title );
 
 // speech
 
 const speech = document.createElement('P');
-speech.innerHTML = texts.modules.contact.speech;
+speech.innerHTML = texts().modules.contact.speech;
 
 //
 
