@@ -7,6 +7,18 @@ const texts = {
 
 	english: {
 
+		// MENU
+
+		menu: {
+			consulting: "Consulting",
+			prototypes: "Prototypes & Viewers",
+			casting: "Casting Parts",
+			doc: "Documentation",
+			webdev: "Web Development",
+			samples: "Samples",
+			contact: "Contact"
+		},
+
 		// HOMEPAGE
 
 		homepage: {
@@ -197,6 +209,16 @@ const texts = {
 							some specific treatment for realtime rendering.`
 			},
 
+			// SAMPLES
+
+			samples: {
+				title: "Samples",
+
+				renders: 'Photorealistic Rendering',
+
+				cad: 'CAD 3D Models'
+			},
+
 			// CONTACT
 
 			contact: {
@@ -217,6 +239,18 @@ const texts = {
 	///////////
 
 	french: {
+
+		// MENU
+
+		menu: {
+			consulting: "Conseil",
+			prototypes: "Prototypes & Rendus",
+			casting: "Pièces de Fonte",
+			doc: "Documentation",
+			webdev: "Développement Web",
+			samples: "Échantillons",
+			contact: "Contact"
+		},
 
 		// HOMEPAGE
 
@@ -412,6 +446,16 @@ const texts = {
 							dans chaque scène de la page d'accueil sont les miens,
 							et on nécessité un traitement spécial pour le
 							rendu en temps réel.`
+			},
+
+			// SAMPLES
+
+			samples: {
+				title: "Échantillons",
+
+				renders: 'Rendus Photoréalistes',
+
+				cad: 'Models 3D CAO'
 			},
 
 			// CONTACT

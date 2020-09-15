@@ -1,6 +1,8 @@
 
 import './modules.css';
 
+import texts from '../../data/texts.js';
+
 //
 
 const container = document.createElement('DIV');
@@ -9,7 +11,7 @@ container.classList.add('info-module');
 // title
 
 const title = document.createElement('H2');
-title.innerHTML = 'Samples';
+title.innerHTML = texts().modules.samples.title;
 
 container.append( title );
 
@@ -23,13 +25,13 @@ container.append( samplesContainer );
 //
 
 createSamplesBox(
-	'Photorealistic Rendering',
+	'renders',
 	'https://cad-portfolio.s3.eu-west-3.amazonaws.com/images/render-teaser.jpg',
 	'https://cad-portfolio.s3.eu-west-3.amazonaws.com/samples/felix_mariotto_renders.zip'
 );
 
 createSamplesBox(
-	'CAD 3D Models',
+	'cad',
 	'https://cad-portfolio.s3.eu-west-3.amazonaws.com/images/cad-teaser.jpg',
 	'https://cad-portfolio.s3.eu-west-3.amazonaws.com/samples/felix_mariotto_cad.zip'
 );
@@ -38,7 +40,7 @@ createSamplesBox(
 
 //
 
-function createSamplesBox( title, imgUrl, dlUrl ) {
+function createSamplesBox( textType, imgUrl, dlUrl ) {
 
 	const sampleContainer = document.createElement('A');
 	sampleContainer.classList.add('sample-container');
@@ -51,7 +53,7 @@ function createSamplesBox( title, imgUrl, dlUrl ) {
 	icon.classList.add('fa', 'fa-download');
 
 	const text = document.createElement('DIV');
-	text.innerHTML = title;
+	text.innerHTML = texts().modules.samples[ textType ];
 
 	sampleContainer.append( icon, img, text );
 	samplesContainer.append( sampleContainer );

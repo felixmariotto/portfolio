@@ -3,6 +3,8 @@ import './menu.css';
 
 import Link from '../link/Link.js';
 
+import texts from '../../data/texts.js';
+
 //
 
 const container = document.createElement('DIV');
@@ -25,11 +27,11 @@ chaptersContainer.id = 'chapters-container';
 
 linksContainer.append( chaptersContainer );
 
-chaptersContainer.append( MenuLink( 'Technical Consultation', 'expertise' ) );
-chaptersContainer.append( MenuLink( 'Prototypes & 3D Viewers', 'prototypes' ) );
-chaptersContainer.append( MenuLink( 'Casting Parts', 'casting parts' ) );
-chaptersContainer.append( MenuLink( 'Technical Documentation', 'technical doc' ) );
-chaptersContainer.append( MenuLink( 'Web Development', 'webdev' ) );
+chaptersContainer.append( MenuLink( 'consulting', 'expertise' ) );
+chaptersContainer.append( MenuLink( 'prototypes', 'prototypes' ) );
+chaptersContainer.append( MenuLink( 'casting', 'casting parts' ) );
+chaptersContainer.append( MenuLink( 'doc', 'technical doc' ) );
+chaptersContainer.append( MenuLink( 'webdev', 'webdev' ) );
 
 //
 
@@ -38,16 +40,16 @@ moreInfoContainer.id = 'more-info-container';
 
 linksContainer.append( moreInfoContainer );
 
-moreInfoContainer.append( MenuLink( 'Review some samples', 'samples' ) );
-moreInfoContainer.append( MenuLink( 'Contact', 'contact' ) );
+moreInfoContainer.append( MenuLink( 'samples', 'samples' ) );
+moreInfoContainer.append( MenuLink( 'contact', 'contact' ) );
 
 //
 
-function MenuLink( text, linkTo ) {
+function MenuLink( textType, linkTo ) {
 
 	const link = Link( linkTo );
 	link.classList.add( 'menu-link' );
-	link.innerHTML = text;
+	link.innerHTML = texts().menu[ textType ];
 
 	//
 
