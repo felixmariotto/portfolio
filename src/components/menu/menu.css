@@ -44,7 +44,38 @@
 		transform: translateX( 0 );
 	}
 
-	/* // */
+	/* FLAGS */
+
+	#menu-flags {
+		position: absolute;
+		bottom: 20px;
+		right: 20px;
+		display: flex;
+		align-items: center;
+	}
+
+		#menu-flags > * + * {
+			margin-left: 20px;
+		}
+
+		#menu-flags img {
+			width: 45px;
+			height: 35px;
+			border-radius: 7px;
+			border-style: solid;
+			border-width: 2px;
+			border-color: var( --color1-0 );
+			transition: all 0.15s;
+			background-color: var( --color1-0 );
+		}
+
+		#menu-flags img.selected {
+			border-width: 4px;
+			border-color: var( --color1-2 );
+			transform: scale( 1.2 );
+		}
+
+	/* LINKS */
 
 	#links-container {
 		height: 100%;

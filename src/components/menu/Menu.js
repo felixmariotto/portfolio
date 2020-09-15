@@ -4,6 +4,7 @@ import './menu.css';
 import Link from '../link/Link.js';
 
 import texts from '../../data/texts.js';
+import { setLanguage } from '../../data/texts.js';
 
 //
 
@@ -42,6 +43,54 @@ linksContainer.append( moreInfoContainer );
 
 moreInfoContainer.append( MenuLink( 'samples', 'samples' ) );
 moreInfoContainer.append( MenuLink( 'contact', 'contact' ) );
+
+// FLAGS
+
+const flags = document.createElement('DIV');
+flags.id = 'menu-flags';
+
+menuContent.append( flags );
+
+const frFlag = document.createElement('IMG');
+frFlag.src = "https://cad-portfolio.s3.eu-west-3.amazonaws.com/images/flag-fr.png";
+const setFrench = () => { setSelectedFlat( frFlag, 'french' ) };
+frFlag.onclick = setFrench;
+
+const engFlag = document.createElement('IMG');
+engFlag.src = "https://cad-portfolio.s3.eu-west-3.amazonaws.com/images/flag-eng.png";
+const setEnglish = () => { setSelectedFlat( engFlag, 'english' ) };
+engFlag.onclick = setEnglish;
+
+flags.append( frFlag, engFlag );
+
+function setSelectedFlat( flagToSelect, language ) {
+
+	frFlag.classList.remove('selected');
+	engFlag.classList.remove('selected');
+
+	flagToSelect.classList.add('selected');
+
+	//
+
+	setLanguage( language )
+
+}
+
+// set french if navigator is in french
+
+switch ( navigator.language  ) {
+
+    case 'fr' :
+    case "fr-CH" :
+    case "fr-CA" :
+        setFrench();
+        break
+
+    default :
+    	setEnglish();
+    	break
+
+}
 
 //
 

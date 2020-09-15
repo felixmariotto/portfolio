@@ -27,8 +27,7 @@ function setLanguage( language ) {
 
 };
 
-setTimeout( () => setLanguage('french'), 200 );
-
+export { setLanguage }
 export default {
 
 	// MENU
