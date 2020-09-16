@@ -57,12 +57,24 @@ scenesContainers.forEach( ( sceneContainer, i, arr ) => {
 
 	if ( i === arr.length - 1 ) return
 
+	const arrowContainer = document.createElement('DIV');
+	arrowContainer.classList.add('homepage-arrow-container');
+	
+	if ( i === 0 ) {
+
+		arrowContainer.classList.add('first');
+
+		arrowContainer.append('scroll')
+
+	}
+
 	const arrow = document.createElement('I');
 	arrow.classList.add('fa', 'fa-caret-down');
 
-	if ( i === 0 ) arrow.classList.add('first');
+	arrowContainer.append( arrow );
+	sceneContainer.append( arrowContainer );
 
-	arrow.addEventListener( 'click', () => {
+	arrowContainer.addEventListener( 'click', () => {
 
 		window.scrollTo({
 			top: getSceneContainerHeight() * (i + 1),
@@ -70,8 +82,6 @@ scenesContainers.forEach( ( sceneContainer, i, arr ) => {
 		});
 
 	})
-
-	sceneContainer.append( arrow );
 
 });
 
@@ -98,7 +108,7 @@ const scenes = [
 function makeLink( linkTo, textNode ) {
 
 	const icon = document.createElement('I');
-	icon.classList.add('fa', 'fa-long-arrow-right');
+	icon.classList.add('fa', 'fa-caret-right');
 
 	const link = Link( linkTo );
 	link.append( textNode, icon );

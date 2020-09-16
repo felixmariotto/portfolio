@@ -41,22 +41,32 @@
 				filter: grayscale( 100% );
 			}
 
-			.scene-fixed-container .fa-caret-down {
-				font-size: calc( 20px + 3vmin );
+			.homepage-arrow-container {
 				position: fixed;
-				bottom: 10px;
+				bottom: 0px;
 				left: 50%;
 				animation: swing_homepage_carret 2s linear infinite;
 				transition: opacity 0.7s linear;
 				z-index: 2;
+				padding: 15px 20px;
+				border-radius: 30px;
+				font-size: 1.1em;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 			}
 
-				.scene-fixed-container .fa-caret-down:hover {
+				.homepage-arrow-container>i {
+					font-size: calc( 17px + 2.6vmin );
+				}
+
+				.homepage-arrow-container:hover {
 					cursor: pointer;
 				}
 
-				.scene-fixed-container .fa-caret-down.first {
-					bottom: 60px;
+				.homepage-arrow-container.first {
+					bottom: 35px;
 				}
 
 				@keyframes swing_homepage_carret {
