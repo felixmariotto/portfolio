@@ -326,7 +326,13 @@ function getSceneContainerHeight() {
 	return document.querySelector('#dummy-container').getBoundingClientRect().height;
 }
 
-//
+/*
+I had to make this horrible workaround to keep iOS Safari from firing click
+events on buttons hidden by scene-containers clip-path. The thing worked on
+chromium, but hey...
+So this disgusting hack check every 50ms which button should be clickable,
+and disable the others
+*/
 
 let lastClickablePage = 0;
 
@@ -346,7 +352,7 @@ setInterval( () => {
 
 	const sceneHeight = getSceneContainerHeight();
 
-	const currentClickablePage = Math.floor( (currentScroll + ( sceneHeight * 0.85 )) / sceneHeight );
+	const currentClickablePage = Math.floor( (currentScroll + ( sceneHeight * 0.7 )) / sceneHeight );
 
 	if ( currentClickablePage !== lastClickablePage ) {
 
@@ -354,7 +360,7 @@ setInterval( () => {
 
 	}
 
-})
+}, 50 );
 
 //
 
