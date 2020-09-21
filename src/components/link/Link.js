@@ -22,9 +22,9 @@ export default function Link( moduleName ) {
 	const link = document.createElement('DIV');
 	link.classList.add('link');
 
-	link.addEventListener( 'click', () => {
+	link.addEventListener( 'click', (e) => {
 
-		emit( moduleName )
+		if ( e.target === link ) emit( moduleName )
 
 	})
 
