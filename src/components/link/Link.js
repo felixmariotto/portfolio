@@ -34,6 +34,8 @@ export default function Link( moduleName ) {
 
 			const rect = sceneContainer.getBoundingClientRect();
 
+			alert( JSON.stringify( rect ) )
+
 			if ( Math.abs( rect.top ) < ( rect.height / 2 ) ) emit( moduleName )
 
 		} else {
