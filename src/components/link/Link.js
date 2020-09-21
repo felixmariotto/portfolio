@@ -24,7 +24,23 @@ export default function Link( moduleName ) {
 
 	link.addEventListener( 'click', (e) => {
 
-		if ( e.target === link ) emit( moduleName )
+		// hack to keep safari from triggering click events on invisible buttons
+		// we get the scene-container parent ( if any ) and check that it's
+		// more than 50% in screen space => fuck safari
+
+		const sceneContainer = link.closest(".scene-container");
+
+		if ( sceneContainer ) {
+
+			const rect = sceneContainer.getBoundingClientRect();
+
+			if ( Math.abs( rect.top ) < ( rect.height / 2 ) ) emit( moduleName )
+
+		} else {
+
+			emit( moduleName )
+
+		}
 
 	})
 
