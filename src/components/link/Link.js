@@ -28,6 +28,7 @@ export default function Link( moduleName ) {
 		// we get the scene-container parent ( if any ) and check that it's
 		// more than 50% in screen space => fuck safari
 
+		/*
 		const sceneContainer = link.closest(".scene-container");
 
 		if ( sceneContainer ) {
@@ -43,6 +44,9 @@ export default function Link( moduleName ) {
 			emit( moduleName )
 
 		}
+		*/
+
+		emit( moduleName )
 
 	})
 

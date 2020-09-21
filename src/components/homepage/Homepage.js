@@ -328,6 +328,36 @@ function getSceneContainerHeight() {
 
 //
 
+let lastClickablePage = 0;
+
+setInterval( () => {
+
+	// disable click events for all ".scene-container" elements
+
+	scenesContainers.forEach( (domElement) => {
+
+		domElement.parentNode.classList.remove( 'clickable' );
+
+	});
+
+	// enable click event for the ".scene-container" element currently in view
+
+	const currentScroll = window.scrollY;
+
+	const sceneHeight = getSceneContainerHeight();
+
+	const currentClickablePage = Math.floor( (currentScroll + ( sceneHeight * 0.85 )) / sceneHeight );
+
+	if ( currentClickablePage !== lastClickablePage ) {
+
+		scenesContainers[ currentClickablePage ].parentNode.classList.add( 'clickable' );
+
+	}
+
+})
+
+//
+
 export { stopOrStartAnim }
 export { blurHomepage }
 export { focusHomepage }

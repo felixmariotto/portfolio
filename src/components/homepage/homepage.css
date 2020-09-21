@@ -24,7 +24,12 @@
 		clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100vh - var( --containers-line-width ) ), 50% calc( 100vh + 12vw - var( --containers-line-width ) ), 0 calc( 100vh - var( --containers-line-width ) ));
 		-webkit-clip-path: polygon(0 -12vw, 50% 0, 100% -12vw, 100% calc( 100vh - var( --containers-line-width ) ), 50% calc( 100vh + 12vw - var( --containers-line-width ) ), 0 calc( 100vh - var( --containers-line-width ) ));
 		border-style: solid;
+		pointer-events: none;
 	}
+
+		.scene-container.clickable {
+			pointer-events: auto;
+		}
 
 		.scene-fixed-container {
 			position: fixed;
