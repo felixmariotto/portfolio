@@ -39,7 +39,7 @@ export default {
 		doc: TextNode( "Documentation" ),
 		webdev: TextNode( "Web Development", "Développement Web" ),
 		samples: TextNode( "Demos", "Démonstrations" ),
-		contact: TextNode( "Contact & Rate", "Contact & Tarifs" )
+		contact: TextNode( 'Contact' /* 'Contact & Rate', 'Contact & Tarifs' */ )
 	},
 
 	// HOMEPAGE
@@ -145,7 +145,7 @@ export default {
 
 			webdevLink: TextNode( 'Web development ', 'Développement Web ' ),
 			samplesLink: TextNode( 'Demos ', 'Démonstrations ' ),
-			contactLink: TextNode( 'Contact & Rate', 'Contact & Tarifs' )
+			contactLink: TextNode( 'Contact' /* 'Contact & Rate', 'Contact & Tarifs' */ )
 		}
 
 	},
@@ -393,7 +393,7 @@ export default {
 		// CONTACT
 
 		contact: {
-			title: TextNode( 'Contact & Rate', 'Contact & Tarifs' ),
+			title: TextNode( 'Contact' /* 'Contact & Rate', 'Contact & Tarifs' */ ),
 
 			speech: TextNode(
 				`I am eager to answer any information

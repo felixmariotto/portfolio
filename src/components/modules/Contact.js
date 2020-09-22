@@ -22,8 +22,8 @@ speech.append( texts.modules.contact.speech );
 
 // prices
 
-const hourlyRate = document.createElement('P');
-hourlyRate.append( texts.modules.contact.hourlyRate );
+// const hourlyRate = document.createElement('P');
+// hourlyRate.append( texts.modules.contact.hourlyRate );
 
 // links
 
@@ -68,7 +68,7 @@ linkedinLink.append( linkedinIcon, 'Linkedin' );
 
 //
 
-container.append( speech, hourlyRate, mailLink, githubLink, linkedinLink );
+container.append( speech, /* hourlyRate, */ mailLink, githubLink, linkedinLink );
 
 //
 
