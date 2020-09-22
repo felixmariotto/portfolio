@@ -39,7 +39,7 @@ export default {
 		doc: TextNode( "Documentation" ),
 		webdev: TextNode( "Web Development", "Développement Web" ),
 		samples: TextNode( "Demos", "Démonstrations" ),
-		contact: TextNode( "Contact" )
+		contact: TextNode( "Contact & Rate", "Contact & Tarifs" )
 	},
 
 	// HOMEPAGE
@@ -145,7 +145,7 @@ export default {
 
 			webdevLink: TextNode( 'Web development ', 'Développement Web ' ),
 			samplesLink: TextNode( 'Demos ', 'Démonstrations ' ),
-			contactLink: TextNode( 'Contact ' )
+			contactLink: TextNode( 'Contact & Rate', 'Contact & Tarifs' )
 		}
 
 	},
@@ -393,7 +393,7 @@ export default {
 		// CONTACT
 
 		contact: {
-			title: TextNode( 'Contact' ),
+			title: TextNode( 'Contact & Rate', 'Contact & Tarifs' ),
 
 			speech: TextNode(
 				`I am eager to answer any information
@@ -406,6 +406,11 @@ export default {
 				à vos besoins. Si vous voulez discuter de
 				vive voix, nous pouvons organiser une entrevue
 				via Skype ou Zoom.`
+			),
+
+			hourlyRate: TextNode(
+				'Hourly Rate : 95 USD',
+				'Tarif Horaire : 80 €'
 			)
 		}
 

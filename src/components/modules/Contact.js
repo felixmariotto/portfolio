@@ -20,7 +20,12 @@ container.append( title );
 const speech = document.createElement('P');
 speech.append( texts.modules.contact.speech );
 
-//
+// prices
+
+const hourlyRate = document.createElement('P');
+hourlyRate.append( texts.modules.contact.hourlyRate );
+
+// links
 
 const mailLink = document.createElement('A');
 mailLink.target = "_blank";
@@ -63,7 +68,7 @@ linkedinLink.append( linkedinIcon, 'Linkedin' );
 
 //
 
-container.append( speech, mailLink, githubLink, linkedinLink );
+container.append( speech, hourlyRate, mailLink, githubLink, linkedinLink );
 
 //
 
