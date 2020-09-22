@@ -60,6 +60,7 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
+				color: var( --color1-0 );
 			}
 
 				.homepage-arrow-container>i {

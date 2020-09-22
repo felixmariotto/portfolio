@@ -38,7 +38,7 @@ export default {
 		casting: TextNode( "Casting Parts", "Pièces de Fonte" ),
 		doc: TextNode( "Documentation" ),
 		webdev: TextNode( "Web Development", "Développement Web" ),
-		samples: TextNode( "Samples", "Échantillons" ),
+		samples: TextNode( "Demos", "Démonstrations" ),
 		contact: TextNode( "Contact" )
 	},
 
@@ -51,7 +51,7 @@ export default {
 		intro: {
 			intro: TextNode(
 				'High Jewellery Design',
-				'Design Haute Joaillerie'
+				'Design de Haute Joaillerie'
 			)
 		},
 
@@ -67,7 +67,7 @@ export default {
 
 				`Fort d'une expérience de travail avec les maisons de 
 				joaillerie les plus exigeantes, je suis à même de vous 
-				conseiller dans vos projects.`
+				conseiller dans vos projets.`
 			),
 
 			more: TextNode( "learn more ", "voir plus " )
@@ -132,7 +132,7 @@ export default {
 
 				`Je peux fournir la documentation
 				dont vous avez besoin. Plans de montage,
-				nomenclatures, dessins pour gouache...`
+				nomenclatures, plans quatre vues...`
 			),
 
 			more: TextNode( "learn more ", "voir plus " )
@@ -144,7 +144,7 @@ export default {
 			title: TextNode( "More information :", "Plus d'information :" ),
 
 			webdevLink: TextNode( 'Web development ', 'Développement Web ' ),
-			samplesLink: TextNode( 'Samples ', 'Échantillons ' ),
+			samplesLink: TextNode( 'Demos ', 'Démonstrations ' ),
 			contactLink: TextNode( 'Contact ' )
 		}
 
@@ -168,14 +168,14 @@ export default {
 					in Paris, which is a workshop famous in 
 					Place Vendôme high jewelry community for 
 					its quality work. Thereafter I lived in 
-					Hong Kong for another couple of years, 
+					Hong Kong during three years, 
 					working for Michelle Ong who makes jewels 
-					for the finest amateurs of this city-state.`,
+					for the most picky amateurs of this city-state.`,
 
 					`J'ai travaillé pendant plus de deux ans chez
 					Lasbleiz Fournier Vitiello en tant
 					que CAO ( Concepteur Assisté par Ordinateur ),
-					cet atelier est connu dans la communeauté de
+					cet atelier est connu dans la communauté de
 					la place Vendôme pour son travail de grande qualité.
 					J'ai ensuite vécu trois ans à Hong Kong où
 					j'ai travaillé pour Michelle Ong,
@@ -184,29 +184,29 @@ export default {
 				),
 			
 				speech2: TextNode(
-						`Armed with the design and project management 
+						`On the basis of my design and project management 
 						skills acquired during these years, 
-						I can give you precious advices to helper you making 
+						I can give you precious advices to help you making 
 						your projects happen.`,
 
-						`Armé de ces compétences en design et en gestion de projet,
+						`Sur la base de ces compétences en design et en gestion de projet,
 						je peux vous offrir un conseil précieux pour
 						vous aider à réaliser vos objectifs.`
 					)
 			},
 
 			service: {
-				title: TextNode( "My services", "Mes services" ),
+				title: TextNode( "My consulting services", "Mon service de conseil" ),
 
 				speech: TextNode(
 					`You can hire me to manage your design projects,
 					 or as an advisor who can help you making the right
-					 decision when you have some doubts.`,
+					 decision when you are in occasional need.`,
 
 					`Vous pouvez m'engager pour gérer vos projets 
 					de design, ou en tant que consultant pour 
 					vous aider à prendre la bonne décision 
-					quand vous avez un doute.`
+					quand vous avez une question ponctuelle.`
 				)
 			}
 			
@@ -244,22 +244,21 @@ export default {
 				supported by resin prototypes and/or 3D viewers.`,
 
 				`Pour obtenir ce design parfait et nous 
-				épargner la découverte de défaults tard 
+				épargner la découverte de défauts tard 
 				dans la conception du produit, nous 
-				organiseront régulièrement des révisions
+				organiserons régulièrement des révisions
 				du design, supportées par des prototypes
 				en résine et/ou des rendus 3D photoréalistes.`
 			),
 
 			speech3: TextNode(
 				`If you don't happen to own a 3D printer to print
-				the prototypes, don't worry : I can handle that
-				for you, and ship them to your office.`,
+				the prototypes, don't worry : I can handle it and ship them to you.`,
 
 				`Si vous ne possédez pas d'imprimante 3D pour
 				l'impression des prototypes, pas d'inquiétude : 
 				je m'en occupe pour vous, et vous les fait
-				livrer à votre bureau.`
+				livrer.`
 			)
 		},
 
@@ -270,25 +269,25 @@ export default {
 
 			speech1: TextNode(
 				`Your project is designed. Now you can 
-				choose lost-wax casting via 3D printing to 
+				opt for lost-wax casting via 3D printing to 
 				speed up your process, and ensure that the 
 				finished jewel you will get is as close as possible 
 				from what we designed together. 
-				Armed with my jewelry handcrafting know-how, 
+				On the basis of with my jewelry handcrafting know-how, 
 				particularly in the stone setting field, 
 				I can adapt your design to the technical requirements 
 				of 3D printing, casting, and all the subsequent stages 
 				of jewelry handcrafting.`,
 
 				`Votre projet est conçu et dessiné. Vous pouvez
-				maintenant choisir la fonte à cire perdue via
+				maintenant opter pour la fonte à cire perdue via
 				l'impression 3D pour accélerer la réalisation, 
 				et garantir que le bijou fini sera au plus 
 				proche de ce que nous avons conçu ensemble. 
-				Armé de connaissances pratiques en fabrication
+				Fort de mes connaissances pratiques en fabrication
 				de bijou, particulièrement dans le domaine
 				du sertissage, je peux adapter votre design
-				aux contraintes technique de l'impression 3D,
+				aux contraintes techniques de l'impression 3D,
 				de la fonte à cire perdue, et de toutes les
 				étapes ultérieures de fabrication.`
 			),
@@ -315,7 +314,7 @@ export default {
 				you are not left on your own. 
 				I send you all the documentation you need to 
 				assemble the parts, set the stones, 
-				and even communicate and advertise about it.`,
+				and even communicate and advertise about your jewel.`,
 
 				`Une fois votre projet conçu, vous n'êtes pas
 				laissé à vous-même. Je vous envoie toute la 
@@ -348,7 +347,7 @@ export default {
 
 			speech1: TextNode(
 				`Web development has been my passion 
-				for a couple of years, and I offer my 
+				for some years, and I offer my 
 				services in this field. My skills in jewelry, 
 				3D modeling and web development are a rare 
 				and precious combination if you are a 
@@ -357,7 +356,7 @@ export default {
 				`Le développement web a été ma passion 
 				ces dernières années, et j'offre mes services
 				dans ce domaine. Mes compétences en joaillerie,
-				modélisation 3D et web développement sont une
+				modélisation 3D et développement web sont une
 				combinaison rare et précieuse si vous êtes une
 				entreprise de joaillerie avec un projet de service
 				en ligne.`
@@ -368,10 +367,10 @@ export default {
 				coded by myself with the latest web technologies
 				( Node.js, Three.js, Webpack, etc... ).
 				The 3D models displayed in the various scenes 
-				of the front page are mine, and necessitated
-				some specific treatment for realtime rendering.`,
+				of the front page are mine, and required
+				a specific treatment for realtime rendering.`,
 
-				`Ce site que vous visitez fut entièrement designé et
+				`Ce site que vous visitez a été entièrement designé et
 				programmé par moi-même avec les dernières
 				technologies web ( Node.js, Three.js, 
 				Webpack, etc... ). Les modèles 3D affichés
@@ -384,7 +383,7 @@ export default {
 		// SAMPLES
 
 		samples: {
-			title: TextNode( "Samples", "Échantillons" ),
+			title: TextNode( "Demos", "Démonstrations" ),
 
 			renders: TextNode( 'Photorealistic Rendering', 'Rendus Photoréalistes' ),
 
