@@ -106,15 +106,12 @@ export default {
 
 			text: TextNode(
 				`Once your jewel is designed, 
-				I can supply lost-wax casting parts 
-				in all kind of metals : 
-				gold, silver, platinum, 
-				or even titanium.`,
+				I can supply production-ready files
+				for 3D printing or CNC milling`,
 
 				`Une fois votre bijou conçu,
-				Je peux fournir des pièces de fonte
-				à cire perdu en métaux variés : 
-				or, argent, platine, et même titane.`
+				Je peux fournir des fichiers prêts pour
+				la production via impression 3D ou usinage.`
 			),
 
 			more: TextNode( "learn more ", "voir plus " )
@@ -273,7 +270,7 @@ export default {
 				speed up your process, and ensure that the 
 				finished jewel you will get is as close as possible 
 				from what we designed together. 
-				On the basis of with my jewelry handcrafting know-how, 
+				On the basis of my jewelry handcrafting know-how, 
 				particularly in the stone setting field, 
 				I can adapt your design to the technical requirements 
 				of 3D printing, casting, and all the subsequent stages 
@@ -294,13 +291,13 @@ export default {
 
 			speech2: TextNode(
 				`If you are not lucky enough to own a 3D printer, 
-				I offer to ship the parts directly to your workshop
-				via reliable conveyor.`,
+				I can lead you to suppliers who can handle your files
+				from 3D printing to casting.`,
 
 				`Si vous ne possédez pas votre propre imprimante 3D
 				adaptée à la fonte à cire perdue, je me propose de 
-				vous envoyer les fontes directement à votre atelier
-				par transporteur sécurisé.`
+				vous diriger vers des fournisseurs qui s'occuperont
+				de vos fichier de l'impression 3D à la fonte.`
 			)
 		},
 
