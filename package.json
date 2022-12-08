@@ -23,7 +23,7 @@
   "homepage": "https://github.com/felixmariotto/portfolio#readme",
   "dependencies": {
     "css-loader": "^4.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "style-loader": "^1.2.1",
